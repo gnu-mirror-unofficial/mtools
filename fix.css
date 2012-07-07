@@ -1,9 +1,9 @@
 body { 
-       max-width: 100%;
+       max-width: none;
 }
 
 .inner { 
-       max-width: 100%;
+       max-width: none;
 }
 
 p { 
