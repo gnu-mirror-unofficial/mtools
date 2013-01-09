@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+<title>mcopy - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="mclasserase.html#mclasserase" title="mclasserase">
+<link rel="next" href="mdel.html#mdel" title="mdel">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="mcopy"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="mdel.html#mdel">mdel</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="mclasserase.html#mclasserase">mclasserase</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.8 Mcopy</h3>
+
+<p><a name="index-mcopy-159"></a><a name="index-Reading-MS_002dDOS-files-160"></a><a name="index-Writing-MS_002dDOS-files-161"></a><a name="index-Copying-MS_002dDOS-files-162"></a><a name="index-Concatenating-MS_002dDOS-files-163"></a><a name="index-Text-files-164"></a><a name="index-CR_002fLF-conversions-165"></a>
+The <code>mcopy</code> command is used to copy MS-DOS files to and from
+Unix. It uses the following syntax:
+
+<pre class="example">     <code>mcopy</code> [<code>-bspanvmQT</code>] [<code>-D</code> <var>clash_option</var>] <var>sourcefile</var> <var>targetfile</var>
+     <code>mcopy</code> [<code>-bspanvmQT</code>] [<code>-D</code> <var>clash_option</var>] <var>sourcefile</var> [ <var>sourcefiles</var>... ] <var>targetdirectory</var>
+     <code>mcopy</code> [<code>-tnvm</code>] <var>MSDOSsourcefile</var>
+</pre>
+   <p><code>Mcopy</code> copies the specified file to the named file, or copies
+multiple files to the named directory.  The source and target can be
+either MS-DOS or Unix files.
+
+   <p>The use of a drive letter designation on the MS-DOS files, 'a:' for
+example, determines the direction of the transfer.  A missing drive
+designation implies a Unix file whose path starts in the current
+directory.  If a source drive letter is specified with no attached file
+name (e.g. <code>mcopy a: .</code>), all files are copied from that drive.
+
+   <p>If only a single, MS-DOS source parameter is provided (e.g. "mcopy
+a:foo.exe"), an implied destination of the current directory
+(`<code>.</code>') is assumed.
+
+   <p>A filename of `<code>-</code>' means standard input or standard output, depending
+on its position on the command line.
+
+   <p><code>Mcopy</code> accepts the following command line options:
+
+     <dl>
+<dt><code>t</code><dd>Text file transfer.  Mcopy translates incoming carriage return/line
+feeds to line feeds when copying from MS-DOS to Unix, and vice-versa when
+copying from Unix to MS-DOS. 
+<br><dt><code>b</code><dd>Batch mode. Optimized for huge recursive copies, but less secure if a
+crash happens during the copy. 
+<br><dt><code>s</code><dd>Recursive copy.  Also copies directories and their contents
+<br><dt><code>p</code><dd>Preserves the attributes of the copied files
+<br><dt><code>Q</code><dd>When mcopying multiple files, quits as soon as one copy fails (for
+example due to lacking storage space on the target disk)
+<br><dt><code>a</code><dd>Text (ASCII) file transfer.  <code>ASCII</code> translates incoming carriage
+return/line feeds to line feeds. 
+<br><dt><code>T</code><dd>Text (ASCII) file transfer with character set conversion.  Differs from
+<code>-a</code> in the <code>ASCII</code> also translates incoming PC-8 characters
+to ISO-8859-1 equivalents as far as possible.  When reading DOS files,
+untranslatable characters are replaced by '<code>#</code>'; when writing DOS files,
+untranslatable characters are replaced by '<code>.</code>'. 
+<br><dt><code>n</code><dd>No confirmation when overwriting Unix files.  <code>ASCII</code> doesn't warn
+the user when overwriting an existing Unix file. If the target file already exists,
+and the <code>-n</code> option is not in effect, <code>mcopy</code> asks whether to
+overwrite the file or to rename the new file (<a href="name-clashes.html#name-clashes">name clashes</a>) for
+details).  In order to switch off confirmation for DOS files, use <code>-o</code>. 
+<br><dt><code>m</code><dd>Preserve the file modification time. 
+<br><dt><code>v</code><dd>Verbose. Displays the name of each file as it is copied. 
+</dl>
+
+<h4 class="subsection">4.8.1 Bugs</h4>
+
+<p>Unlike MS-DOS, the '+' operator (append) from MS-DOS is not
+supported. However, you may use <code>mtype</code> to produce the same effect:
+<pre class="example">     mtype a:file1 a:file2 a:file3 &gt;unixfile
+     mtype a:file1 a:file2 a:file3 | mcopy - a:msdosfile
+</pre>
+   </body></html>
+

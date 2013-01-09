@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+<title>case sensitivity - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Common-features.html#Common-features" title="Common features">
+<link rel="prev" href="name-clashes.html#name-clashes" title="name clashes">
+<link rel="next" href="high-capacity-formats.html#high-capacity-formats" title="high capacity formats">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="case-sensitivity"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="high-capacity-formats.html#high-capacity-formats">high capacity formats</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="name-clashes.html#name-clashes">name clashes</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Common-features.html#Common-features">Common features</a>
+<hr>
+</div>
+
+<h3 class="section">2.6 Case sensitivity of the VFAT file system</h3>
+
+<p><a name="index-Case-sensitivity-23"></a>
+The VFAT file system is able to remember the case of the
+filenames. However, filenames which differ only in case are not allowed
+to coexist in the same directory. For example if you store a file called
+LongFileName on a VFAT file system, mdir shows this file as LongFileName,
+and not as Longfilename. However, if you then try to add LongFilename to
+the same directory, it is refused, because case is ignored for clash
+checks.
+
+   <p>The VFAT file system allows to store the case of a filename in the
+attribute byte, if all letters of the filename are the same case, and if
+all letters of the extension are the same case too. Mtools uses this
+information when displaying the files, and also to generate the Unix
+filename when mcopying to a Unix directory. This may have unexpected
+results when applied to files written using an pre-7.0 version of DOS:
+Indeed, the old style filenames map to all upper case. This is different
+from the behavior of the old version of mtools which used to generate
+lower case Unix filenames.
+
+   </body></html>
+

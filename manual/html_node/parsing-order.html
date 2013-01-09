@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+<title>parsing order - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Configuration.html#Configuration" title="Configuration">
+<link rel="prev" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
+<link rel="next" href="old-style-configuration.html#old-style-configuration" title="old style configuration">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="parsing-order"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="old-style-configuration.html#old-style-configuration">old style configuration</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="per-drive-variables.html#per-drive-variables">per drive variables</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Configuration.html#Configuration">Configuration</a>
+<hr>
+</div>
+
+<h3 class="section">3.6 Location of configuration files and parsing order</h3>
+
+<p><a name="index-Parsing-order-120"></a><a name="index-Configuration-file-parsing-order-121"></a><a name="index-Configuration-file-name-_0028parsing-order_0029-122"></a><a name="index-Name-of-configuration-files-_0028parsing-order_0029-123"></a><a name="index-Location-of-configuration-files-_0028parsing-order_0029-124"></a>
+The configuration files are parsed in the following order:
+     <ol type=1 start=1>
+<li>compiled-in defaults
+<li><samp><span class="file">/etc/mtools.conf</span></samp>
+<li><samp><span class="file">~/.mtoolsrc</span></samp>. 
+<li><samp><span class="file">$MTOOLSRC</span></samp> (file pointed by the <code>MTOOLSRC</code> environmental
+variable)
+        </ol>
+
+   <p>Options described in the later files override those described in the
+earlier files. Drives defined in earlier files persist if they are not
+overridden in the later files. For instance, drives A and B may be
+defined in <samp><span class="file">/etc/mtools.conf</span></samp> and drives C and D may be
+defined in <samp><span class="file">~/.mtoolsrc</span></samp> However, if <samp><span class="file">~/.mtoolsrc</span></samp> also
+defines drive A, this new description would override the description of
+drive A in <samp><span class="file">/etc/mtools.conf</span></samp> instead of adding to it. If
+you want to add a new description to a drive already described in an
+earlier file, you need to use either the <code>+drive</code> or <code>drive+</code>
+keyword.
+
+   </body></html>
+

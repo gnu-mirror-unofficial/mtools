@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+<title>geometry description - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
+<link rel="prev" href="location-information.html#location-information" title="location information">
+<link rel="next" href="open-flags.html#open-flags" title="open flags">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="geometry-description"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="open-flags.html#open-flags">open flags</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="location-information.html#location-information">location information</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="per-drive-variables.html#per-drive-variables">per drive variables</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.5.3 Disk Geometry Configuration</h4>
+
+<p><a name="index-Disk-Geometry-77"></a><a name="index-Configuration-of-disk-geometry-78"></a><a name="index-Description-of-disk-geometry-79"></a><a name="index-Format-of-disk-80"></a><a name="index-High-density-disk-81"></a><a name="index-Low-density-disk-82"></a><a name="index-mformat-_0028geometry-used-for_0029-83"></a>
+Geometry information describes the physical characteristics about the
+disk. Its has three purposes:
+
+     <dl>
+<dt>formatting<dd>The geometry information is written into the boot sector of the newly
+made disk. However, you may also describe the geometry information on
+the command line. See <a href="mformat.html#mformat">mformat</a>, for details. 
+<br><dt>filtering<dd>On some Unixes there are device nodes which only support one physical
+geometry. For instance, you might need a different node to access a disk
+as high density or as low density. The geometry is compared to the
+actual geometry stored on the boot sector to make sure that this device
+node is able to correctly read the disk. If the geometry doesn't match,
+this drive entry fails, and the next drive entry bearing the same drive
+letter is tried. See <a href="multiple-descriptions.html#multiple-descriptions">multiple descriptions</a>, for more details on
+supplying several descriptions for one drive letter.
+
+     <p>If no geometry information is supplied in the configuration file, all
+disks are accepted. On Linux (and on SPARC) there exist device nodes
+with configurable geometry (<samp><span class="file">/dev/fd0</span></samp>, <samp><span class="file">/dev/fd1</span></samp> etc),
+and thus filtering is not needed (and ignored) for disk drives.  (Mtools
+still does do filtering on plain files (disk images) in Linux: this is
+mainly intended for test purposes, as I don't have access to a Unix
+which would actually need filtering).
+
+     <p>If you do not need filtering, but want still a default geometry for
+mformatting, you may switch off filtering using the <code>mformat_only</code>
+flag.
+
+     <p>If you want filtering, you should supply the <code>filter</code> flag.  If you
+supply a geometry, you must supply one of both flags.
+
+     <br><dt>initial geometry<dd>On devices that support it (usually floppy devices), the geometry
+information is also used to set the initial geometry. This initial
+geometry is applied while reading the boot sector, which contains the
+real geometry.  If no geometry information is supplied in the
+configuration file, or if the <code>mformat_only</code> flag is supplied, no
+initial configuration is done.
+
+     <p>On Linux, initial geometry is not really needed, as the configurable
+devices are able to auto-detect the disk type accurately enough (for
+most common formats) to read the boot sector. 
+</dl>
+
+   <p>Wrong geometry information may lead to very bizarre errors. That's why I
+strongly recommend that you add the <code>mformat_only</code> flag to your
+drive description, unless you really need filtering or initial geometry.
+
+   <p>The following geometry related variables are available:
+
+     <dl>
+<dt><code>cylinders</code><dt><code>tracks</code><dd><a name="index-cylinders-84"></a><a name="index-tracks-85"></a>The number of cylinders. (<code>cylinders</code> is the preferred form,
+<code>tracks</code> is considered obsolete)
+<br><dt><code>heads</code><dd><a name="index-heads-86"></a>The number of heads (sides). 
+<br><dt><code>sectors</code><dd><a name="index-sectors-87"></a>The number of sectors per track. 
+</dl>
+
+   <p>Example: the following drive section describes a 1.44M drive:
+
+<pre class="example">       drive a:
+           file="/dev/fd0H1440"
+           fat_bits=12
+           cylinders=80 heads=2 sectors=18
+           mformat_only
+</pre>
+   <p>The following shorthand geometry descriptions are available:
+
+     <dl>
+<dt><code>1.44m</code><dd>high density 3 1/2 disk. Equivalent to:
+<code>fat_bits=12 cylinders=80 heads=2 sectors=18</code>
+<br><dt><code>1.2m</code><dd>high density 5 1/4 disk. Equivalent to:
+<code>fat_bits=12 cylinders=80 heads=2 sectors=15</code>
+<br><dt><code>720k</code><dd>double density 3 1/2 disk. Equivalent to:
+<code>fat_bits=12 cylinders=80 heads=2 sectors=9</code>
+<br><dt><code>360k</code><dd>double density 5 1/4 disk. Equivalent to:
+<code>fat_bits=12 cylinders=40 heads=2 sectors=9</code>
+</dl>
+
+   <p>The shorthand format descriptions may be amended. For example,
+<code>360k sectors=8</code>
+describes a 320k disk and is equivalent to:
+<code>fat_bits=12 cylinders=40 heads=2 sectors=8</code>
+
+   </body></html>
+

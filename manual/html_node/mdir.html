@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+<title>mdir - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="mdeltree.html#mdeltree" title="mdeltree">
+<link rel="next" href="mdu.html#mdu" title="mdu">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="mdir"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="mdu.html#mdu">mdu</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="mdeltree.html#mdeltree">mdeltree</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.11 Mdir</h3>
+
+<p><a name="index-mdir-175"></a><a name="index-Read_002donly-files-_0028listing-them_0029-176"></a><a name="index-Listing-a-directory-177"></a><a name="index-Directory-listing-178"></a>
+The <code>mdir</code> command is used to display an MS-DOS directory. Its
+syntax is:
+
+   <p><code>mdir</code> [<code>-/</code>] [<code>-f</code>] [<code>-w</code>] [<code>-a</code>] [<code>-b</code>] <var>msdosfile</var> [ <var>msdosfiles</var><small class="dots">...</small>]
+
+   <p><code>Mdir</code>
+displays the contents of MS-DOS directories, or the entries for some
+MS-DOS files.
+
+   <p><code>Mdir</code> supports the following command line options:
+
+     <dl>
+<dt><code>/</code><dd>Recursive output, just like MS-DOS' <code>-s</code> option
+<br><dt><code>w</code><dd>Wide output.  With this option, <code>mdir</code> prints the filenames across
+the page without displaying the file size or creation date. 
+<br><dt><code>a</code><dd>Also list hidden files. 
+<br><dt><code>f</code><dd>Fast.  Do not try to find out free space.  On larger disks, finding out
+the amount of free space takes up some non trivial amount of time, as
+the whole FAT must be read in and scanned.  The <code>-f</code> flag bypasses
+this step.  This flag is not needed on FAT32 file systems, which store
+the size explicitly. 
+<br><dt><code>b</code><dd>Concise listing. Lists each directory name or filename, one per line
+(including the filename extension). This switch displays no heading
+information and no summary. Only a newline separated list of pathnames
+is displayed. 
+</dl>
+
+   <p>An error occurs if a component of the path is not a directory.
+
+   </body></html>
+

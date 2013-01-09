@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+<title>miscellaneous variables - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
+<link rel="prev" href="open-flags.html#open-flags" title="open flags">
+<link rel="next" href="miscellaneous-flags.html#miscellaneous-flags" title="miscellaneous flags">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="miscellaneous-variables"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="miscellaneous-flags.html#miscellaneous-flags">miscellaneous flags</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="open-flags.html#open-flags">open flags</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="per-drive-variables.html#per-drive-variables">per drive variables</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.5.5 General Purpose Drive Variables</h4>
+
+<p>The following general purpose drive variables are available.  Depending
+to their type, these variables can be set to a string (precmd) or
+an integer (all others)
+
+     <dl>
+<dt><code>fat_bits</code><dd><a name="index-fat_005fbits-94"></a>The number of FAT bits. This may be 12 or 16. This is very rarely
+needed, as it can almost always be deduced from information in the
+boot sector. On the contrary, describing the number of fat bits may
+actually be harmful if you get it wrong. You should only use it if
+mtools gets the auto-detected number of fat bits wrong, or if you want
+to mformat a disk with a weird number of fat bits. 
+<br><dt><code>codepage</code><dd>Describes the DOS code page used for short filenames. This is a number
+between 1 and 999. By default, code page 850 is used. The reason for
+this is because this code page contains most of the characters that are
+also available in ISO-Latin-1. You may also specify a global code page
+for all drives by using the global <code>default_codepage</code> parameter
+(outside of any drive description). This parameters exists starting at
+version 4.0.0
+<br><dt><code>precmd</code><dd><a name="index-Solaris-_0028volcheck_0029-95"></a><a name="index-Executing-commands-before-opening-the-device-96"></a>On some variants of Solaris, it is necessary to call 'volcheck -v'
+before opening a floppy device, in order for the system to notice that
+there is indeed a disk in the drive. <code>precmd="volcheck -v"</code> in the
+drive clause establishes the desired behavior.
+
+     <br><dt><code>blocksize</code><dd><a name="index-raw-device-97"></a><a name="index-character-devices-98"></a><a name="index-blocksize-99"></a>This parameter represents a default block size to be always used on this
+device.  All I/O is done with multiples of this block size,
+independently of the sector size registered in the file system's boot
+sector.  This is useful for character devices whose sector size is not
+512, such as for example CD-ROM drives on Solaris.
+
+   </dl>
+
+   <p>Only the <code>file</code> variable is mandatory. The other parameters may
+be left out. In that case a default value or an auto-detected value is
+used.
+
+   </body></html>
+

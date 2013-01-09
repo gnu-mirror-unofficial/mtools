@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+<title>floppyd - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="Commands.html#Commands" title="Commands">
+<link rel="next" href="floppyd_005finstalltest.html#floppyd_005finstalltest" title="floppyd_installtest">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="floppyd"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="floppyd_005finstalltest.html#floppyd_005finstalltest">floppyd_installtest</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Commands.html#Commands">Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.1 Floppyd</h3>
+
+<p><a name="index-floppyd-130"></a><a name="index-X-terminal-131"></a><a name="index-remote-floppy-access-132"></a>
+<code>Floppyd</code> is used as a server to grant access to the floppy drive
+to clients running on a remote machine, just as an X server grants
+access to the display to remote clients.  It has the following syntax:
+
+   <p><code>floppyd</code> [<code>-d</code>] [<code>-l</code>] [<code>-s</code> <var>port</var>] [<code>-r</code>
+<var>user</var>] [<code>-b</code> <var>ipaddr</var>] [<code>-x</code> <var>display</var>] <var>devicenames</var>
+
+   <p><code>floppyd</code> is always associated with an X server.  It runs on the
+same machine as its X server, and listens on port 5703 and above.
+
+<h4 class="subsection">4.1.1 Authentication</h4>
+
+<p><code>floppyd</code> authenticates remote clients using the <code>Xauthority</code>
+protocol. Xhost authentication is not supported. Each floppyd is
+associated with an X server.  When a remote client attempts to connect
+to floppyd, it sends floppyd the X authority record corresponding to
+floppyd's X server.  Floppyd in turn then tries to open up a connection
+to the X server in order to verify the authenticity of the xauth record. 
+If the connection to the X server succeeds, the client is granted
+access. 
+<code>DISPLAY</code>.
+
+   <p><strong>Caution</strong>: In order to make authentication work correctly, the
+local host should <strong>not</strong> be listed in the <code>xhost</code> list of
+allowed hosts. 
+ Indeed, hosts listed in <code>xhost</code> do not need a correct
+<code>Xauthority</code> cookie to connect to the X server. As <code>floppyd</code>
+runs on the same host as the X server, all its probe connection would
+succeed even for clients who supplied a bad cookie.  This means that
+your floppy drive would be open to the world, i.e. a huge security hole. 
+ If your X server does not allow you to remove <code>localhost:0</code> and
+<code>:0</code> from the <code>xhost</code> list, you can prevent floppyd from
+probing those display names with the <code>-l</code> option.
+
+<h4 class="subsection">4.1.2 Command line options</h4>
+
+     <dl>
+<dt><code>d</code><dd>Daemon mode. Floppyd runs its own server loop.  Do not supply this if
+you start floppyd from <code>inetd.conf</code>
+<br><dt><code>s  </code><var>port</var><dd>Port number for daemon mode.  Default is 5703 + <var>displaynumber</var>. 
+This flag implies daemon mode.  For example, for display
+<code>hitchhiker:5</code>, the port would be 5708. 
+<br><dt><code>b  </code><var>ipaddr</var><dd>Bind address (for multi homed hosts). This flag implies daemon mode
+<br><dt><code>r </code><var>user</var><dd>Run the server under as the given user
+<br><dt><code>x </code><var>display</var><dd>X display to use for authentication. By default, this is taken from the
+<code>DISPLAY</code> variable. If neither the <code>x</code> attribute is present
+nor <code>DISPLAY</code> is set, floppyd uses <code>:0.0</code>. 
+</dl>
+
+   <p><var>devicenames</var> is a list of device nodes to be opened.  Default
+is <code>/dev/fd0</code>. Multiple devices are only supported on mtools
+versions newer than 3.9.11.
+
+<h4 class="subsection">4.1.3 Connecting to floppyd</h4>
+
+<p>In order to use floppyd, add the flag <code>remote</code> to the device
+description in your <samp><span class="file">~/.mtoolsrc</span></samp> file.  If the flag <code>remote</code>
+is given, the <code>file</code> parameter of the device description is taken
+to be a remote address.  It's format is the following:
+<var>hostname</var><code>:</code><var>displaynumber</var>[<code>/</code>[<var>baseport</var>][<code>/</code><var>drive</var>]]. When
+using this entry, mtools connects to port
+<var>baseport</var>+<var>displaynumber</var> at <var>hostname</var>. By default
+<var>baseport</var> is 5703. The drive parameter is to distinguish among
+multiple drives associated with a single display (only mtools versions
+more recent than 3.9.11)
+
+<h4 class="subsection">4.1.4 Examples:</h4>
+
+<p>The following starts a floppy daemon giving access to <samp><span class="file">/dev/fd0</span></samp>,
+listening on the default port 5703, tied to the default X servers:
+
+<pre class="example">     floppyd -d /dev/fd0
+</pre>
+   <p>Each of the following starts a floppy daemon giving access to
+<samp><span class="file">/dev/fd1</span></samp>, tied to the :1 local X servers, and listening on port
+5704. We assume that the local host is named <code>hitchhiker</code>.
+
+<pre class="example">     floppyd -d /dev/fd0
+     floppyd -d -x :1 -p 5704 /dev/fd0
+</pre>
+   <p>If you want to start floppyd by <code>inetd</code> instead of running it as a
+daemon, insert the following lines into <samp><span class="file">/etc/services</span></samp>:
+<pre class="example">     # floppy daemon
+     floppyd-0    5703/tcp    # floppy daemon for X server :0
+     floppyd-1    5704/tcp    # floppy daemon for X server :1
+</pre>
+   <p>And insert the following into <samp><span class="file">/etc/inetd.conf</span></samp> (assuming that you
+have defined a user named floppy in your <samp><span class="file">/etc/passwd</span></samp>):
+
+<pre class="example">     # floppy daemon
+     floppyd-0 stream  tcp  wait  floppy  /usr/sbin/floppyd floppyd /dev/fd0
+     floppyd-1 stream  tcp  wait  floppy  /usr/sbin/floppyd floppyd -x :1 /dev/fd0
+</pre>
+   <p>Note that you need to supply the X display names for the second
+floppyd.  This is because the port is opened by inetd.conf, and hence
+floppyd cannot know its number to interfere the display number.
+
+   <p>On the client side, insert the following into your <samp><span class="file">~/.mtoolsrc</span></samp>
+to define a drive letter accessing floppy drive in your X terminal:
+<pre class="example">     drive x: file="$DISPLAY" remote
+</pre>
+   <p>If your X terminal has more than one drive, you may access the
+additional drives as follows:
+<pre class="example">     drive y: file="$DISPLAY//1" remote
+     drive z: file="$DISPLAY//2" remote
+</pre>
+   </body></html>
+

@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+<title>2m - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="high-capacity-formats.html#high-capacity-formats" title="high capacity formats">
+<link rel="prev" href="bigger-sectors.html#bigger-sectors" title="bigger sectors">
+<link rel="next" href="XDF.html#XDF" title="XDF">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="g_t2m"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="XDF.html#XDF">XDF</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="bigger-sectors.html#bigger-sectors">bigger sectors</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="high-capacity-formats.html#high-capacity-formats">high capacity formats</a>
+<hr>
+</div>
+
+<h4 class="subsection">2.7.3 2m</h4>
+
+<p><a name="index-g_t2m-35"></a>
+The 2m format was originally invented by Ciriaco Garcia de Celis. It
+also uses bigger sectors than usual in order to fit more data on the
+disk.  However, it uses the standard format (18 sectors of 512 bytes
+each) on the first cylinder, in order to make these disks easier to
+handle by DOS. Indeed this method allows to have a standard sized
+boot sector, which contains a description of how the rest of the disk
+should be read.
+
+   <p>However, the drawback of this is that the first cylinder can hold less
+data than the others. Unfortunately, DOS can only handle disks where
+each track contains the same amount of data. Thus 2m hides the fact that
+the first track contains less data by using a <dfn>shadow
+FAT</dfn>. (Usually, DOS stores the FAT in two identical copies, for
+additional safety.  XDF stores only one copy, but tells DOS that it
+stores two. Thus the space that would be taken up by the second FAT copy
+is saved.) This also means that you should <strong>never use a 2m disk
+to store anything else than a DOS file system</strong>.
+
+   <p>Mtools supports these formats only on Linux.
+
+   </body></html>
+

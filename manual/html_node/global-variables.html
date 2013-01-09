@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+<title>global variables - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Configuration.html#Configuration" title="Configuration">
+<link rel="prev" href="default-values.html#default-values" title="default values">
+<link rel="next" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="global-variables"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="per-drive-variables.html#per-drive-variables">per drive variables</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="default-values.html#default-values">default values</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Configuration.html#Configuration">Configuration</a>
+<hr>
+</div>
+
+<h3 class="section">3.4 Global variables</h3>
+
+<p><a name="index-Global-configuration-variables-48"></a><a name="index-Drive-independent-configuration-variables-49"></a><a name="index-Environmental-variables-50"></a><a name="index-MTOOLS_005fSKIP_005fCHECK-51"></a><a name="index-MTOOLS_005fFAT_005fCOMPATIBILITY-52"></a><a name="index-MTOOLS_005fLOWER_005fCASE-53"></a><a name="index-MTOOLS_005fNO_005fVFAT-54"></a><a name="index-FreeDOS-55"></a>
+Global flags may be set to 1 or to 0.
+
+   <p>The following global flags are recognized:
+
+     <dl>
+<dt><code>MTOOLS_SKIP_CHECK</code><dd>If this is set to 1, mtools skips most of its sanity checks. This is
+needed to read some Atari disks which have been made with the earlier
+ROMs, and which would not be recognized otherwise. 
+<br><dt><code>MTOOLS_FAT_COMPATIBILITY</code><dd>If this is set to 1, mtools skips the fat size checks. Some disks have
+a bigger FAT than they really need to. These are rejected if this
+option is not set. 
+<br><dt><code>MTOOLS_LOWER_CASE</code><dd>If this is set to 1, mtools displays all-upper-case short filenames as
+lowercase. This has been done to allow a behavior which is consistent
+with older versions of mtools which didn't know about the case bits. 
+<br><dt><code>MTOOLS_NO_VFAT</code><dd>If this is set to 1, mtools won't generate VFAT entries for filenames
+which are mixed-case, but otherwise legal dos filenames.  This is useful
+when working with DOS versions which can't grok VFAT long names, such as
+FreeDOS. 
+<br><dt><code>MTOOLS_DOTTED_DIR</code><dd>In a wide directory, prints the short name with a dot instead of spaces
+separating the basename and the extension. 
+<br><dt><code>MTOOLS_NAME_NUMERIC_TAIL</code><dd>If this is set to one (default), generate numeric tails for all long
+names (~1).  If set to zero, only generate numeric tails if otherwise a
+clash would have happened. 
+<br><dt><code>MTOOLS_TWENTY_FOUR_HOUR_CLOCK</code><dd>If 1, uses the European notation for times (twenty four hour clock),
+else uses the UK/US notation (am/pm)
+</dl>
+
+   <p>Example:
+Inserting the following line into your configuration file instructs
+mtools to skip the sanity checks:
+<pre class="example">       MTOOLS_SKIP_CHECK=1
+</pre>
+   <p>Global variables may also be set via the environment:
+<pre class="example">       export MTOOLS_SKIP_CHECK=1
+</pre>
+   <p>Global string variables may be set to any value:
+     <dl>
+<dt><code>MTOOLS_DATE_STRING</code><dd>The format used for printing dates of files.  By default, is dd-mm-yyyy. 
+</dl>
+
+   </body></html>
+

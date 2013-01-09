@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+<title>long names - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Common-features.html#Common-features" title="Common features">
+<link rel="prev" href="directory.html#directory" title="directory">
+<link rel="next" href="name-clashes.html#name-clashes" title="name clashes">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="long-names"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="name-clashes.html#name-clashes">name clashes</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="directory.html#directory">directory</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Common-features.html#Common-features">Common features</a>
+<hr>
+</div>
+
+<h3 class="section">2.4 VFAT-style long file names</h3>
+
+<p><a name="index-Long-file-name-13"></a><a name="index-Windows-95_002dstyle-file-names-14"></a><a name="index-VFAT_002dstyle-file-names-15"></a><a name="index-Primary-file-name-_0028long-names_0029-16"></a><a name="index-Secondary-file-name-_0028long-names_0029-17"></a>
+This version of mtools supports VFAT style long filenames. If a Unix
+filename is too long to fit in a short DOS name, it is stored as a
+VFAT long name, and a companion short name is generated. This short
+name is what you see when you examine the disk with a pre-7.0 version
+of DOS. 
+ The following table shows some examples of short names:
+
+<pre class="example">     Long name       MS-DOS name     Reason for the change
+     ---------       ----------      ---------------------
+     thisisatest     THISIS~1        filename too long
+     alain.knaff     ALAIN~1.KNA     extension too long
+     prn.txt         PRN~1.TXT       PRN is a device name
+     .abc            ABC~1           null filename
+     hot+cold        HOT_CO~1        illegal character
+</pre>
+   <p>As you see, the following transformations happen to derive a short
+name:
+     <ul>
+<li>Illegal characters are replaced by underscores. The illegal characters
+are <code>;+=[]',\"*\\&lt;&gt;/?:|</code>. 
+<li>Extra dots, which cannot be interpreted as a main name/extension
+separator are removed
+<li>A <code>~</code><var>n</var> number is generated,
+<li>The name is shortened so as to fit in the 8+3 limitation
+</ul>
+
+   <p>The initial Unix-style file name (whether long or short) is also called
+the <dfn>primary</dfn> name, and the derived short name is also called the
+<dfn>secondary</dfn> name.
+
+   <p>Example:
+<pre class="example">      mcopy /etc/motd a:Reallylongname
+</pre>
+   <p>Mtools creates a VFAT entry for Reallylongname, and uses REALLYLO as
+a short name. Reallylongname is the primary name, and REALLYLO is the
+secondary name.
+<pre class="example">      mcopy /etc/motd a:motd
+</pre>
+   <p>Motd fits into the DOS filename limits. Mtools doesn't need to
+derivate another name. Motd is the primary name, and there is no
+secondary name.
+
+   <p>In a nutshell: The primary name is the long name, if one exists, or
+the short name if there is no long name.
+
+   <p>Although VFAT is much more flexible than FAT, there are still names
+that are not acceptable, even in VFAT. There are still some illegal
+characters left (<code>\"*\\&lt;&gt;/?:|</code>), and device names are still
+reserved.
+
+<pre class="example">     Unix name       Long name       Reason for the change
+     ---------       ----------      ---------------------
+     prn             prn-1           PRN is a device name
+     ab:c            ab_c-1          illegal character
+</pre>
+   <p>As you see, the following transformations happen if a long name is
+illegal:
+     <ul>
+<li>Illegal characters are replaces by underscores,
+<li>A <code>-</code><var>n</var> number is generated,
+</ul>
+
+   </body></html>
+

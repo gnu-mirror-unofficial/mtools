@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+<title>location information - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
+<link rel="prev" href="general-information.html#general-information" title="general information">
+<link rel="next" href="geometry-description.html#geometry-description" title="geometry description">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="location-information"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="geometry-description.html#geometry-description">geometry description</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="general-information.html#general-information">general information</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="per-drive-variables.html#per-drive-variables">per drive variables</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.5.2 Location information</h4>
+
+<p><a name="index-Hdimage-61"></a>
+For each drive, you need to describe where its data is physically
+stored (image file, physical device, partition, offset).
+
+     <dl>
+<dt><code>file</code><dd><a name="index-Image-file-62"></a><a name="index-Name-of-device-node-63"></a><a name="index-File-name-of-device-node-64"></a><a name="index-file-65"></a>The name of the file or device holding the disk image. This is
+mandatory. The file name should be enclosed in quotes.
+
+     <br><dt><code>partition</code><dd><a name="index-DOSEMU-hard-disk-image-66"></a><a name="index-Zip-disks-_0028partitions_0029-67"></a><a name="index-Jaz-disks-_0028partitions_0029-68"></a><a name="index-Syquest-disks-69"></a><a name="index-Magneto_002doptical-disks-70"></a><a name="index-OS_002f2-_0028layout-of-removable-media_0029-71"></a><a name="index-Windows-NT-_0028layout-of-removable-media_0029-72"></a><a name="index-Removable-media-73"></a><a name="index-Partitioned-image-file-74"></a>Tells mtools to treat the drive as a partitioned device, and to use the
+given partition. Only primary partitions are accessible using this
+method, and they are numbered from 1 to 4. For logical partitions, use
+the more general <code>offset</code> variable. The <code>partition</code> variable
+is intended for removable media such as Syquest disks, ZIP drives, and
+magneto-optical disks. Although traditional DOS sees Syquest disks and
+magneto-optical disks as &lsquo;<samp><span class="samp">giant floppy disks</span></samp>&rsquo; which are
+unpartitioned, OS/2 and Windows NT treat them like hard disks,
+i.e. partitioned devices. The <code>partition</code> flag is also useful DOSEMU
+hdimages. It is not recommended for hard disks for which direct access
+to partitions is available through mounting.
+
+     <br><dt><code>offset</code><dd><a name="index-Ram-disk-75"></a><a name="index-Atari-Ram-disk-76"></a>Describes where in the file the MS-DOS file system starts. This is useful
+for logical partitions in DOSEMU hdimages, and for ATARI ram disks. By
+default, this is zero, meaning that the file system starts right at the
+beginning of the device or file. 
+</dl>
+
+   </body></html>
+

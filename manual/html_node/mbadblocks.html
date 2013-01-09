@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+<title>mbadblocks - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="mattrib.html#mattrib" title="mattrib">
+<link rel="next" href="mcat.html#mcat" title="mcat">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="mbadblocks"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="mcat.html#mcat">mcat</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="mattrib.html#mattrib">mattrib</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.4 Mbadblocks</h3>
+
+<p><a name="index-mbadblocks-142"></a><a name="index-Marking-blocks-as-bad-143"></a><a name="index-Bad-blocks-144"></a><a name="index-Read-errors-145"></a>
+The <code>mbadblocks</code> command is used to mark some clusters on an
+MS-DOS filesystem bad. It has the following syntax:
+
+   <p><code>mbadblocks</code> [<code>-s</code> <var>sectorlist</var>|<code>-c</code> <var>clusterlist</var>|-w] <var>drive</var><code>:</code>
+
+   <p>If no command line flags are supplied, <code>Mbadblocks</code> scans an
+MS-DOS filesystem for bad blocks by simply trying to read them and
+flag them if read fails. All blocks that are unused are scanned, and
+if detected bad are marked as such in the FAT.
+
+   <p>This command is intended to be used right after <code>mformat</code>.  It is
+not intended to salvage data from bad disks.
+
+<h4 class="subsection">4.4.1 Command line options</h4>
+
+     <dl>
+<dt><code>c </code><var>file</var><dd>Use a list of bad clusters, rather than scanning for bad clusters
+itself. 
+<br><dt><code>s </code><var>file</var><dd>Use a list of bad sectors (counted from beginning of filesystem),
+rather than trying for bad clusters itself. 
+<br><dt><code>w</code><dd>Write a random pattern to each cluster, then read it back and flag
+cluster as bad if mismatch. Only free clusters are tested in such a
+way, so any file data is preserved. 
+</dl>
+
+<h4 class="subsection">4.4.2 Bugs</h4>
+
+<p><code>Mbadblocks</code> should (but doesn't yet :-( ) also try to salvage bad
+blocks which are in use by reading them repeatedly, and then mark them
+bad.
+
+   </body></html>
+

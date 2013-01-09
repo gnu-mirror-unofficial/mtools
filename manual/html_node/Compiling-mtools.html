@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+<title>Compiling mtools - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Commands.html#Commands" title="Commands">
+<link rel="next" href="Porting-mtools.html#Porting-mtools" title="Porting mtools">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Compiling-mtools"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Porting-mtools.html#Porting-mtools">Porting mtools</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Commands.html#Commands">Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">5 Architecture specific compilation flags</h2>
+
+<p><a name="index-XDF-disks-_0028compile-time-configuration_0029-238"></a><a name="index-Solaris-_0028compile-time-configuration-of-vold_0029-239"></a><a name="index-Vold-_0028compile-time-configuration_0029-240"></a><a name="index-Compile-time-configuration-241"></a>
+To compile mtools, first invoke <code>./configure</code> before
+<code>make</code>. In addition to the standard <code>autoconfigure</code> flags,
+there are two architecture specific flags available.
+
+     <dl>
+<dt><code>./configure --enable-xdf</code><dt><code>./configure --disable-xdf</code><dd>Enables support for XDF disks. This is on by default. See <a href="XDF.html#XDF">XDF</a>,
+for details. 
+<br><dt><code>./configure --enable-vold</code><dt><code>./configure --disable-vold</code><dd>Enables support for vold on Solaris. When used in conjunction with vold,
+mtools should use different device nodes than for direct access.
+
+     <br><dt><code>./configure --enable-new-vold</code><dt><code>./configure --disable-new-vold</code><dd>Enables new support for vold on Solaris. This is supposed to work more
+smoothly than the old support.
+
+     <br><dt><code>./configure --enable-floppyd</code><dt><code>./configure --disable-floppyd</code><dd>Enables support for floppyd.  By default, floppyd support is enabled as
+long as the necessary X includes and libraries are available. 
+</dl>
+
+   </body></html>
+

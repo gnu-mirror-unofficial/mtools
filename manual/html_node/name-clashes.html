@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+<title>name clashes - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Common-features.html#Common-features" title="Common features">
+<link rel="prev" href="long-names.html#long-names" title="long names">
+<link rel="next" href="case-sensitivity.html#case-sensitivity" title="case sensitivity">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="name-clashes"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="case-sensitivity.html#case-sensitivity">case sensitivity</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="long-names.html#long-names">long names</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Common-features.html#Common-features">Common features</a>
+<hr>
+</div>
+
+<h3 class="section">2.5 Name clashes</h3>
+
+<p><a name="index-Name-clashes-18"></a><a name="index-Duplicate-file-names-19"></a><a name="index-Overwriting-files-20"></a><a name="index-Primary-file-name-_0028name-clashes_0029-21"></a><a name="index-Secondary-file-name-_0028name-clashes_0029-22"></a>
+When writing a file to disk, its long name or short name may collide
+with an already existing file or directory. This may happen for all
+commands which create new directory entries, such as <code>mcopy</code>,
+<code>mmd</code>, <code>mren</code>, <code>mmove</code>. When a name clash happens, mtools
+asks you what it should do. It offers several choices:
+
+     <dl>
+<dt><code>overwrite</code><dd>Overwrites the existing file. It is not possible to overwrite a
+directory with a file. 
+<br><dt><code>rename</code><dd>Renames the newly created file. Mtools prompts for the new filename
+<br><dt><code>autorename</code><dd>Renames the newly created file. Mtools chooses a name by itself, without
+prompting
+<br><dt><code>skip</code><dd>Gives up on this file, and moves on to the next (if any)
+</dl>
+
+   <p>To chose one of these actions, type its first letter at the prompt. If
+you use a lower case letter, the action only applies for this file only,
+if you use an upper case letter, the action applies to all files, and
+you won't be prompted again.
+
+   <p>You may also chose actions (for all files) on the command line, when
+invoking mtools:
+
+     <dl>
+<dt><code>-D o</code><dd>Overwrites primary names by default. 
+<br><dt><code>-D O</code><dd>Overwrites secondary names by default. 
+<br><dt><code>-D r</code><dd>Renames primary name by default. 
+<br><dt><code>-D R</code><dd>Renames secondary name by default. 
+<br><dt><code>-D a</code><dd>Autorenames primary name by default. 
+<br><dt><code>-D A</code><dd>Autorenames secondary name by default. 
+<br><dt><code>-D s</code><dd>Skip primary name by default. 
+<br><dt><code>-D S</code><dd>Skip secondary name by default. 
+<br><dt><code>-D m</code><dd>Ask user what to do with primary name. 
+<br><dt><code>-D M</code><dd>Ask user what to do with secondary name. 
+</dl>
+
+   <p>Note that for command line switches lower/upper differentiates between
+primary/secondary name whereas for interactive choices, lower/upper
+differentiates between just-this-time/always.
+
+   <p>The primary name is the name as displayed in Windows 95 or Windows NT:
+i.e. the long name if it exists, and the short name otherwise.  The
+secondary name is the "hidden" name, i.e. the short name if a long name
+exists.
+
+   <p>By default, the user is prompted if the primary name clashes, and the
+secondary name is autorenamed.
+
+   <p>If a name clash occurs in a Unix directory, mtools only asks whether
+to overwrite the file, or to skip it.
+
+   </body></html>
+

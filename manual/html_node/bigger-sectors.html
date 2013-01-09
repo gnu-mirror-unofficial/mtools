@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+<title>bigger sectors - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="high-capacity-formats.html#high-capacity-formats" title="high capacity formats">
+<link rel="prev" href="more-sectors.html#more-sectors" title="more sectors">
+<link rel="next" href="2m.html#g_t2m" title="2m">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="bigger-sectors"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="2m.html#g_t2m">2m</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="more-sectors.html#more-sectors">more sectors</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="high-capacity-formats.html#high-capacity-formats">high capacity formats</a>
+<hr>
+</div>
+
+<h4 class="subsection">2.7.2 Bigger sectors</h4>
+
+<p><a name="index-bigger-sectors-34"></a>By using bigger sectors it is possible to go beyond the capacity which
+can be obtained by the standard 512-byte sectors. This is because of the
+sector header. The sector header has the same size, regardless of how
+many data bytes are in the sector. Thus, we save some space by using
+<em>fewer</em>, but bigger sectors. For example, 1 sector of 4K only takes
+up header space once, whereas 8 sectors of 512 bytes have also 8
+headers, for the same amount of useful data.
+
+   <p>This method allows to store up to 1992K on a 3 1/2 HD disk.
+
+   <p>Mtools supports these formats only on Linux.
+
+   </body></html>
+

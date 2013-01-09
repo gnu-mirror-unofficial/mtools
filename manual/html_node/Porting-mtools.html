@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+<title>Porting mtools - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Compiling-mtools.html#Compiling-mtools" title="Compiling mtools">
+<link rel="next" href="Command-Index.html#Command-Index" title="Command Index">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Porting-mtools"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Command-Index.html#Command-Index">Command Index</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Compiling-mtools.html#Compiling-mtools">Compiling mtools</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">6 Porting mtools to architectures which are not supported yet</h2>
+
+<p><a name="index-Porting-242"></a><a name="index-Compiled_002din-defaults-243"></a>
+ This chapter is only interesting for those who want to port mtools to
+an architecture which is not yet supported. For most common systems,
+default drives are already defined. If you want to add default drives
+for a still unsupported system, run configuration.guess, to see which
+identification autoconf uses for that system. This identification is
+of the form cpu-vendor-os (for example sparc-sun-sunos). The cpu and
+the OS parts are passed to the compiler as preprocessor flags. 
+ The OS part is passed to the compiler in three forms.
+     <ol type=1 start=1>
+<li>The complete OS name, with dots replaced by underscores.  SCO3.2v2 would
+yield sco3_2v2
+<li>The base OS name. SCO3.2v2 would yield Sco
+<li>The base OS name plus its major version. SCO3.2v2 would yield Sco3
+        </ol>
+
+   <p>All three versions are passed, if they are different.
+
+   <p>To define the devices, use the entries for the systems that are already
+present as templates. In general, they have the following form:
+
+<pre class="example">     #if (defined (my_cpu) &amp;&amp; defined(my_os))
+     #define predefined_devices
+     struct device devices[] = {
+             { "/dev/first_drive", 'drive_letter', drive_description},
+             ...
+             { "/dev/last_drive", 'drive_letter', drive_description}
+     }
+     #define INIT_NOOP
+     #endif
+</pre>
+   <p>"/dev/first_drive" is the name of the device or image file
+representing the drive. Drive_letter is a letter ranging from a to z
+giving access to the drive. Drive_description describes the type of the
+drive:
+     <dl>
+<dt><code>ED312</code><dd>extra density (2.88M) 3 1/2 disk
+<br><dt><code>HD312</code><dd>high density 3 1/2 disk
+<br><dt><code>DD312</code><dd>double density 3 1/2 disk
+<br><dt><code>HD514</code><dd>high density 5 1/4 disk
+<br><dt><code>DD514</code><dd>double density 5 1/4 disk
+<br><dt><code>DDsmall</code><dd>8 sector double density 5 1/4 disk
+<br><dt><code>SS514</code><dd>single sided double density 5 1/4 disk
+<br><dt><code>SSsmall</code><dd>single sided 8 sector double density 5 1/4 disk
+<br><dt><code>GENFD</code><dd>generic floppy drive (12 bit FAT)
+<br><dt><code>GENHD</code><dd>generic hard disk (16 bit FAT)
+<br><dt><code>GEN</code><dd>generic device (all parameters match)
+<br><dt><code>ZIPJAZ(flags)</code><dd>generic ZIP drive using normal access. This uses partition 4. 
+<code>Flags</code> are any special flags to be passed to open. 
+<br><dt><code>RZIPJAZ(flags)</code><dd>generic ZIP drive using raw SCSI access. This uses partition 4. 
+<code>Flags</code> are any special flags to be passed to open. 
+<br><dt><code>REMOTE</code><dd>the remote drive used for floppyd.  Unlike the other items, this macro
+also includes the file name ($DISPLAY) and the drive letter (X)
+</dl>
+
+   <p>Entries may be described in more detail:
+<pre class="example">      fat_bits,open_flags,cylinders,heads,sectors,DEF_ARG
+</pre>
+   <p>or, if you need to describe an offset (file system doesn't start at
+beginning of file system)
+<pre class="example">      fat_bits, open_flags, cylinders, heads, sectors, offset, DEF_ARG0
+</pre>
+     <dl>
+<dt><code>fat_bits</code><dd>is either 12, 16 or 0. 0 means that the device accepts both types of
+FAT. 
+<br><dt><code>open_flags</code><dd>may include flags such as O_NDELAY, or O_RDONLY, which might be
+necessary to open the device. 0 means no special flags are needed. 
+<br><dt><code>cylinders,heads,sectors</code><dd>describe the geometry of the disk. If cylinders is 0, the heads and sectors
+parameters are ignored, and the drive accepts any geometry. 
+<br><dt><code>offset</code><dd>is used if the DOS file system doesn't begin at the start of the device
+or image file. This is mostly useful for Atari Ram disks (which contain
+their device driver at the beginning of the file) or for DOS emulator
+images (which may represent a partitioned device. 
+</dl>
+
+   <p>Definition of defaults in the devices file should only be done if these
+same devices are found on a large number of hosts of this type. In that
+case, could you also let me know about your new definitions, so that I
+can include them into the next release.  For purely local file, I
+recommend that you use the <code>/etc/mtools.conf</code> and
+<code>~/.mtoolsrc</code> configuration files.
+
+   <p>However, the devices files also allows to supply geometry setting
+routines. These are necessary if you want to access high capacity
+disks.
+
+   <p>Two routines should be supplied:
+
+     <ol type=1 start=1>
+<li>Reading the current parameters
+     <pre class="example">          static inline int get_parameters(int fd, struct generic_floppy_struct *floppy)
+</pre>
+     <p>This probes the current configured geometry, and return it in
+the structure generic_floppy_struct (which must also be declared). 
+ Fd is an open file descriptor for the device, and buf is an already
+filled in stat structure, which may be useful. 
+ This routine should return 1 if the probing fails, and 0 otherwise.
+
+     <li>Setting new parameters
+     <pre class="example">          static inline int set_parameters(int fd, struct generic_floppy_struct *floppy)
+                                           struct stat *buf)
+</pre>
+     <p>This configures the geometry contained in floppy on the file descriptor
+fd. Buf is the result of a stat call (already filled in).  This should
+return 1 if the new geometry cannot be configured, and 0 otherwise.
+        </ol>
+
+   <p>A certain number of preprocessor macros should also be supplied:
+
+     <dl>
+<dt><code>TRACKS(floppy)</code><dd>refers to the track field in the floppy structure
+<br><dt><code>HEADS(floppy)</code><dd>refers to the heads field in the floppy structure
+<br><dt><code>SECTORS(floppy)</code><dd>refers to the sectors per track field in the floppy structure
+<br><dt><code>SECTORS_PER_DISK(floppy)</code><dd>refers to the sectors per disk field in the floppy structure (if
+applicable, otherwise leave undefined)
+
+     <br><dt><code>BLOCK_MAJOR</code><dd>major number of the floppy device, when viewed as a block device
+
+     <br><dt><code>CHAR_MAJOR</code><dd>major number of the floppy device, when viewed as a character device
+(a.k.a. "raw" device, used for fsck) (leave this undefined, if your OS
+doesn't have raw devices)
+</dl>
+
+   <p>For the truly high capacity formats (XDF, 2m, etc), there is no clean
+and documented interface yet.
+
+<!-- MANskip 1 -->
+   </body></html>
+

@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+<title>more sectors - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="high-capacity-formats.html#high-capacity-formats" title="high capacity formats">
+<link rel="prev" href="high-capacity-formats.html#high-capacity-formats" title="high capacity formats">
+<link rel="next" href="bigger-sectors.html#bigger-sectors" title="bigger sectors">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="more-sectors"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="bigger-sectors.html#bigger-sectors">bigger sectors</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="high-capacity-formats.html#high-capacity-formats">high capacity formats</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="high-capacity-formats.html#high-capacity-formats">high capacity formats</a>
+<hr>
+</div>
+
+<h4 class="subsection">2.7.1 More sectors</h4>
+
+<p><a name="index-fdformat-30"></a><a name="index-vgacopy-31"></a><a name="index-DMF-disks-32"></a><a name="index-Windows-95-_0028DMF-disks_0029-33"></a>
+The oldest method of fitting more data on a disk is to use more sectors
+and more cylinders. Although the standard format uses 80 cylinders and
+18 sectors (on a 3 1/2 high density disk), it is possible to use up to
+83 cylinders (on most drives) and up to 21 sectors. This method allows
+to store up to 1743K on a 3 1/2 HD disk. However, 21 sector disks are
+twice as slow as the standard 18 sector disks because the sectors are
+packed so close together that we need to interleave them. This problem
+doesn't exist for 20 sector formats.
+
+   <p>These formats are supported by numerous DOS shareware utilities such as
+<code>fdformat</code> and <code>vgacopy</code>. In his infinite hubris, Bill Gate$
+believed that he invented this, and called it &lsquo;<samp><span class="samp">DMF disks</span></samp>&rsquo;, or
+&lsquo;<samp><span class="samp">Windows formatted disks</span></samp>&rsquo;. But in reality, it has already existed
+years before! Mtools supports these formats on Linux, on SunOS and on
+the DELL Unix PC.
+
+   </body></html>
+

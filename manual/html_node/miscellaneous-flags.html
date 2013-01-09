@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+<title>miscellaneous flags - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
+<link rel="prev" href="miscellaneous-variables.html#miscellaneous-variables" title="miscellaneous variables">
+<link rel="next" href="multiple-descriptions.html#multiple-descriptions" title="multiple descriptions">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="miscellaneous-flags"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="multiple-descriptions.html#multiple-descriptions">multiple descriptions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="miscellaneous-variables.html#miscellaneous-variables">miscellaneous variables</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="per-drive-variables.html#per-drive-variables">per drive variables</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.5.6 General Purpose Drive Flags</h4>
+
+<p>A flag can either be set to 1 (enabled) or 0 (disabled). If the value is
+omitted, it is enabled.  For example, <code>scsi</code> is equivalent to
+<code>scsi=1</code>
+
+     <dl>
+<dt><code>nolock</code><dd><a name="index-disable-locking-100"></a><a name="index-locking-_0028disabling-it_0029-101"></a><a name="index-plain-floppy_003a-device-xxx-busy-102"></a>Instruct mtools to not use locking on this drive.  This is needed on
+systems with buggy locking semantics.  However, enabling this makes
+operation less safe in cases where several users may access the same
+drive at the same time.
+
+     <br><dt><code>scsi</code><dd><a name="index-setuid-installation-_0028needed-for-raw-SCSI-I_002fO_0029-103"></a><a name="index-Solaris-_0028Raw-access-to-SCSI-devices-such-as-Zip-_0026-Jaz_0029-104"></a><a name="index-SunOS-_0028Raw-access-to-SCSI-devices-such-as-Zip-_0026-Jaz_0029-105"></a><a name="index-Zip-disks-_0028raw-SCSI-access_0029-106"></a><a name="index-Jaz-disks-_0028raw-SCSI-access_0029-107"></a><a name="index-Syquest-disks-_0028raw-SCSI-access_0029-108"></a><a name="index-SCSI-devices-109"></a>When set to 1, this option tells mtools to use raw SCSI I/O instead of
+the standard read/write calls to access the device. Currently, this is
+supported on HP-UX, Solaris and SunOS.  This is needed because on some
+architectures, such as SunOS or Solaris, PC media can't be accessed
+using the <code>read</code> and <code>write</code> system calls, because the OS expects
+them to contain a Sun specific "disk label".
+
+     <p>As raw SCSI access always uses the whole device, you need to specify the
+"partition" flag in addition
+
+     <p>On some architectures, such as Solaris, mtools needs root privileges to
+be able to use the <code>scsi</code> option.  Thus mtools should be installed
+setuid root on Solaris if you want to access Zip/Jaz drives.  Thus, if
+the <code>scsi</code> flag is given, <code>privileged</code> is automatically
+implied, unless explicitly disabled by <code>privileged=0</code>
+
+     <p>Mtools uses its root privileges to open the device, and to issue the
+actual SCSI I/O calls.  Moreover, root privileges are only used for
+drives described in a system-wide configuration file such as
+<samp><span class="file">/etc/mtools.conf</span></samp>, and not for those described in
+<samp><span class="file">~/.mtoolsrc</span></samp> or <samp><span class="file">$MTOOLSRC</span></samp>.
+
+     <br><dt><code>privileged</code><dd><a name="index-setuid-installation-110"></a><a name="index-setgid-installation-111"></a>When set to 1, this instructs mtools to use its setuid and setgid
+privileges for opening the given drive.  This option is only valid for
+drives described in the system-wide configuration files (such as
+<samp><span class="file">/etc/mtools.conf</span></samp>, not <samp><span class="file">~/.mtoolsrc</span></samp> or
+<samp><span class="file">$MTOOLSRC</span></samp>).  Obviously, this option is also a no op if mtools is
+not installed setuid or setgid.  This option is implied by 'scsi=1', but
+again only for drives defined in system-wide configuration files. 
+Privileged may also be set explicitly to 0, in order to tell mtools not
+to use its privileges for a given drive even if <code>scsi=1</code> is set.
+
+     <p>Mtools only needs to be installed setuid if you use the
+<code>privileged</code> or <code>scsi</code> drive variables.  If you do not use
+these options, mtools works perfectly well even when not installed
+setuid root.
+
+     <br><dt><code>vold</code><dd><a name="index-Solaris-_0028vold_0029-112"></a><a name="index-Vold-_0028mediamgr_0029-113"></a>
+Instructs mtools to interpret the device name as a vold identifier
+rather than as a filename.  The vold identifier is translated into a
+real filename using the <code>media_findname()</code> and
+<code>media_oldaliases()</code> functions of the <code>volmgt</code> library.  This
+flag is only available if you configured mtools with the
+<code>--enable-new-vold</code> option before compilation.
+
+     <br><dt><code>swap</code><dd><a name="index-Atari-114"></a><a name="index-Wordswapped-115"></a>
+Consider the media as a word-swapped Atari disk.
+
+     <br><dt><code>use_xdf</code><dd><a name="index-XDF-disks-_0028how-to-configure_0029-116"></a><a name="index-use_005fxdf-117"></a>If this is set to a non-zero value, mtools also tries to access this
+disk as an XDF disk. XDF is a high capacity format used by OS/2. This
+is off by default. See <a href="XDF.html#XDF">XDF</a>, for more details. 
+<br><dt><code>mformat_only</code><dd><a name="index-mformat_005fonly-118"></a>Tells mtools to use the geometry for this drive only for mformatting and
+not for filtering.
+
+     <br><dt><code>filter</code><dd><a name="index-filter-119"></a>Tells mtools to use the geometry for this drive both for mformatting and
+filtering.
+
+     <br><dt><code>remote</code><dd>Tells mtools to connect to floppyd (see <a href="floppyd.html#floppyd">floppyd</a>). 
+</dl>
+
+   </body></html>
+

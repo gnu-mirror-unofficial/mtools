@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+<title>drive letters - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Common-features.html#Common-features" title="Common features">
+<link rel="prev" href="arguments.html#arguments" title="arguments">
+<link rel="next" href="directory.html#directory" title="directory">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="drive-letters"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="directory.html#directory">directory</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="arguments.html#arguments">arguments</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Common-features.html#Common-features">Common features</a>
+<hr>
+</div>
+
+<h3 class="section">2.2 Drive letters</h3>
+
+<p>The meaning of the drive letters depends on the target architectures. 
+However, on most target architectures, drive A is the first floppy
+drive, drive B is the second floppy drive (if available), drive J is a
+Jaz drive (if available), and drive Z is a Zip drive (if available).  On
+those systems where the device name is derived from the SCSI id, the Jaz
+drive is assumed to be at SCSI target 4, and the Zip at SCSI target 5
+(factory default settings).  On Linux, both drives are assumed to be the
+second drive on the SCSI bus (/dev/sdb). The default settings can be
+changes using a configuration file (see <a href="Configuration.html#Configuration">Configuration</a>).
+
+   <p>The drive letter : (colon) has a special meaning. It is used to access
+image files which are directly specified on the command line using the
+<code>-i</code> options.
+
+   <p>Example:
+<pre class="example">      mcopy -i my-image-file.bin ::file1 ::file2 .
+</pre>
+   <p>This copies <code>file1</code> and <code>file2</code> from the image file
+(<code>my-image-file.bin</code>) to the <code>/tmp</code> directory.
+
+   <p>You can also supply an offset within the image file by including
+<code>@@</code><var>offset</var> into the file name.
+
+   <p>Example:
+<pre class="example">      mcopy -i my-image-file.bin@@1M ::file1 ::file2 .
+</pre>
+   <p>This looks for the image at the offset of 1M in the file, rather than
+at its beginning.
+
+   </body></html>
+

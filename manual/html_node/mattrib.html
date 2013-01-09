@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+<title>mattrib - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="floppyd_005finstalltest.html#floppyd_005finstalltest" title="floppyd_installtest">
+<link rel="next" href="mbadblocks.html#mbadblocks" title="mbadblocks">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="mattrib"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="mbadblocks.html#mbadblocks">mbadblocks</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="floppyd_005finstalltest.html#floppyd_005finstalltest">floppyd_installtest</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.3 Mattrib</h3>
+
+<p><a name="index-mattrib-136"></a><a name="index-Changing-file-attributes-137"></a><a name="index-Hidden-files-138"></a><a name="index-Read_002donly-files-_0028changing-the-attribute_0029-139"></a><a name="index-System-files-140"></a><a name="index-Archive-bit-141"></a>
+<code>Mattrib</code> is used to change MS-DOS file attribute flags. It has the
+following syntax:
+
+   <p><code>mattrib</code> [<code>-a|+a</code>] [<code>-h|+h</code>] [<code>-r|+r</code>]
+[<code>-s|+s</code>] [<code>-/</code>]  [<code>-p</code>] [<code>-X</code>] <var>msdosfile</var> [ <var>msdosfiles</var> <small class="dots">...</small> ]
+
+   <p><code>Mattrib</code> adds attribute flags to an MS-DOS file (with the
+`<code>+</code>' operator) or remove attribute flags (with the `<code>-</code>'
+operator).
+
+   <p><code>Mattrib</code> supports the following attribute bits:
+
+     <dl>
+<dt><code>a</code><dd>Archive bit.  Used by some backup programs to indicate a new file. 
+<br><dt><code>r</code><dd>Read-only bit.  Used to indicate a read-only file.  Files with this bit
+set cannot be erased by <code>DEL</code> nor modified. 
+<br><dt><code>s</code><dd>System bit.  Used by MS-DOS to indicate a operating system file. 
+<br><dt><code>h</code><dd>Hidden bit.  Used to make files hidden from <code>DIR</code>. 
+</dl>
+
+   <p><code>Mattrib</code> supports the following command line flags:
+     <dl>
+<dt><code>/</code><dd>Recursive.  Recursively list the attributes of the files in the subdirectories. 
+<br><dt><code>X</code><dd>Concise. Prints the attributes without any whitespace padding.  If
+neither the "/" option is given, nor the <var>msdosfile</var> contains a
+wildcard, and there is only one MS-DOS file parameter on the command
+line, only the attribute is printed, and not the filename.  This option
+is convenient for scripts
+<br><dt><code>p</code><dd>Replay mode.  Outputs a series of mformat commands that will reproduce
+the current situation, starting from a situation as left by untarring
+the MS-DOS file system.  Commands are only output for attribute settings
+that differ from the default (archive bit set for files, unset for
+directories).  This option is intended to be used in addition to
+tar. The <code>readonly</code> attribute is not taken into account, as tar can
+set that one itself. 
+</dl>
+
+   </body></html>
+

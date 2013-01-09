@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+<title>floppyd_installtest - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="floppyd.html#floppyd" title="floppyd">
+<link rel="next" href="mattrib.html#mattrib" title="mattrib">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="floppyd_installtest"></a>
+<a name="floppyd_005finstalltest"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="mattrib.html#mattrib">mattrib</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="floppyd.html#floppyd">floppyd</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.2 Floppyd_installtest</h3>
+
+<p><a name="index-floppyd_005finstalltest-133"></a><a name="index-X-terminal-134"></a><a name="index-remote-floppy-access-135"></a>
+<code>Floppyd_installtest</code> is used to check for the presence of a running
+floppyd daemon. This is useful, if you have a small front-end script to
+mtools, which decides whether to use floppyd or not.
+
+   <p><code>floppyd_installtest</code> [<code>-f</code>]  Connect-String
+
+   <p>If the <code>-f</code> option is specified, <code>floppyd_installtest</code> does a
+full X-Cookie authentication and complains if this does not work.
+
+   <p>The connect-String has the format described in the floppyd-section:
+<var>hostname</var><code>:</code><var>displaynumber</var>[<code>/</code><var>baseport</var>]
+
+   </body></html>
+

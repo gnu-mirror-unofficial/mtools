@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+<title>mtype - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="mtoolstest.html#mtoolstest" title="mtoolstest">
+<link rel="next" href="mzip.html#mzip" title="mzip">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="mtype"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="mzip.html#mzip">mzip</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="mtoolstest.html#mtoolstest">mtoolstest</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.26 Mtype</h3>
+
+<p>The <code>mtype</code> command is used to display contents of an MS-DOS
+file. Its syntax is:
+
+<pre class="display">     <code>mtype</code> [<code>-ts</code>] <var>msdosfile</var> [ <var>msdosfiles</var><small class="dots">...</small> ]
+</pre>
+   <p><code>Mtype</code> displays the specified MS-DOS file on the screen.
+
+   <p>In addition to the standard options, <code>Mtype</code> allows the following
+command line options:
+
+     <dl>
+<dt><code>t</code><dd>Text file viewing.  <code>Mtype</code> translates incoming carriage
+return/line feeds to line feeds. 
+<br><dt><code>s</code><dd><code>Mtype</code> strips the high bit from the data. 
+</dl>
+
+   <p>The <code>mcd</code> command may be used to establish the device and the
+current working directory (relative to MS-DOS), otherwise the default is
+<code>A:/</code>.
+
+   <p><code>Mtype</code> returns 0 on success, 1 on utter failure, or 2 on partial
+failure.
+
+   <p>Unlike the MS-DOS version of <code>TYPE</code>, <code>mtype</code> allows multiple
+arguments.
+
+   </body></html>
+

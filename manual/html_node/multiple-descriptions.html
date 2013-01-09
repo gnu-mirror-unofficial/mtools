@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+<title>multiple descriptions - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
+<link rel="prev" href="miscellaneous-flags.html#miscellaneous-flags" title="miscellaneous flags">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="multiple-descriptions"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="miscellaneous-flags.html#miscellaneous-flags">miscellaneous flags</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="per-drive-variables.html#per-drive-variables">per drive variables</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.5.7 Supplying multiple descriptions for a drive</h4>
+
+<p>It is possible to supply multiple descriptions for a drive. In that
+case, the descriptions are tried in order until one is found that
+fits. Descriptions may fail for several reasons:
+
+     <ol type=1 start=1>
+<li>because the geometry is not appropriate,
+<li>because there is no disk in the drive,
+<li>or because of other problems.
+        </ol>
+
+   <p>Multiple definitions are useful when using physical devices which are
+only able to support one single disk geometry. 
+Example:
+<pre class="example">       drive a: file="/dev/fd0H1440" 1.44m
+       drive a: file="/dev/fd0H720" 720k
+</pre>
+   <p>This instructs mtools to use /dev/fd0H1440 for 1.44m (high density)
+disks and /dev/fd0H720 for 720k (double density) disks. On Linux, this
+feature is not really needed, as the /dev/fd0 device is able to handle
+any geometry.
+
+   <p>You may also use multiple drive descriptions to access both of your
+physical drives through one drive letter:
+
+<pre class="example">       drive z: file="/dev/fd0"
+       drive z: file="/dev/fd1"
+</pre>
+   <p>With this description, <code>mdir z:</code> accesses your first physical
+drive if it contains a disk. If the first drive doesn't contain a disk,
+mtools checks the second drive.
+
+   <p>When using multiple configuration files, drive descriptions in the files
+parsed last override descriptions for the same drive in earlier
+files. In order to avoid this, use the <code>drive+</code> or <code>+drive</code>
+keywords instead of <code>drive</code>. The first adds a description to the
+end of the list (i.e. it will be tried last), and the first adds it to
+the start of the list.
+
+   </body></html>
+

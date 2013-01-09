@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+<title>mzip - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="mtype.html#mtype" title="mtype">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="mzip"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="mtype.html#mtype">mtype</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.27 Mzip</h3>
+
+<p><a name="index-Zip-disk-_0028utilities_0029-229"></a><a name="index-Jaz-disk-_0028utilities_0029-230"></a><a name="index-Ejecting-a-Zip_002fJaz-disk-231"></a><a name="index-Write-protecting-a-Zip_002fJaz-disk-232"></a><a name="index-mzip-233"></a><a name="index-ZipTools-disk-234"></a><a name="index-Tools-disk-_0028Zip-and-Jaz-drives_0029-235"></a><a name="index-APlaceForYourStuff-236"></a><a name="index-password-protected-Zip-disks-237"></a>
+The <code>mzip</code> command is used to issue ZIP disk specific commands on
+Linux, Solaris or HP-UX. Its syntax is:
+
+<pre class="display">     <code>mzip</code> [<code>-epqrwx</code>]
+</pre>
+   <p><code>Mzip</code> allows the following
+command line options:
+
+     <dl>
+<dt><code>e</code><dd>Ejects the disk. 
+<br><dt><code>f</code><dd>Force eject even if the disk is mounted (must be given in addition to
+<code>-e</code>). 
+<br><dt><code>r</code><dd>Write protect the disk. 
+<br><dt><code>w</code><dd>Remove write protection. 
+<br><dt><code>p</code><dd>Password write protect. 
+<br><dt><code>x</code><dd>Password protect
+<br><dt><code>u</code><dd>Temporarily unprotect the disk until it is ejected.  The disk becomes
+writable, and reverts back to its old state when ejected. 
+<br><dt><code>q</code><dd>Queries the status
+</dl>
+
+   <p>To remove the password, set it to one of the password-less modes
+<code>-r</code> or <code>-w</code>: mzip will then ask you for the password, and
+unlock the disk.  If you have forgotten the password, you can get rid of
+it by low-level formatting the disk (using your SCSI adapter's BIOS
+setup).
+
+   <p>The ZipTools disk shipped with the drive is also password protected.  On
+MS-DOS or on a Mac, this password is automatically removed once the
+ZipTools have been installed.  From various articles posted to Usenet, I
+learned that the password for the tools disk is
+<code>APlaceForYourStuff</code><a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>.  Mzip knows about this
+password, and tries it first, before prompting you for a password.  Thus
+<code>mzip -w z:</code> unlocks the tools disk<a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a>.  The tools disk is
+formatted in a special way so as to be usable both in a PC and in a Mac. 
+On a PC, the Mac file system appears as a hidden file named
+<samp><span class="file">partishn.mac</span></samp>.  You may erase it to reclaim the 50 Megs of space
+taken up by the Mac file system.
+
+<h4 class="subsection">4.27.1 Bugs</h4>
+
+<p>This command is a big kludge.  A proper implementation would take a
+rework of significant parts of mtools, but unfortunately I don't have
+the time for this right now. The main downside of this implementation is
+that it is inefficient on some architectures (several successive calls
+to mtools, which defeats mtools' caching).
+
+   <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> To see the articles, search for
+<code>APlaceForYourStuff</code> using Google Groups</p>
+
+   <p class="footnote"><small>[<a name="fn-2" href="#fnd-2">2</a>]</small> I didn't know about
+this yet when I bought my own Zip drive.  Thus I ended up reformatting
+my tools disk, and hence I haven't had the opportunity to test the
+password yet.  If anybody still has their tools disk with the original
+password, could you try it out? Thanks in advance</p>
+
+   <hr></div>
+
+   </body></html>
+

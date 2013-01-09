@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+<title>mmount - Mtools 4.0.18</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Mtools 4.0.18">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Commands.html#Commands" title="Commands">
+<link rel="prev" href="mmd.html#mmd" title="mmd">
+<link rel="next" href="mmove.html#mmove" title="mmove">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="mmount"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="mmove.html#mmove">mmove</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="mmd.html#mmd">mmd</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
+<hr>
+</div>
+
+<h3 class="section">4.18 Mmount</h3>
+
+<p><a name="index-mmount-201"></a><a name="index-Linux-enhancements-_0028mmount_0029-202"></a><a name="index-Mounting-a-disk-203"></a><a name="index-High-capacity-formats_002c-mounting-204"></a>
+The <code>mmount</code> command is used to mount an MS-DOS disk. It is only
+available on Linux, as it is only useful if the OS kernel allows to
+configure the disk geometry. Its syntax is:
+
+   <p><code>mmount</code> <var>msdosdrive</var> [<var>mountargs</var>]
+
+   <p><code>Mmount</code>
+reads the boot sector of an MS-DOS disk, configures the drive geometry,
+and finally mounts it passing
+<code>mountargs</code> to <code>mount. </code>
+If no mount arguments are specified, the name of the device is
+used. If the disk is write protected, it is automatically mounted read
+only.
+
+   </body></html>
+
