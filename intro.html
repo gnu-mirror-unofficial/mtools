@@ -1,81 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--#include virtual="/server/header.html" -->
+<!-- Parent-Version: 1.79 -->
+<title>Mtools
+- GNU Project - Free Software Foundation</title>
+<!--#include virtual="/server/gnun/initial-translations-list.html" -->
+<!--#include virtual="/server/banner.html" -->
 
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rev="made" href="mailto:webmasters@gnu.org" />
-<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png" />
-<meta name="DC.title" content="gnu.org" />
+<h2 class="c">Mtools</h2>
 
-
-<title>Mtools</title>
-<style type="text/css" media="all">
-@import url('/style.css');
-</style>
-
-<style type="text/css" media="all">
-@import url('fix.css');
-</style>
-
-<style type="text/css" media="print">
-@import url('/print.css');
-</style>
-</head>
-
-<body>
-
-
- <div id="null-wrapper">
-
-      <div id="header">
-
-        <div class="inner">
-
-
-
-
-
-
-        <h1 id="logo"><a href="/">Mtools</a></h1>
-
-      </div>
-
-      </div>
-<!-- the menu -->
-<div id="navigation">
- <div class="inner">
-
-  <div id="searcher">
-
-   <form method="get" action="http://www.gnu.org/cgi-bin/estseek.cgi">
-    <div><label class="netscape4" for="phrase">Search:</label>
-     <input name="phrase" id="phrase" type="text" size="18" accesskey="s" value="" />
-     <input type="submit" value="Search" />
-    </div>
-   </form>
-  </div>
-
-  <ul>
-    <li><a href="intro.html#start">Introduction</a></li>
-    <li><a href="download.html">Downloads</a></li>
-    <li><a href="mailing.html">Mailing list/doc</a></li>
-    <li><a href="faq.html">Freq. asked questions</a></li>
-    <li><a href="3rdparty.html">3rd party software</a></li>
-  </ul>
-
-
- </div>
-</div>
-
-
-</div> <!-- menu -->
-
-<div id="content" class="inner">
-
-<a name="start"></a>
-
-<h2>Introduction</h2>
+<a id="intro"></a><h3>Introduction</h3>
 
 <p>This directory contains mtools.  Mtools is a collection of
 utilities to access MS-DOS disks from GNU and Unix without mounting
@@ -86,53 +18,155 @@ FAT-specific file attributes (hidden, system, ...), "bad block" map
 maintenance, access to remote floppy drives, Iomega ZIP disk
 protection, "secure" erase, display of file's on-disk layout, etc.</p>
 
-<img src="/phxs" width="1" height="1" alt=""/>
+<!-- <img src="/phxs" width="1" height="1" alt=""/> -->
 
-<p>Mtools' configurator file is stored in <tt>/etc/mtools.conf</tt></p>
+<p>Mtools' configurator file is stored in <code>/etc/mtools.conf</code></p>
 
-<p><a href="faq.html">Frequently asked questions</a></p>
+<div class="summary" style="width:15em; margin-top:.8em">
+<hr class="no-display" />
+<h3>Table of Contents</h3>
+<ul>
+  <li><a href="#intro">Introduction</a></li>
+  <li><a href="#downloads">Downloads</a></li>
+  <li><a href="#mailing">Mailing list</a></li>
+  <li><a href="#doc">Documentation</a></li>
+  <li><a href="faq.html#content">Frequently asked questions</a></li>
+  <li><a href="#third-party">Third-party software</a>
+    <ul>
+      <li><a href="#gui">Graphical front end</a></li>
+      <li><a href="#solaris">SCSI access for Solaris</a></li>
+    </ul>
+  </li>
+</ul>
+<hr class="no-display" />
+</div>
 
+<a id="downloads"></a><h3>Downloads</h3>
+
+<ul>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/mtools-4.0.18.tar.gz">mtools-4.0.18.tar.gz</a></li>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/mtools-4.0.18.tar.bz2">mtools-4.0.18.tar.bz2</a></li>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/mtools-4.0.18.tar.lz">mtools-4.0.18.tar.lz</a></li>
+<!-- <li><a href="mtools-4.0.18.lsm">LSM entry for mtools-4.0.18</a></li>-->
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/mtools-4.0.18-1.i386.rpm">mtools-4.0.18-1.i386.rpm (made with Fedora 9)</a></li>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/mtools-4.0.18-1.x86_64.rpm">mtools-4.0.18-1.x86_64.rpm (made with Fedora 9)</a></li>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/mtools_4.0.18_i386.deb">mtools_4.0.18_i386.deb (made with Kubuntu 9.04)</a></li>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/floppyd_4.0.18_i386.deb">floppyd_4.0.18_i386.deb (made with Kubuntu 9.04)</a></li>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/mtools_4.0.18_amd64.deb">mtools_4.0.18_amd64.deb (made with Kubuntu 9.04)</a></li>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/floppyd_4.0.18_amd64.deb">floppyd_4.0.18_amd64.deb (made with Kubuntu 9.04)</a></li>
+<li><a href="ftp://ftp.gnu.org/gnu/mtools/mtools.spec">Spec file for generating an mtools RPM (4.0.18)</a></li>
+<!-- <li><a href="mtools-4.0.18-20071226.diff.gz">mtools-4.0.18-20071226.diff.gz</a></li> -->
+<li><a href="manual/fat_size_calculation.pdf">How mtools (>= 3.9.9) calculates FAT size</a></li>
+</ul>
+
+<!--
+<p>The patches are a kind of minor releases.  They
+should always be applied to the base version (in this case 4.0.18), and
+never on top of each other. When enough changes have accumulated 4.0
+will be released.</p>
+-->
+
+
+<a id="mailing"></a><h3>Mailing list</h3>
+
+<p>There is an mtools mailing list at <a
+href="mailto:info-mtools@gnu.org">&lt;info-mtools@gnu.org&gt;</a>.  Please send all
+bug reports to this list. Note: You must be subscribed to the list in
+order to be able to send comments.</p>
+
+<p>To subscribe to these or any GNU mailing lists, please send an
+empty mail with a Subject: header of just <code>subscribe</code> to the
+relevant -request list.  For example, to subscribe yourself to the
+mtools list, you would send mail
+to <a
+href="mailto:info-mtools-request@gnu.org?Subject=subscribe">&lt;info-mtools-request@gnu.org&gt;</a>.
+Or you can use
+the <a href="http://lists.gnu.org/mailman/listinfo/info-mtools">mailing
+list web interface</a>.</p>
+
+<p>Announcements of new mtools versions will also be sent to the list.
+There also exists
+an <a href="https://lists.gnu.org/archive/html/info-mtools/">archive</a>
+of the mailing list.</p>
+
+
+<a id="doc"></a><h3>Documentation</h3>
+
+<p>A HTML version of the manual for mtools is available <a
+href="manual/mtools.html">here</a>, and a PDF version is <a
+href="manual/mtools.pdf">here</a> This manual will only be updated for major
+releases, or when there is a significant change in it.</p>
+
+
+<h3>Frequently asked questions</h3>
+
+<p>Please see the <a href="faq.html#content">dedicated page</a>.</p>
+
+
+<a id="third-party"></a><h3>Third-party software</h3>
+
+<a id="gui"></a><h4>Graphical front end</h4>
+
+<p><a href="http://www.core-coutainville.org/MToolsFM/">MtoolsFM</a> has the basic functionality of a file-manager. It makes use of mtools to
+allow an easy GUI access to dos-floppies without mounting.</p>
+
+<p>This release includes mmd / mrd support (make / remove directory),
+progress bars, an improved user interface, autoconf / automake support and lots
+of bug fixes.</p>
+
+<div style="text-align: left;">
+MToolsFM is released under the GPL and can be downloaded from the MToolsFM-homepage:<br/>
+
+<a href="http://www.core-coutainville.org/MToolsFM/">http://www.core-coutainville.org/MToolsFM/</a>
+</div>
+
+<a id="solaris"></a><h4>SCSI access for Solaris</h4>
+
+<p>PPSD is a driver for Solaris that handles embedded SCSI-2 and CCS-compatible SCSI direct access drives, a.k.a. hard disks, CD-ROM, WORM and MO drives. Unlike the default <b>sd(7d)</b> driver, it is able to access disks that don't have a SunOS/Solaris "disklabel". Hence, with this driver you no longer need to set the <b>scsi</b> flag in mtools.conf, and you no longer need to install mtools setuid-root.</p>
 
 <a style="display: none;" href="http://www.weforum.org/site/knowledgenavigator.nsf/Content/Jean%20Nassau%20Prince%20of%20Luxembourg%20">wien ass de</a>
-</div><!--content-->
 
-<div class="fullwidth"></div>
-
+</div><!-- for id="content", starts in the include above -->
+<!--#include virtual="/server/footer.html" -->
 <div id="footer">
-<p>Please send FSF &amp; GNU inquiries to 
-<a href="mailto:gnu@gnu.org"><em>gnu@gnu.org</em></a>.
-There are also <a href="/contact/">other ways to contact</a> 
-the FSF.<br />
-Please send broken links and other corrections or suggestions to
-<a href="mailto:alain@mtools.linux.lu"><em>alain@mtools.linux.lu</em></a>.</p>
+<div class="unprintable">
+
+<p>Please send general FSF &amp; GNU inquiries to
+<a href="mailto:gnu@gnu.org">&lt;gnu@gnu.org&gt;</a>.
+There are also <a href="/contact/">other ways to contact</a>
+the FSF.  Broken links and other corrections or suggestions can be sent
+to <a href="mailto:webmasters@gnu.org">&lt;webmasters@gnu.org&gt;</a>.</p>
 
 <p>Please see the <a
 href="/server/standards/README.translations.html">Translations
 README</a> for information on coordinating and submitting translations
 of this article.</p>
+</div>
 
 <p>Copyright &copy; 1997-2009 Alain Knaff, Luxembourg</p>
+<p>Copyright &copy; 2016 Free Software Foundation, Inc.</p>
 
-<p>Verbatim copying and distribution of this entire article are
-permitted worldwide, without royalty, in any medium, provided this
-notice, and the copyright notice, are preserved.</p>
+<p>This page is licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by-nd/4.0/">Creative
+Commons Attribution-NoDerivatives 4.0 International License</a>.</p>
 
-<a href="http://www.undulatus.asperatus.org.lu/"><img src="http://www.undulatus.asperatus.org.lu/undulatus-asperatus.jpg" alt="Undulatus Asperatus Clouds" width="1" height="1"/></a>
+<!--#include virtual="/server/bottom-notes.html" -->
 
-<p>Updated:
+<!-- <a href="http://www.undulatus.asperatus.org.lu/"><img src="http://www.undulatus.asperatus.org.lu/undulatus-asperatus.jpg" alt="Undulatus Asperatus Clouds" width="1" height="1"/></a> -->
+
+<p class="unprintable">Updated:
 <!-- timestamp start -->
-$Date: 2013/01/09 19:47:29 $
+$Date: 2016/05/18 17:31:59 $
 <!-- timestamp end -->
-</p>
 
-<a class="picture" href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Transitional" height="31" width="88"/></a>
+<!-- <a class="picture" href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Transitional" height="31" width="88"/></a> -->
 <br/>
-
 
 <!-- hhmts start -->Last modified: Wed Jan  9 20:25:10 CET 2013 <!-- hhmts end -->
 
-
+</p>
 </div>
-  </body>
+</div>
+</body>
 </html>
 
