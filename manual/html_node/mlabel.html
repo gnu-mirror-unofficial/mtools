@@ -1,64 +1,103 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>mlabel - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Commands.html#Commands" title="Commands">
-<link rel="prev" href="minfo.html#minfo" title="minfo">
-<link rel="next" href="mmd.html#mmd" title="mmd">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: mlabel</title>
+
+<meta name="description" content="Mtools 4.0.20: mlabel">
+<meta name="keywords" content="Mtools 4.0.20: mlabel">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Commands.html#Commands" rel="up" title="Commands">
+<link href="mmd.html#mmd" rel="next" title="mmd">
+<link href="minfo.html#minfo" rel="prev" title="minfo">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="mlabel"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="mmd.html#mmd">mmd</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="minfo.html#minfo">minfo</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
-<hr>
+Next: <a href="mmd.html#mmd" accesskey="n" rel="next">mmd</a>, Previous: <a href="minfo.html#minfo" accesskey="p" rel="prev">minfo</a>, Up: <a href="Commands.html#Commands" accesskey="u" rel="up">Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Mlabel"></a>
 <h3 class="section">4.16 Mlabel</h3>
+<a name="index-mlabel"></a>
+<a name="index-Labeling-a-disk"></a>
+<a name="index-Disk-label"></a>
 
-<p><a name="index-mlabel-193"></a><a name="index-Labeling-a-disk-194"></a><a name="index-Disk-label-195"></a>
-The <code>mlabel</code> command adds a volume label to a disk. Its syntax is:
-<pre class="display">     <code>mlabel</code> [<code>-vcsn</code>] [<code>-N</code> <var>serial</var>] <var>drive</var>:[<var>new_label</var>]
-</pre>
-   <p><code>Mlabel</code> displays the current volume label, if present. If
+<p>The <code>mlabel</code> command adds a volume label to a disk. Its syntax is:
+</p><div class="display">
+<pre class="display"><code>mlabel</code> [<code>-vcsn</code>] [<code>-N</code> <var>serial</var>] <var>drive</var>:[<var>new_label</var>]
+</pre></div>
+
+<p><code>Mlabel</code> displays the current volume label, if present. If
 <var>new_label</var> is not given, and if neither the <code>c</code> nor the
-<code>s</code> options are set, it prompts the user for a new volume label. 
+<code>s</code> options are set, it prompts the user for a new volume label.
 To delete an existing volume label, press return at the prompt.
-
-   <p>The label is limited to 11 single-byte characters,
+</p>
+<p>The label is limited to 11 single-byte characters,
 e.g. <code>Name1234567</code>.
-
-   <p>Reasonable care is taken to create a valid MS-DOS volume label.  If an
+</p>
+<p>Reasonable care is taken to create a valid MS-DOS volume label.  If an
 invalid label is specified, <code>mlabel</code> changes the label (and
 displays the new label if the verbose mode is set). <code>Mlabel</code>
 returns 0 on success or 1 on failure.
-
-   <p>Mlabel supports the following options:
-     <dl>
-<dt><code>c</code><dd>Clears an existing label, without prompting the user
-<br><dt><code>s</code><dd>Shows the existing label, without prompting the user. 
-<br><dt><code>n</code><dd>Assigns a new (random) serial number to the disk
-<br><dt><code>N </code><var>serial</var><dd>Sets the supplied serial number. The serial number should be supplied as
+</p>
+<p>Mlabel supports the following options:
+</p><dl compact="compact">
+<dt><code>c</code></dt>
+<dd><p>Clears an existing label, without prompting the user
+</p></dd>
+<dt><code>s</code></dt>
+<dd><p>Shows the existing label, without prompting the user.
+</p></dd>
+<dt><code>n</code></dt>
+<dd><p>Assigns a new (random) serial number to the disk
+</p></dd>
+<dt><code>N <var>serial</var></code></dt>
+<dd><p>Sets the supplied serial number. The serial number should be supplied as
 an 8 digit hexadecimal number, without spaces
+</p></dd>
 </dl>
 
-   </body></html>
 
+
+
+
+</body>
+</html>

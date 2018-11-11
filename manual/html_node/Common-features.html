@@ -1,51 +1,87 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Common features - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="prev" href="Location.html#Location" title="Location">
-<link rel="next" href="Configuration.html#Configuration" title="Configuration">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
-</head>
-<body>
-<div class="node">
-<a name="Common-features"></a>
-<p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Configuration.html#Configuration">Configuration</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Location.html#Location">Location</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr>
-</div>
+<title>Mtools 4.0.20: Common features</title>
 
+<meta name="description" content="Mtools 4.0.20: Common features">
+<meta name="keywords" content="Mtools 4.0.20: Common features">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="arguments.html#arguments" rel="next" title="arguments">
+<link href="Location.html#Location" rel="prev" title="Location">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a name="Common-features"></a>
+<div class="header">
+<p>
+Next: <a href="Configuration.html#Configuration" accesskey="n" rel="next">Configuration</a>, Previous: <a href="Location.html#Location" accesskey="p" rel="prev">Location</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Common-features-of-all-mtools-commands"></a>
 <h2 class="chapter">2 Common features of all mtools commands</h2>
 
-<ul class="menu">
-<li><a accesskey="1" href="arguments.html#arguments">arguments</a>:               What the command line parameters of mtools
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="arguments.html#arguments" accesskey="1">arguments</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What the command line parameters of mtools
                            mean
-<li><a accesskey="2" href="drive-letters.html#drive-letters">drive letters</a>:           Which drives are defined by default
-<li><a accesskey="3" href="directory.html#directory">directory</a>:               Current working directory
-<li><a accesskey="4" href="long-names.html#long-names">long names</a>:              VFAT-style long filenames
-<li><a accesskey="5" href="name-clashes.html#name-clashes">name clashes</a>:            Name clash handling, and associated command
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="drive-letters.html#drive-letters" accesskey="2">drive letters</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Which drives are defined by default
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="directory.html#directory" accesskey="3">directory</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Current working directory
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="long-names.html#long-names" accesskey="4">long names</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">VFAT-style long filenames
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="name-clashes.html#name-clashes" accesskey="5">name clashes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Name clash handling, and associated command
                            line options
-<li><a accesskey="6" href="case-sensitivity.html#case-sensitivity">case sensitivity</a>:        Case sensitivity
-<li><a accesskey="7" href="high-capacity-formats.html#high-capacity-formats">high capacity formats</a>:   How to fit more data on your floppies
-<li><a accesskey="8" href="exit-codes.html#exit-codes">exit codes</a>:              Exit codes
-<li><a accesskey="9" href="bugs.html#bugs">bugs</a>:                    Happens to everybody
-</ul>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="case-sensitivity.html#case-sensitivity" accesskey="6">case sensitivity</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Case sensitivity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="high-capacity-formats.html#high-capacity-formats" accesskey="7">high capacity formats</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to fit more data on your floppies
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="exit-codes.html#exit-codes" accesskey="8">exit codes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Exit codes
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="bugs.html#bugs" accesskey="9">bugs</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Happens to everybody
+</td></tr>
+</table>
 
-</body></html>
 
+
+
+</body>
+</html>

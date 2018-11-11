@@ -1,61 +1,98 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>high capacity formats - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Common-features.html#Common-features" title="Common features">
-<link rel="prev" href="case-sensitivity.html#case-sensitivity" title="case sensitivity">
-<link rel="next" href="exit-codes.html#exit-codes" title="exit codes">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: high capacity formats</title>
+
+<meta name="description" content="Mtools 4.0.20: high capacity formats">
+<meta name="keywords" content="Mtools 4.0.20: high capacity formats">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Common-features.html#Common-features" rel="up" title="Common features">
+<link href="more-sectors.html#more-sectors" rel="next" title="more sectors">
+<link href="case-sensitivity.html#case-sensitivity" rel="prev" title="case sensitivity">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="high-capacity-formats"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="exit-codes.html#exit-codes">exit codes</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="case-sensitivity.html#case-sensitivity">case sensitivity</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Common-features.html#Common-features">Common features</a>
-<hr>
+Next: <a href="exit-codes.html#exit-codes" accesskey="n" rel="next">exit codes</a>, Previous: <a href="case-sensitivity.html#case-sensitivity" accesskey="p" rel="prev">case sensitivity</a>, Up: <a href="Common-features.html#Common-features" accesskey="u" rel="up">Common features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="high-capacity-formats-1"></a>
 <h3 class="section">2.7 high capacity formats</h3>
+<a name="index-Special-formats"></a>
+<a name="index-High-capacity-formats"></a>
+<a name="index-Odd-formats"></a>
+<a name="index-Weird-formats"></a>
+<a name="index-Formats_002c-high-capacity"></a>
+<a name="index-Linux-enhancements-_0028High-Capacity-Formats_0029"></a>
 
-<p><a name="index-Special-formats-24"></a><a name="index-High-capacity-formats-25"></a><a name="index-Odd-formats-26"></a><a name="index-Weird-formats-27"></a><a name="index-Formats_002c-high-capacity-28"></a><a name="index-Linux-enhancements-_0028High-Capacity-Formats_0029-29"></a>
-Mtools supports a number of formats which allow to store more data on
+<p>Mtools supports a number of formats which allow to store more data on
 disk as usual. Due to different operating system abilities, these
 formats are not supported on all operating systems. Mtools recognizes
 these formats transparently where supported.
-
-   <p>In order to format these disks, you need to use an operating system
+</p>
+<p>In order to format these disks, you need to use an operating system
 specific tool. For Linux, suitable floppy tools can be found in the
 <code>fdutils</code> package at the following locations~:
-<pre class="example">     <code>ftp://www.tux.org/pub/knaff/fdutils/</code>.
-     <code>ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/fdutils-*</code>
-</pre>
-   <p>See the manual pages included in that package for further detail: Use
+</p><div class="example">
+<pre class="example"><code>ftp://www.tux.org/pub/knaff/fdutils/</code>.
+<code>ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/fdutils-*</code>
+</pre></div>
+
+<p>See the manual pages included in that package for further detail: Use
 <code>superformat</code> to format all formats except XDF, and use
 <code>xdfcopy</code> to format XDF.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="more-sectors.html#more-sectors" accesskey="1">more sectors</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Putting more sectors per track on the disk
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="bigger-sectors.html#bigger-sectors" accesskey="2">bigger sectors</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Use bigger sectors to save header space
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="2m.html#g_t2m" accesskey="3">2m</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Use a standard first track
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="XDF.html#XDF" accesskey="4">XDF</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">OS/2&rsquo;s eXtended density format
+</td></tr>
+</table>
 
-<ul class="menu">
-<li><a accesskey="1" href="more-sectors.html#more-sectors">more sectors</a>:       Putting more sectors per track on the disk
-<li><a accesskey="2" href="bigger-sectors.html#bigger-sectors">bigger sectors</a>:     Use bigger sectors to save header space
-<li><a accesskey="3" href="2m.html#g_t2m">2m</a>:                 Use a standard first track
-<li><a accesskey="4" href="XDF.html#XDF">XDF</a>:                OS/2's eXtended density format
-</ul>
 
-   </body></html>
 
+
+</body>
+</html>

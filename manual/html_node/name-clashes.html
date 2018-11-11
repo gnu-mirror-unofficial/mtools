@@ -1,90 +1,153 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>name clashes - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Common-features.html#Common-features" title="Common features">
-<link rel="prev" href="long-names.html#long-names" title="long names">
-<link rel="next" href="case-sensitivity.html#case-sensitivity" title="case sensitivity">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: name clashes</title>
+
+<meta name="description" content="Mtools 4.0.20: name clashes">
+<meta name="keywords" content="Mtools 4.0.20: name clashes">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Common-features.html#Common-features" rel="up" title="Common features">
+<link href="case-sensitivity.html#case-sensitivity" rel="next" title="case sensitivity">
+<link href="long-names.html#long-names" rel="prev" title="long names">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="name-clashes"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="case-sensitivity.html#case-sensitivity">case sensitivity</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="long-names.html#long-names">long names</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Common-features.html#Common-features">Common features</a>
-<hr>
+Next: <a href="case-sensitivity.html#case-sensitivity" accesskey="n" rel="next">case sensitivity</a>, Previous: <a href="long-names.html#long-names" accesskey="p" rel="prev">long names</a>, Up: <a href="Common-features.html#Common-features" accesskey="u" rel="up">Common features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Name-clashes"></a>
 <h3 class="section">2.5 Name clashes</h3>
+<a name="index-Name-clashes"></a>
+<a name="index-Duplicate-file-names"></a>
+<a name="index-Overwriting-files"></a>
+<a name="index-Primary-file-name-_0028name-clashes_0029"></a>
+<a name="index-Secondary-file-name-_0028name-clashes_0029"></a>
 
-<p><a name="index-Name-clashes-18"></a><a name="index-Duplicate-file-names-19"></a><a name="index-Overwriting-files-20"></a><a name="index-Primary-file-name-_0028name-clashes_0029-21"></a><a name="index-Secondary-file-name-_0028name-clashes_0029-22"></a>
-When writing a file to disk, its long name or short name may collide
+<p>When writing a file to disk, its long name or short name may collide
 with an already existing file or directory. This may happen for all
 commands which create new directory entries, such as <code>mcopy</code>,
 <code>mmd</code>, <code>mren</code>, <code>mmove</code>. When a name clash happens, mtools
 asks you what it should do. It offers several choices:
-
-     <dl>
-<dt><code>overwrite</code><dd>Overwrites the existing file. It is not possible to overwrite a
-directory with a file. 
-<br><dt><code>rename</code><dd>Renames the newly created file. Mtools prompts for the new filename
-<br><dt><code>autorename</code><dd>Renames the newly created file. Mtools chooses a name by itself, without
+</p>
+<dl compact="compact">
+<dt><code>overwrite</code></dt>
+<dd><p>Overwrites the existing file. It is not possible to overwrite a
+directory with a file.
+</p></dd>
+<dt><code>rename</code></dt>
+<dd><p>Renames the newly created file. Mtools prompts for the new filename
+</p></dd>
+<dt><code>autorename</code></dt>
+<dd><p>Renames the newly created file. Mtools chooses a name by itself, without
 prompting
-<br><dt><code>skip</code><dd>Gives up on this file, and moves on to the next (if any)
+</p></dd>
+<dt><code>skip</code></dt>
+<dd><p>Gives up on this file, and moves on to the next (if any)
+</p></dd>
 </dl>
 
-   <p>To chose one of these actions, type its first letter at the prompt. If
+<p>To chose one of these actions, type its first letter at the prompt. If
 you use a lower case letter, the action only applies for this file only,
 if you use an upper case letter, the action applies to all files, and
-you won't be prompted again.
-
-   <p>You may also chose actions (for all files) on the command line, when
+you won&rsquo;t be prompted again.
+</p>
+<p>You may also chose actions (for all files) on the command line, when
 invoking mtools:
-
-     <dl>
-<dt><code>-D o</code><dd>Overwrites primary names by default. 
-<br><dt><code>-D O</code><dd>Overwrites secondary names by default. 
-<br><dt><code>-D r</code><dd>Renames primary name by default. 
-<br><dt><code>-D R</code><dd>Renames secondary name by default. 
-<br><dt><code>-D a</code><dd>Autorenames primary name by default. 
-<br><dt><code>-D A</code><dd>Autorenames secondary name by default. 
-<br><dt><code>-D s</code><dd>Skip primary name by default. 
-<br><dt><code>-D S</code><dd>Skip secondary name by default. 
-<br><dt><code>-D m</code><dd>Ask user what to do with primary name. 
-<br><dt><code>-D M</code><dd>Ask user what to do with secondary name. 
+</p>
+<dl compact="compact">
+<dt><code>-D o</code></dt>
+<dd><p>Overwrites primary names by default.
+</p></dd>
+<dt><code>-D O</code></dt>
+<dd><p>Overwrites secondary names by default.
+</p></dd>
+<dt><code>-D r</code></dt>
+<dd><p>Renames primary name by default.
+</p></dd>
+<dt><code>-D R</code></dt>
+<dd><p>Renames secondary name by default.
+</p></dd>
+<dt><code>-D a</code></dt>
+<dd><p>Autorenames primary name by default.
+</p></dd>
+<dt><code>-D A</code></dt>
+<dd><p>Autorenames secondary name by default.
+</p></dd>
+<dt><code>-D s</code></dt>
+<dd><p>Skip primary name by default.
+</p></dd>
+<dt><code>-D S</code></dt>
+<dd><p>Skip secondary name by default.
+</p></dd>
+<dt><code>-D m</code></dt>
+<dd><p>Ask user what to do with primary name.
+</p></dd>
+<dt><code>-D M</code></dt>
+<dd><p>Ask user what to do with secondary name.
+</p></dd>
 </dl>
 
-   <p>Note that for command line switches lower/upper differentiates between
+<p>Note that for command line switches lower/upper differentiates between
 primary/secondary name whereas for interactive choices, lower/upper
 differentiates between just-this-time/always.
-
-   <p>The primary name is the name as displayed in Windows 95 or Windows NT:
+</p>
+<p>The primary name is the name as displayed in Windows 95 or Windows NT:
 i.e. the long name if it exists, and the short name otherwise.  The
-secondary name is the "hidden" name, i.e. the short name if a long name
+secondary name is the &quot;hidden&quot; name, i.e. the short name if a long name
 exists.
-
-   <p>By default, the user is prompted if the primary name clashes, and the
+</p>
+<p>By default, the user is prompted if the primary name clashes, and the
 secondary name is autorenamed.
-
-   <p>If a name clash occurs in a Unix directory, mtools only asks whether
+</p>
+<p>If a name clash occurs in a Unix directory, mtools only asks whether
 to overwrite the file, or to skip it.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="case-sensitivity.html#case-sensitivity" accesskey="n" rel="next">case sensitivity</a>, Previous: <a href="long-names.html#long-names" accesskey="p" rel="prev">long names</a>, Up: <a href="Common-features.html#Common-features" accesskey="u" rel="up">Common features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
-   </body></html>
 
+
+</body>
+</html>

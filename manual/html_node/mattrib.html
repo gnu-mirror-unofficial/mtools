@@ -1,76 +1,126 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>mattrib - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Commands.html#Commands" title="Commands">
-<link rel="prev" href="floppyd_005finstalltest.html#floppyd_005finstalltest" title="floppyd_installtest">
-<link rel="next" href="mbadblocks.html#mbadblocks" title="mbadblocks">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: mattrib</title>
+
+<meta name="description" content="Mtools 4.0.20: mattrib">
+<meta name="keywords" content="Mtools 4.0.20: mattrib">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Commands.html#Commands" rel="up" title="Commands">
+<link href="mbadblocks.html#mbadblocks" rel="next" title="mbadblocks">
+<link href="floppyd_005finstalltest.html#floppyd_005finstalltest" rel="prev" title="floppyd_installtest">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="mattrib"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="mbadblocks.html#mbadblocks">mbadblocks</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="floppyd_005finstalltest.html#floppyd_005finstalltest">floppyd_installtest</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
-<hr>
+Next: <a href="mbadblocks.html#mbadblocks" accesskey="n" rel="next">mbadblocks</a>, Previous: <a href="floppyd_005finstalltest.html#floppyd_005finstalltest" accesskey="p" rel="prev">floppyd_installtest</a>, Up: <a href="Commands.html#Commands" accesskey="u" rel="up">Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Mattrib"></a>
 <h3 class="section">4.3 Mattrib</h3>
+<a name="index-mattrib"></a>
+<a name="index-Changing-file-attributes"></a>
+<a name="index-Hidden-files"></a>
+<a name="index-Read_002donly-files-_0028changing-the-attribute_0029"></a>
+<a name="index-System-files"></a>
+<a name="index-Archive-bit"></a>
 
-<p><a name="index-mattrib-136"></a><a name="index-Changing-file-attributes-137"></a><a name="index-Hidden-files-138"></a><a name="index-Read_002donly-files-_0028changing-the-attribute_0029-139"></a><a name="index-System-files-140"></a><a name="index-Archive-bit-141"></a>
-<code>Mattrib</code> is used to change MS-DOS file attribute flags. It has the
+<p><code>Mattrib</code> is used to change MS-DOS file attribute flags. It has the
 following syntax:
-
-   <p><code>mattrib</code> [<code>-a|+a</code>] [<code>-h|+h</code>] [<code>-r|+r</code>]
-[<code>-s|+s</code>] [<code>-/</code>]  [<code>-p</code>] [<code>-X</code>] <var>msdosfile</var> [ <var>msdosfiles</var> <small class="dots">...</small> ]
-
-   <p><code>Mattrib</code> adds attribute flags to an MS-DOS file (with the
-`<code>+</code>' operator) or remove attribute flags (with the `<code>-</code>'
+</p>
+<p><code>mattrib</code> [<code>-a|+a</code>] [<code>-h|+h</code>] [<code>-r|+r</code>]
+[<code>-s|+s</code>] [<code>-/</code>]  [<code>-p</code>] [<code>-X</code>] <var>msdosfile</var> [ <var>msdosfiles</var> &hellip; ]
+</p>
+<p><code>Mattrib</code> adds attribute flags to an MS-DOS file (with the
+&lsquo;<code>+</code>&rsquo; operator) or remove attribute flags (with the &lsquo;<code>-</code>&rsquo;
 operator).
-
-   <p><code>Mattrib</code> supports the following attribute bits:
-
-     <dl>
-<dt><code>a</code><dd>Archive bit.  Used by some backup programs to indicate a new file. 
-<br><dt><code>r</code><dd>Read-only bit.  Used to indicate a read-only file.  Files with this bit
-set cannot be erased by <code>DEL</code> nor modified. 
-<br><dt><code>s</code><dd>System bit.  Used by MS-DOS to indicate a operating system file. 
-<br><dt><code>h</code><dd>Hidden bit.  Used to make files hidden from <code>DIR</code>. 
+</p>
+<p><code>Mattrib</code> supports the following attribute bits:
+</p>
+<dl compact="compact">
+<dt><code>a</code></dt>
+<dd><p>Archive bit.  Used by some backup programs to indicate a new file.
+</p></dd>
+<dt><code>r</code></dt>
+<dd><p>Read-only bit.  Used to indicate a read-only file.  Files with this bit
+set cannot be erased by <code>DEL</code> nor modified.
+</p></dd>
+<dt><code>s</code></dt>
+<dd><p>System bit.  Used by MS-DOS to indicate a operating system file.
+</p></dd>
+<dt><code>h</code></dt>
+<dd><p>Hidden bit.  Used to make files hidden from <code>DIR</code>.
+</p></dd>
 </dl>
 
-   <p><code>Mattrib</code> supports the following command line flags:
-     <dl>
-<dt><code>/</code><dd>Recursive.  Recursively list the attributes of the files in the subdirectories. 
-<br><dt><code>X</code><dd>Concise. Prints the attributes without any whitespace padding.  If
-neither the "/" option is given, nor the <var>msdosfile</var> contains a
+<p><code>Mattrib</code> supports the following command line flags:
+</p><dl compact="compact">
+<dt><code>/</code></dt>
+<dd><p>Recursive.  Recursively list the attributes of the files in the subdirectories.
+</p></dd>
+<dt><code>X</code></dt>
+<dd><p>Concise. Prints the attributes without any whitespace padding.  If
+neither the &quot;/&quot; option is given, nor the <var>msdosfile</var> contains a
 wildcard, and there is only one MS-DOS file parameter on the command
 line, only the attribute is printed, and not the filename.  This option
 is convenient for scripts
-<br><dt><code>p</code><dd>Replay mode.  Outputs a series of mformat commands that will reproduce
+</p></dd>
+<dt><code>p</code></dt>
+<dd><p>Replay mode.  Outputs a series of mformat commands that will reproduce
 the current situation, starting from a situation as left by untarring
 the MS-DOS file system.  Commands are only output for attribute settings
 that differ from the default (archive bit set for files, unset for
 directories).  This option is intended to be used in addition to
 tar. The <code>readonly</code> attribute is not taken into account, as tar can
-set that one itself. 
+set that one itself.
+</p></dd>
 </dl>
 
-   </body></html>
+<hr>
+<div class="header">
+<p>
+Next: <a href="mbadblocks.html#mbadblocks" accesskey="n" rel="next">mbadblocks</a>, Previous: <a href="floppyd_005finstalltest.html#floppyd_005finstalltest" accesskey="p" rel="prev">floppyd_installtest</a>, Up: <a href="Commands.html#Commands" accesskey="u" rel="up">Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
+
+
+</body>
+</html>

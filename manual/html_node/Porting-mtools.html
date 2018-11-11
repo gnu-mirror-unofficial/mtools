@@ -1,164 +1,253 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Porting mtools - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="prev" href="Compiling-mtools.html#Compiling-mtools" title="Compiling mtools">
-<link rel="next" href="Command-Index.html#Command-Index" title="Command Index">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: Porting mtools</title>
+
+<meta name="description" content="Mtools 4.0.20: Porting mtools">
+<meta name="keywords" content="Mtools 4.0.20: Porting mtools">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Command-Index.html#Command-Index" rel="next" title="Command Index">
+<link href="Compiling-mtools.html#Compiling-mtools" rel="prev" title="Compiling mtools">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="Porting-mtools"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Command-Index.html#Command-Index">Command Index</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Compiling-mtools.html#Compiling-mtools">Compiling mtools</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr>
+Next: <a href="Command-Index.html#Command-Index" accesskey="n" rel="next">Command Index</a>, Previous: <a href="Compiling-mtools.html#Compiling-mtools" accesskey="p" rel="prev">Compiling mtools</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Porting-mtools-to-architectures-which-are-not-supported-yet"></a>
 <h2 class="chapter">6 Porting mtools to architectures which are not supported yet</h2>
+<a name="index-Porting"></a>
+<a name="index-Compiled_002din-defaults"></a>
 
-<p><a name="index-Porting-242"></a><a name="index-Compiled_002din-defaults-243"></a>
- This chapter is only interesting for those who want to port mtools to
+<p>This chapter is only interesting for those who want to port mtools to
 an architecture which is not yet supported. For most common systems,
 default drives are already defined. If you want to add default drives
 for a still unsupported system, run configuration.guess, to see which
 identification autoconf uses for that system. This identification is
 of the form cpu-vendor-os (for example sparc-sun-sunos). The cpu and
-the OS parts are passed to the compiler as preprocessor flags. 
+the OS parts are passed to the compiler as preprocessor flags.
  The OS part is passed to the compiler in three forms.
-     <ol type=1 start=1>
-<li>The complete OS name, with dots replaced by underscores.  SCO3.2v2 would
+</p><ol>
+<li> The complete OS name, with dots replaced by underscores.  SCO3.2v2 would
 yield sco3_2v2
-<li>The base OS name. SCO3.2v2 would yield Sco
-<li>The base OS name plus its major version. SCO3.2v2 would yield Sco3
-        </ol>
+</li><li> The base OS name. SCO3.2v2 would yield Sco
+</li><li> The base OS name plus its major version. SCO3.2v2 would yield Sco3
+</li></ol>
 
-   <p>All three versions are passed, if they are different.
-
-   <p>To define the devices, use the entries for the systems that are already
+<p>All three versions are passed, if they are different.
+</p>
+<p>To define the devices, use the entries for the systems that are already
 present as templates. In general, they have the following form:
+</p>
+<div class="example">
+<pre class="example">#if (defined (my_cpu) &amp;&amp; defined(my_os))
+#define predefined_devices
+struct device devices[] = {
+        { &quot;/dev/first_drive&quot;, 'drive_letter', drive_description},
+        &hellip; 
+        { &quot;/dev/last_drive&quot;, 'drive_letter', drive_description}
+}
+#define INIT_NOOP
+#endif
+</pre></div>
 
-<pre class="example">     #if (defined (my_cpu) &amp;&amp; defined(my_os))
-     #define predefined_devices
-     struct device devices[] = {
-             { "/dev/first_drive", 'drive_letter', drive_description},
-             ...
-             { "/dev/last_drive", 'drive_letter', drive_description}
-     }
-     #define INIT_NOOP
-     #endif
-</pre>
-   <p>"/dev/first_drive" is the name of the device or image file
+<p>&quot;/dev/first_drive&quot; is the name of the device or image file
 representing the drive. Drive_letter is a letter ranging from a to z
 giving access to the drive. Drive_description describes the type of the
 drive:
-     <dl>
-<dt><code>ED312</code><dd>extra density (2.88M) 3 1/2 disk
-<br><dt><code>HD312</code><dd>high density 3 1/2 disk
-<br><dt><code>DD312</code><dd>double density 3 1/2 disk
-<br><dt><code>HD514</code><dd>high density 5 1/4 disk
-<br><dt><code>DD514</code><dd>double density 5 1/4 disk
-<br><dt><code>DDsmall</code><dd>8 sector double density 5 1/4 disk
-<br><dt><code>SS514</code><dd>single sided double density 5 1/4 disk
-<br><dt><code>SSsmall</code><dd>single sided 8 sector double density 5 1/4 disk
-<br><dt><code>GENFD</code><dd>generic floppy drive (12 bit FAT)
-<br><dt><code>GENHD</code><dd>generic hard disk (16 bit FAT)
-<br><dt><code>GEN</code><dd>generic device (all parameters match)
-<br><dt><code>ZIPJAZ(flags)</code><dd>generic ZIP drive using normal access. This uses partition 4. 
-<code>Flags</code> are any special flags to be passed to open. 
-<br><dt><code>RZIPJAZ(flags)</code><dd>generic ZIP drive using raw SCSI access. This uses partition 4. 
-<code>Flags</code> are any special flags to be passed to open. 
-<br><dt><code>REMOTE</code><dd>the remote drive used for floppyd.  Unlike the other items, this macro
+</p><dl compact="compact">
+<dt><code>ED312</code></dt>
+<dd><p>extra density (2.88M) 3 1/2 disk
+</p></dd>
+<dt><code>HD312</code></dt>
+<dd><p>high density 3 1/2 disk
+</p></dd>
+<dt><code>DD312</code></dt>
+<dd><p>double density 3 1/2 disk
+</p></dd>
+<dt><code>HD514</code></dt>
+<dd><p>high density 5 1/4 disk
+</p></dd>
+<dt><code>DD514</code></dt>
+<dd><p>double density 5 1/4 disk
+</p></dd>
+<dt><code>DDsmall</code></dt>
+<dd><p>8 sector double density 5 1/4 disk
+</p></dd>
+<dt><code>SS514</code></dt>
+<dd><p>single sided double density 5 1/4 disk
+</p></dd>
+<dt><code>SSsmall</code></dt>
+<dd><p>single sided 8 sector double density 5 1/4 disk
+</p></dd>
+<dt><code>GENFD</code></dt>
+<dd><p>generic floppy drive (12 bit FAT)
+</p></dd>
+<dt><code>GENHD</code></dt>
+<dd><p>generic hard disk (16 bit FAT)
+</p></dd>
+<dt><code>GEN</code></dt>
+<dd><p>generic device (all parameters match)
+</p></dd>
+<dt><code>ZIPJAZ(flags)</code></dt>
+<dd><p>generic ZIP drive using normal access. This uses partition 4.
+<code>Flags</code> are any special flags to be passed to open.
+</p></dd>
+<dt><code>RZIPJAZ(flags)</code></dt>
+<dd><p>generic ZIP drive using raw SCSI access. This uses partition 4.
+<code>Flags</code> are any special flags to be passed to open.
+</p></dd>
+<dt><code>REMOTE</code></dt>
+<dd><p>the remote drive used for floppyd.  Unlike the other items, this macro
 also includes the file name ($DISPLAY) and the drive letter (X)
+</p></dd>
 </dl>
 
-   <p>Entries may be described in more detail:
-<pre class="example">      fat_bits,open_flags,cylinders,heads,sectors,DEF_ARG
-</pre>
-   <p>or, if you need to describe an offset (file system doesn't start at
+<p>Entries may be described in more detail:
+</p><div class="example">
+<pre class="example"> fat_bits,open_flags,cylinders,heads,sectors,DEF_ARG
+</pre></div>
+<p>or, if you need to describe an offset (file system doesn&rsquo;t start at
 beginning of file system)
-<pre class="example">      fat_bits, open_flags, cylinders, heads, sectors, offset, DEF_ARG0
-</pre>
-     <dl>
-<dt><code>fat_bits</code><dd>is either 12, 16 or 0. 0 means that the device accepts both types of
-FAT. 
-<br><dt><code>open_flags</code><dd>may include flags such as O_NDELAY, or O_RDONLY, which might be
-necessary to open the device. 0 means no special flags are needed. 
-<br><dt><code>cylinders,heads,sectors</code><dd>describe the geometry of the disk. If cylinders is 0, the heads and sectors
-parameters are ignored, and the drive accepts any geometry. 
-<br><dt><code>offset</code><dd>is used if the DOS file system doesn't begin at the start of the device
+</p><div class="example">
+<pre class="example"> fat_bits, open_flags, cylinders, heads, sectors, offset, DEF_ARG0
+</pre></div>
+
+<dl compact="compact">
+<dt><code>fat_bits</code></dt>
+<dd><p>is either 12, 16 or 0. 0 means that the device accepts both types of
+FAT.
+</p></dd>
+<dt><code>open_flags</code></dt>
+<dd><p>may include flags such as O_NDELAY, or O_RDONLY, which might be
+necessary to open the device. 0 means no special flags are needed.
+</p></dd>
+<dt><code>cylinders,heads,sectors</code></dt>
+<dd><p>describe the geometry of the disk. If cylinders is 0, the heads and sectors
+parameters are ignored, and the drive accepts any geometry.
+</p></dd>
+<dt><code>offset</code></dt>
+<dd><p>is used if the DOS file system doesn&rsquo;t begin at the start of the device
 or image file. This is mostly useful for Atari Ram disks (which contain
 their device driver at the beginning of the file) or for DOS emulator
-images (which may represent a partitioned device. 
+images (which may represent a partitioned device.
+</p></dd>
 </dl>
 
-   <p>Definition of defaults in the devices file should only be done if these
+<p>Definition of defaults in the devices file should only be done if these
 same devices are found on a large number of hosts of this type. In that
 case, could you also let me know about your new definitions, so that I
 can include them into the next release.  For purely local file, I
 recommend that you use the <code>/etc/mtools.conf</code> and
 <code>~/.mtoolsrc</code> configuration files.
-
-   <p>However, the devices files also allows to supply geometry setting
+</p>
+<p>However, the devices files also allows to supply geometry setting
 routines. These are necessary if you want to access high capacity
 disks.
+</p>
+<p>Two routines should be supplied:
+</p>
+<ol>
+<li> Reading the current parameters
+<div class="example">
+<pre class="example">static inline int get_parameters(int fd, struct generic_floppy_struct *floppy)
+</pre></div>
 
-   <p>Two routines should be supplied:
-
-     <ol type=1 start=1>
-<li>Reading the current parameters
-     <pre class="example">          static inline int get_parameters(int fd, struct generic_floppy_struct *floppy)
-</pre>
-     <p>This probes the current configured geometry, and return it in
-the structure generic_floppy_struct (which must also be declared). 
+<p>This probes the current configured geometry, and return it in
+the structure generic_floppy_struct (which must also be declared).
  Fd is an open file descriptor for the device, and buf is an already
-filled in stat structure, which may be useful. 
+filled in stat structure, which may be useful.
  This routine should return 1 if the probing fails, and 0 otherwise.
-
-     <li>Setting new parameters
-     <pre class="example">          static inline int set_parameters(int fd, struct generic_floppy_struct *floppy)
-                                           struct stat *buf)
-</pre>
-     <p>This configures the geometry contained in floppy on the file descriptor
+</p>
+</li><li> Setting new parameters
+<div class="example">
+<pre class="example">static inline int set_parameters(int fd, struct generic_floppy_struct *floppy)
+                                 struct stat *buf)
+</pre></div>
+<p>This configures the geometry contained in floppy on the file descriptor
 fd. Buf is the result of a stat call (already filled in).  This should
 return 1 if the new geometry cannot be configured, and 0 otherwise.
-        </ol>
+</p></li></ol>
 
-   <p>A certain number of preprocessor macros should also be supplied:
-
-     <dl>
-<dt><code>TRACKS(floppy)</code><dd>refers to the track field in the floppy structure
-<br><dt><code>HEADS(floppy)</code><dd>refers to the heads field in the floppy structure
-<br><dt><code>SECTORS(floppy)</code><dd>refers to the sectors per track field in the floppy structure
-<br><dt><code>SECTORS_PER_DISK(floppy)</code><dd>refers to the sectors per disk field in the floppy structure (if
+<p>A certain number of preprocessor macros should also be supplied:
+</p>
+<dl compact="compact">
+<dt><code>TRACKS(floppy)</code></dt>
+<dd><p>refers to the track field in the floppy structure
+</p></dd>
+<dt><code>HEADS(floppy)</code></dt>
+<dd><p>refers to the heads field in the floppy structure
+</p></dd>
+<dt><code>SECTORS(floppy)</code></dt>
+<dd><p>refers to the sectors per track field in the floppy structure
+</p></dd>
+<dt><code>SECTORS_PER_DISK(floppy)</code></dt>
+<dd><p>refers to the sectors per disk field in the floppy structure (if
 applicable, otherwise leave undefined)
-
-     <br><dt><code>BLOCK_MAJOR</code><dd>major number of the floppy device, when viewed as a block device
-
-     <br><dt><code>CHAR_MAJOR</code><dd>major number of the floppy device, when viewed as a character device
-(a.k.a. "raw" device, used for fsck) (leave this undefined, if your OS
-doesn't have raw devices)
+</p>
+</dd>
+<dt><code>BLOCK_MAJOR</code></dt>
+<dd><p>major number of the floppy device, when viewed as a block device
+</p>
+</dd>
+<dt><code>CHAR_MAJOR</code></dt>
+<dd><p>major number of the floppy device, when viewed as a character device
+(a.k.a. &quot;raw&quot; device, used for fsck) (leave this undefined, if your OS
+doesn&rsquo;t have raw devices)
+</p></dd>
 </dl>
 
-   <p>For the truly high capacity formats (XDF, 2m, etc), there is no clean
+<p>For the truly high capacity formats (XDF, 2m, etc), there is no clean
 and documented interface yet.
+</p>
 
-<!-- MANskip 1 -->
-   </body></html>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Command-Index.html#Command-Index" accesskey="n" rel="next">Command Index</a>, Previous: <a href="Compiling-mtools.html#Compiling-mtools" accesskey="p" rel="prev">Compiling mtools</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
+
+
+</body>
+</html>

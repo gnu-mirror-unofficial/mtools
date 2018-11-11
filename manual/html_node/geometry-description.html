@@ -1,121 +1,185 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>geometry description - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
-<link rel="prev" href="location-information.html#location-information" title="location information">
-<link rel="next" href="open-flags.html#open-flags" title="open flags">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: geometry description</title>
+
+<meta name="description" content="Mtools 4.0.20: geometry description">
+<meta name="keywords" content="Mtools 4.0.20: geometry description">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="per-drive-variables.html#per-drive-variables" rel="up" title="per drive variables">
+<link href="open-flags.html#open-flags" rel="next" title="open flags">
+<link href="location-information.html#location-information" rel="prev" title="location information">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="geometry-description"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="open-flags.html#open-flags">open flags</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="location-information.html#location-information">location information</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="per-drive-variables.html#per-drive-variables">per drive variables</a>
-<hr>
+Next: <a href="open-flags.html#open-flags" accesskey="n" rel="next">open flags</a>, Previous: <a href="location-information.html#location-information" accesskey="p" rel="prev">location information</a>, Up: <a href="per-drive-variables.html#per-drive-variables" accesskey="u" rel="up">per drive variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Disk-Geometry-Configuration"></a>
 <h4 class="subsection">3.5.3 Disk Geometry Configuration</h4>
+<a name="index-Disk-Geometry"></a>
+<a name="index-Configuration-of-disk-geometry"></a>
+<a name="index-Description-of-disk-geometry"></a>
+<a name="index-Format-of-disk"></a>
+<a name="index-High-density-disk"></a>
+<a name="index-Low-density-disk"></a>
+<a name="index-mformat-_0028geometry-used-for_0029"></a>
 
-<p><a name="index-Disk-Geometry-77"></a><a name="index-Configuration-of-disk-geometry-78"></a><a name="index-Description-of-disk-geometry-79"></a><a name="index-Format-of-disk-80"></a><a name="index-High-density-disk-81"></a><a name="index-Low-density-disk-82"></a><a name="index-mformat-_0028geometry-used-for_0029-83"></a>
-Geometry information describes the physical characteristics about the
+<p>Geometry information describes the physical characteristics about the
 disk. Its has three purposes:
-
-     <dl>
-<dt>formatting<dd>The geometry information is written into the boot sector of the newly
+</p>
+<dl compact="compact">
+<dt>formatting</dt>
+<dd><p>The geometry information is written into the boot sector of the newly
 made disk. However, you may also describe the geometry information on
-the command line. See <a href="mformat.html#mformat">mformat</a>, for details. 
-<br><dt>filtering<dd>On some Unixes there are device nodes which only support one physical
+the command line. See <a href="mformat.html#mformat">mformat</a>, for details.
+</p></dd>
+<dt>filtering</dt>
+<dd><p>On some Unixes there are device nodes which only support one physical
 geometry. For instance, you might need a different node to access a disk
 as high density or as low density. The geometry is compared to the
 actual geometry stored on the boot sector to make sure that this device
-node is able to correctly read the disk. If the geometry doesn't match,
+node is able to correctly read the disk. If the geometry doesn&rsquo;t match,
 this drive entry fails, and the next drive entry bearing the same drive
 letter is tried. See <a href="multiple-descriptions.html#multiple-descriptions">multiple descriptions</a>, for more details on
 supplying several descriptions for one drive letter.
-
-     <p>If no geometry information is supplied in the configuration file, all
+</p>
+<p>If no geometry information is supplied in the configuration file, all
 disks are accepted. On Linux (and on SPARC) there exist device nodes
-with configurable geometry (<samp><span class="file">/dev/fd0</span></samp>, <samp><span class="file">/dev/fd1</span></samp> etc),
+with configurable geometry (<samp>/dev/fd0</samp>, <samp>/dev/fd1</samp> etc),
 and thus filtering is not needed (and ignored) for disk drives.  (Mtools
 still does do filtering on plain files (disk images) in Linux: this is
-mainly intended for test purposes, as I don't have access to a Unix
+mainly intended for test purposes, as I don&rsquo;t have access to a Unix
 which would actually need filtering).
-
-     <p>If you do not need filtering, but want still a default geometry for
+</p>
+<p>If you do not need filtering, but want still a default geometry for
 mformatting, you may switch off filtering using the <code>mformat_only</code>
 flag.
-
-     <p>If you want filtering, you should supply the <code>filter</code> flag.  If you
+</p>
+<p>If you want filtering, you should supply the <code>filter</code> flag.  If you 
 supply a geometry, you must supply one of both flags.
-
-     <br><dt>initial geometry<dd>On devices that support it (usually floppy devices), the geometry
+</p>
+</dd>
+<dt>initial geometry</dt>
+<dd><p>On devices that support it (usually floppy devices), the geometry
 information is also used to set the initial geometry. This initial
 geometry is applied while reading the boot sector, which contains the
 real geometry.  If no geometry information is supplied in the
 configuration file, or if the <code>mformat_only</code> flag is supplied, no
 initial configuration is done.
-
-     <p>On Linux, initial geometry is not really needed, as the configurable
+</p>
+<p>On Linux, initial geometry is not really needed, as the configurable
 devices are able to auto-detect the disk type accurately enough (for
-most common formats) to read the boot sector. 
+most common formats) to read the boot sector.
+</p></dd>
 </dl>
 
-   <p>Wrong geometry information may lead to very bizarre errors. That's why I
+<p>Wrong geometry information may lead to very bizarre errors. That&rsquo;s why I
 strongly recommend that you add the <code>mformat_only</code> flag to your
 drive description, unless you really need filtering or initial geometry.
-
-   <p>The following geometry related variables are available:
-
-     <dl>
-<dt><code>cylinders</code><dt><code>tracks</code><dd><a name="index-cylinders-84"></a><a name="index-tracks-85"></a>The number of cylinders. (<code>cylinders</code> is the preferred form,
+</p>
+<p>The following geometry related variables are available:
+</p>
+<dl compact="compact">
+<dt><code>cylinders</code></dt>
+<dt><code>tracks</code></dt>
+<dd><a name="index-cylinders"></a>
+<a name="index-tracks"></a>
+<p>The number of cylinders. (<code>cylinders</code> is the preferred form,
 <code>tracks</code> is considered obsolete)
-<br><dt><code>heads</code><dd><a name="index-heads-86"></a>The number of heads (sides). 
-<br><dt><code>sectors</code><dd><a name="index-sectors-87"></a>The number of sectors per track. 
+</p></dd>
+<dt><code>heads</code></dt>
+<dd><a name="index-heads"></a>
+<p>The number of heads (sides).
+</p></dd>
+<dt><code>sectors</code></dt>
+<dd><a name="index-sectors"></a>
+<p>The number of sectors per track.
+</p></dd>
 </dl>
 
-   <p>Example: the following drive section describes a 1.44M drive:
+<p>Example: the following drive section describes a 1.44M drive:
+</p>
+<div class="example">
+<pre class="example">  drive a:
+      file=&quot;/dev/fd0H1440&quot;
+      fat_bits=12
+      cylinders=80 heads=2 sectors=18
+      mformat_only
+</pre></div>
 
-<pre class="example">       drive a:
-           file="/dev/fd0H1440"
-           fat_bits=12
-           cylinders=80 heads=2 sectors=18
-           mformat_only
-</pre>
-   <p>The following shorthand geometry descriptions are available:
-
-     <dl>
-<dt><code>1.44m</code><dd>high density 3 1/2 disk. Equivalent to:
+<p>The following shorthand geometry descriptions are available:
+</p>
+<dl compact="compact">
+<dt><code>1.44m</code></dt>
+<dd><p>high density 3 1/2 disk. Equivalent to:
 <code>fat_bits=12 cylinders=80 heads=2 sectors=18</code>
-<br><dt><code>1.2m</code><dd>high density 5 1/4 disk. Equivalent to:
+</p></dd>
+<dt><code>1.2m</code></dt>
+<dd><p>high density 5 1/4 disk. Equivalent to:
 <code>fat_bits=12 cylinders=80 heads=2 sectors=15</code>
-<br><dt><code>720k</code><dd>double density 3 1/2 disk. Equivalent to:
+</p></dd>
+<dt><code>720k</code></dt>
+<dd><p>double density 3 1/2 disk. Equivalent to:
 <code>fat_bits=12 cylinders=80 heads=2 sectors=9</code>
-<br><dt><code>360k</code><dd>double density 5 1/4 disk. Equivalent to:
+</p></dd>
+<dt><code>360k</code></dt>
+<dd><p>double density 5 1/4 disk. Equivalent to:
 <code>fat_bits=12 cylinders=40 heads=2 sectors=9</code>
+</p></dd>
 </dl>
 
-   <p>The shorthand format descriptions may be amended. For example,
+<p>The shorthand format descriptions may be amended. For example,
 <code>360k sectors=8</code>
 describes a 320k disk and is equivalent to:
 <code>fat_bits=12 cylinders=40 heads=2 sectors=8</code>
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="open-flags.html#open-flags" accesskey="n" rel="next">open flags</a>, Previous: <a href="location-information.html#location-information" accesskey="p" rel="prev">location information</a>, Up: <a href="per-drive-variables.html#per-drive-variables" accesskey="u" rel="up">per drive variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
-   </body></html>
 
+
+</body>
+</html>

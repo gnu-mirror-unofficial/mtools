@@ -1,46 +1,75 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>bugs - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Common-features.html#Common-features" title="Common features">
-<link rel="prev" href="exit-codes.html#exit-codes" title="exit codes">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: bugs</title>
+
+<meta name="description" content="Mtools 4.0.20: bugs">
+<meta name="keywords" content="Mtools 4.0.20: bugs">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Common-features.html#Common-features" rel="up" title="Common features">
+<link href="Configuration.html#Configuration" rel="next" title="Configuration">
+<link href="exit-codes.html#exit-codes" rel="prev" title="exit codes">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="bugs"></a>
+<div class="header">
 <p>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="exit-codes.html#exit-codes">exit codes</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Common-features.html#Common-features">Common features</a>
-<hr>
+Previous: <a href="exit-codes.html#exit-codes" accesskey="p" rel="prev">exit codes</a>, Up: <a href="Common-features.html#Common-features" accesskey="u" rel="up">Common features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Bugs"></a>
 <h3 class="section">2.9 Bugs</h3>
-
 <p>An unfortunate side effect of not guessing the proper device (when
 multiple disk capacities are supported) is an occasional error message
-from the device driver.  These can be safely ignored.
-
-   <p>The fat checking code chokes on 1.72 Mb disks mformatted with pre-2.0.7
+from the device driver.  These can be safely ignored.  
+</p>
+<p>The fat checking code chokes on 1.72 Mb disks mformatted with pre-2.0.7
 mtools. Set the environmental variable MTOOLS_FAT_COMPATIBILITY (or the
 corresponding configuration file variable, <a href="global-variables.html#global-variables">global variables</a>) to
 bypass the fat checking.
+</p>
 
-<!-- MANskip 1 -->
-   </body></html>
 
+
+
+
+
+</body>
+</html>

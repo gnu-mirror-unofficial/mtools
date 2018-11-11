@@ -1,64 +1,111 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>location information - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
-<link rel="prev" href="general-information.html#general-information" title="general information">
-<link rel="next" href="geometry-description.html#geometry-description" title="geometry description">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: location information</title>
+
+<meta name="description" content="Mtools 4.0.20: location information">
+<meta name="keywords" content="Mtools 4.0.20: location information">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="per-drive-variables.html#per-drive-variables" rel="up" title="per drive variables">
+<link href="geometry-description.html#geometry-description" rel="next" title="geometry description">
+<link href="general-information.html#general-information" rel="prev" title="general information">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="location-information"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="geometry-description.html#geometry-description">geometry description</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="general-information.html#general-information">general information</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="per-drive-variables.html#per-drive-variables">per drive variables</a>
-<hr>
+Next: <a href="geometry-description.html#geometry-description" accesskey="n" rel="next">geometry description</a>, Previous: <a href="general-information.html#general-information" accesskey="p" rel="prev">general information</a>, Up: <a href="per-drive-variables.html#per-drive-variables" accesskey="u" rel="up">per drive variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Location-information"></a>
 <h4 class="subsection">3.5.2 Location information</h4>
+<a name="index-Hdimage"></a>
 
-<p><a name="index-Hdimage-61"></a>
-For each drive, you need to describe where its data is physically
+<p>For each drive, you need to describe where its data is physically
 stored (image file, physical device, partition, offset).
-
-     <dl>
-<dt><code>file</code><dd><a name="index-Image-file-62"></a><a name="index-Name-of-device-node-63"></a><a name="index-File-name-of-device-node-64"></a><a name="index-file-65"></a>The name of the file or device holding the disk image. This is
+</p>
+<dl compact="compact">
+<dt><code>file</code></dt>
+<dd><a name="index-Image-file"></a>
+<a name="index-Name-of-device-node"></a>
+<a name="index-File-name-of-device-node"></a>
+<a name="index-file"></a>
+<p>The name of the file or device holding the disk image. This is
 mandatory. The file name should be enclosed in quotes.
-
-     <br><dt><code>partition</code><dd><a name="index-DOSEMU-hard-disk-image-66"></a><a name="index-Zip-disks-_0028partitions_0029-67"></a><a name="index-Jaz-disks-_0028partitions_0029-68"></a><a name="index-Syquest-disks-69"></a><a name="index-Magneto_002doptical-disks-70"></a><a name="index-OS_002f2-_0028layout-of-removable-media_0029-71"></a><a name="index-Windows-NT-_0028layout-of-removable-media_0029-72"></a><a name="index-Removable-media-73"></a><a name="index-Partitioned-image-file-74"></a>Tells mtools to treat the drive as a partitioned device, and to use the
+</p>
+</dd>
+<dt><code>partition</code></dt>
+<dd><a name="index-DOSEMU-hard-disk-image"></a>
+<a name="index-Zip-disks-_0028partitions_0029"></a>
+<a name="index-Jaz-disks-_0028partitions_0029"></a>
+<a name="index-Syquest-disks"></a>
+<a name="index-Magneto_002doptical-disks"></a>
+<a name="index-OS_002f2-_0028layout-of-removable-media_0029"></a>
+<a name="index-Windows-NT-_0028layout-of-removable-media_0029"></a>
+<a name="index-Removable-media"></a>
+<a name="index-Partitioned-image-file"></a>
+<p>Tells mtools to treat the drive as a partitioned device, and to use the
 given partition. Only primary partitions are accessible using this
 method, and they are numbered from 1 to 4. For logical partitions, use
 the more general <code>offset</code> variable. The <code>partition</code> variable
 is intended for removable media such as Syquest disks, ZIP drives, and
 magneto-optical disks. Although traditional DOS sees Syquest disks and
-magneto-optical disks as &lsquo;<samp><span class="samp">giant floppy disks</span></samp>&rsquo; which are
+magneto-optical disks as &lsquo;<samp>giant floppy disks</samp>&rsquo; which are
 unpartitioned, OS/2 and Windows NT treat them like hard disks,
 i.e. partitioned devices. The <code>partition</code> flag is also useful DOSEMU
 hdimages. It is not recommended for hard disks for which direct access
 to partitions is available through mounting.
-
-     <br><dt><code>offset</code><dd><a name="index-Ram-disk-75"></a><a name="index-Atari-Ram-disk-76"></a>Describes where in the file the MS-DOS file system starts. This is useful
+</p>
+</dd>
+<dt><code>offset</code></dt>
+<dd><a name="index-Ram-disk"></a>
+<a name="index-Atari-Ram-disk"></a>
+<p>Describes where in the file the MS-DOS file system starts. This is useful
 for logical partitions in DOSEMU hdimages, and for ATARI ram disks. By
 default, this is zero, meaning that the file system starts right at the
-beginning of the device or file. 
+beginning of the device or file.
+</p></dd>
 </dl>
 
-   </body></html>
 
+
+
+</body>
+</html>

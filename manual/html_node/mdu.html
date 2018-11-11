@@ -1,51 +1,88 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>mdu - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Commands.html#Commands" title="Commands">
-<link rel="prev" href="mdir.html#mdir" title="mdir">
-<link rel="next" href="mformat.html#mformat" title="mformat">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: mdu</title>
+
+<meta name="description" content="Mtools 4.0.20: mdu">
+<meta name="keywords" content="Mtools 4.0.20: mdu">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Commands.html#Commands" rel="up" title="Commands">
+<link href="mformat.html#mformat" rel="next" title="mformat">
+<link href="mdir.html#mdir" rel="prev" title="mdir">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="mdu"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="mformat.html#mformat">mformat</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="mdir.html#mdir">mdir</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
-<hr>
+Next: <a href="mformat.html#mformat" accesskey="n" rel="next">mformat</a>, Previous: <a href="mdir.html#mdir" accesskey="p" rel="prev">mdir</a>, Up: <a href="Commands.html#Commands" accesskey="u" rel="up">Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Mdu"></a>
 <h3 class="section">4.12 Mdu</h3>
+<a name="index-mdu"></a>
+<a name="index-Space-occupied-by-directories-and-files"></a>
+<a name="index-du"></a>
+<a name="index-Listing-space-occupied-by-directories-and-files"></a>
+<a name="index-Occupation-of-space-by-directories-and-files"></a>
 
-<p><a name="index-mdu-179"></a><a name="index-Space-occupied-by-directories-and-files-180"></a><a name="index-du-181"></a><a name="index-Listing-space-occupied-by-directories-and-files-182"></a><a name="index-Occupation-of-space-by-directories-and-files-183"></a>
-<code>Mdu</code> is used to list the space occupied by a directory, its
+<p><code>Mdu</code> is used to list the space occupied by a directory, its
 subdirectories and its files. It is similar to the <code>du</code> command on
 Unix.  The unit used are clusters.  Use the minfo command to find out
 the cluster size.
+</p>
+<p><code>mdu</code> [<code>-a</code>] [ <var>msdosfiles</var> &hellip; ]
+</p>
 
-   <p><code>mdu</code> [<code>-a</code>] [ <var>msdosfiles</var> <small class="dots">...</small> ]
-
-     <dl>
-<dt><code>a</code><dd>All files.  List also the space occupied for individual files. 
-<br><dt><code>s</code><dd>Only list the total space, don't give details for each subdirectory. 
+<dl compact="compact">
+<dt><code>a</code></dt>
+<dd><p>All files.  List also the space occupied for individual files.
+</p></dd>
+<dt><code>s</code></dt>
+<dd><p>Only list the total space, don&rsquo;t give details for each subdirectory.
+</p></dd>
 </dl>
 
-   </body></html>
 
+
+
+
+
+</body>
+</html>

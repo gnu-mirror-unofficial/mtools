@@ -2,10 +2,10 @@
 <html>
 <!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Mtools 4.0.19</title>
+<title>Mtools 4.0.20</title>
 
-<meta name="description" content="Mtools 4.0.19">
-<meta name="keywords" content="Mtools 4.0.19">
+<meta name="description" content="Mtools 4.0.20">
+<meta name="keywords" content="Mtools 4.0.20">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -46,10 +46,10 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Mtools 4.0.19</h1>
+<h1 class="settitle" align="center">Mtools 4.0.20</h1>
 
 
-<p>This manual is for Mtools (version 4.0.19, September 2018),
+<p>This manual is for Mtools (version 4.0.20, November 2018),
 which is a collection of tools to allow Unix systems to manipulate
 MS-DOS files.
 </p>
@@ -252,10 +252,10 @@ Next: <a href="#Common-features" accesskey="n" rel="next">Common features</a>, P
 
 <p>Mtools can be found at the following places (and their mirrors):
 </p><div class="example">
-<pre class="example">http://ftp.gnu.org/gnu/mtools/mtools-4.0.19.tar.gz
-http://mtools.linux.lu/mtools-4.0.19.tar.gz
-ftp://www.tux.org/pub/knaff/mtools/mtools-4.0.19.tar.gz
-ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/mtools-4.0.19.tar.gz
+<pre class="example">http://ftp.gnu.org/gnu/mtools/mtools-4.0.20.tar.gz
+http://mtools.linux.lu/mtools-4.0.20.tar.gz
+ftp://www.tux.org/pub/knaff/mtools/mtools-4.0.20.tar.gz
+ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/mtools-4.0.20.tar.gz
 </pre></div>
 
 <p>Before reporting a bug, make sure that it has not yet been fixed in the
@@ -936,6 +936,10 @@ Next: <a href="#per-drive-variables" accesskey="n" rel="next">per drive variable
 <a name="index-MTOOLS_005fFAT_005fCOMPATIBILITY"></a>
 <a name="index-MTOOLS_005fLOWER_005fCASE"></a>
 <a name="index-MTOOLS_005fNO_005fVFAT"></a>
+<a name="index-MTOOLS_005fDOTTED_005fDIR"></a>
+<a name="index-MTOOLS_005fNAME_005fNUMERIC_005fTAIL"></a>
+<a name="index-MTOOLS_005fTWENTY_005fFOUR_005fHOUR_005fCLOCK"></a>
+<a name="index-MTOOLS_005fLOCK_005fTIMEOUT"></a>
 <a name="index-FreeDOS"></a>
 
 <p>Global flags may be set to 1 or to 0.
@@ -976,6 +980,10 @@ clash would have happened.
 <dt><code>MTOOLS_TWENTY_FOUR_HOUR_CLOCK</code></dt>
 <dd><p>If 1, uses the European notation for times (twenty four hour clock),
 else uses the UK/US notation (am/pm)
+</p></dd>
+<dt><code>MTOOLS_LOCK_TIMEOUT</code></dt>
+<dd><p>How long, in seconds, to wait for a locked device to become free.
+Defaults to 30.
 </p></dd>
 </dl>
 
@@ -2282,6 +2290,7 @@ low-level formatted diskette. Its syntax is:
   [<code>-B</code> <var>boot_sector</var>] [<code>-k</code>]
   [<code>-m</code> <var>media_descriptor</var>]
   [<code>-K</code> <var>backup_boot</var>]
+  [<code>-R</code> <var>nb_reserved_sectors</var>]
   [<code>-c</code> <var>clusters_per_sector</var>]
   [<code>-d</code> <var>fat_copies</var>]
   [<code>-X</code>] [<code>-2</code> <var>sectors_on_track_0</var>] [<code>-3</code>]
@@ -2466,6 +2475,12 @@ disks parameters.
 <dt><code>K</code></dt>
 <dd><p>Sets the sector number where the backup of the boot sector should be
 stored (only relevant on FAT32).
+</p></dd>
+<dt><code>R</code></dt>
+<dd><p>Sets the number of reserved sectors for this filesystem. This must be
+at least 1 for non-FAT32 disks, and at least 3 for FAT disks (in order
+to accomodate the boot sector, the info sector and the backup boot
+sector).
 </p>
 </dd>
 <dt><code>m</code></dt>
@@ -3466,10 +3481,14 @@ Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previ
 <tr><th><a name="Variable-Index_vr_letter-M">M</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mformat_005fonly"><code>mformat_only</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#miscellaneous-flags">miscellaneous flags</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-MTOOLSRC"><code>MTOOLSRC</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration">Configuration</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MTOOLS_005fDOTTED_005fDIR"><code>MTOOLS_DOTTED_DIR</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#global-variables">global variables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-MTOOLS_005fFAT_005fCOMPATIBILITY"><code>MTOOLS_FAT_COMPATIBILITY</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#global-variables">global variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MTOOLS_005fLOCK_005fTIMEOUT"><code>MTOOLS_LOCK_TIMEOUT</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#global-variables">global variables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-MTOOLS_005fLOWER_005fCASE"><code>MTOOLS_LOWER_CASE</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#global-variables">global variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MTOOLS_005fNAME_005fNUMERIC_005fTAIL"><code>MTOOLS_NAME_NUMERIC_TAIL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#global-variables">global variables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-MTOOLS_005fNO_005fVFAT"><code>MTOOLS_NO_VFAT</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#global-variables">global variables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-MTOOLS_005fSKIP_005fCHECK"><code>MTOOLS_SKIP_CHECK</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#global-variables">global variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MTOOLS_005fTWENTY_005fFOUR_005fHOUR_005fCLOCK"><code>MTOOLS_TWENTY_FOUR_HOUR_CLOCK</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#global-variables">global variables</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Variable-Index_vr_letter-N">N</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-nodelay"><code>nodelay</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#open-flags">open flags</a></td></tr>

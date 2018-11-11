@@ -1,162 +1,204 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: Top</title>
+
+<meta name="description" content="Mtools 4.0.20: Top">
+<meta name="keywords" content="Mtools 4.0.20: Top">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="../dir/index.html" rel="up" title="(dir)">
+<link href="Location.html#Location" rel="next" title="Location">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-This manual is for Mtools (version 4.0.18, January 2013),
+
+<body lang="en">
+<h1 class="settitle" align="center">Mtools 4.0.20</h1>
+
+
+<p>This manual is for Mtools (version 4.0.20, November 2018),
 which is a collection of tools to allow Unix systems to manipulate
 MS-DOS files.
-
-   <p>Copyright &copy; 2007, 2009 Free Software Foundation, Inc. 
+</p>
+<p>Copyright &copy; 2007, 2009 Free Software Foundation, Inc.
 Copyright &copy; 1996-2005,2007-2011,2013 Alain Knaff.
-
-   <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+</p>
+<blockquote>
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
 Texts.  A copy of the license is included in the section entitled
-&ldquo;GNU Free Documentation License&rdquo;. 
-</blockquote>
+&ldquo;GNU Free Documentation License&rdquo;.
+</p></blockquote>
 
-<!-- Output the table contents at the beginning -->
+
+
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
 <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li><a name="toc_Top" href="index.html#Top">Mtools doc</a>
-<li><a name="toc_Top" href="index.html#Top">Introduction</a>
-<li><a name="toc_Location" href="Location.html#Location">1 Where to get mtools</a>
-<li><a name="toc_Common-features" href="Common-features.html#Common-features">2 Common features of all mtools commands</a>
-<ul>
-<li><a href="arguments.html#arguments">2.1 Options and filenames</a>
-<li><a href="drive-letters.html#drive-letters">2.2 Drive letters</a>
-<li><a href="directory.html#directory">2.3 Current working directory</a>
-<li><a href="long-names.html#long-names">2.4 VFAT-style long file names</a>
-<li><a href="name-clashes.html#name-clashes">2.5 Name clashes</a>
-<li><a href="case-sensitivity.html#case-sensitivity">2.6 Case sensitivity of the VFAT file system</a>
-<li><a href="high-capacity-formats.html#high-capacity-formats">2.7 high capacity formats</a>
-<ul>
-<li><a href="more-sectors.html#more-sectors">2.7.1 More sectors</a>
-<li><a href="bigger-sectors.html#bigger-sectors">2.7.2 Bigger sectors</a>
-<li><a href="2m.html#2m">2.7.3 2m</a>
-<li><a href="XDF.html#XDF">2.7.4 XDF</a>
-</li></ul>
-<li><a href="exit-codes.html#exit-codes">2.8 Exit codes</a>
-<li><a href="bugs.html#bugs">2.9 Bugs</a>
-</li></ul>
-<li><a name="toc_Configuration" href="Configuration.html#Configuration">3 How to configure mtools for your environment</a>
-<ul>
-<li><a href="Configuration.html#Configuration">3.1 Description</a>
-<li><a href="configuration-file-location.html#configuration-file-location">3.2 Location of the configuration files</a>
-<ul>
-<li><a href="general-syntax.html#general-syntax">3.2.1 General configuration file syntax</a>
-</li></ul>
-<li><a href="default-values.html#default-values">3.3 Default values</a>
-<li><a href="global-variables.html#global-variables">3.4 Global variables</a>
-<li><a href="per-drive-variables.html#per-drive-variables">3.5 Per drive flags and variables</a>
-<ul>
-<li><a href="general-information.html#general-information">3.5.1 General information</a>
-<li><a href="location-information.html#location-information">3.5.2 Location information</a>
-<li><a href="geometry-description.html#geometry-description">3.5.3 Disk Geometry Configuration</a>
-<li><a href="open-flags.html#open-flags">3.5.4 Open Flags</a>
-<li><a href="miscellaneous-variables.html#miscellaneous-variables">3.5.5 General Purpose Drive Variables</a>
-<li><a href="miscellaneous-flags.html#miscellaneous-flags">3.5.6 General Purpose Drive Flags</a>
-<li><a href="multiple-descriptions.html#multiple-descriptions">3.5.7 Supplying multiple descriptions for a drive</a>
-</li></ul>
-<li><a href="parsing-order.html#parsing-order">3.6 Location of configuration files and parsing order</a>
-<li><a href="old-style-configuration.html#old-style-configuration">3.7 Backwards compatibility with old configuration file syntax</a>
-</li></ul>
-<li><a name="toc_Commands" href="Commands.html#Commands">4 Command list</a>
-<ul>
-<li><a href="floppyd.html#floppyd">4.1 Floppyd</a>
-<ul>
-<li><a href="floppyd.html#floppyd">4.1.1 Authentication</a>
-<li><a href="floppyd.html#floppyd">4.1.2 Command line options</a>
-<li><a href="floppyd.html#floppyd">4.1.3 Connecting to floppyd</a>
-<li><a href="floppyd.html#floppyd">4.1.4 Examples:</a>
-</li></ul>
-<li><a href="floppyd_005finstalltest.html#floppyd_005finstalltest">4.2 Floppyd_installtest</a>
-<li><a href="mattrib.html#mattrib">4.3 Mattrib</a>
-<li><a href="mbadblocks.html#mbadblocks">4.4 Mbadblocks</a>
-<ul>
-<li><a href="mbadblocks.html#mbadblocks">4.4.1 Command line options</a>
-<li><a href="mbadblocks.html#mbadblocks">4.4.2 Bugs</a>
-</li></ul>
-<li><a href="mcat.html#mcat">4.5 Mcat</a>
-<li><a href="mcd.html#mcd">4.6 Mcd</a>
-<li><a href="mclasserase.html#mclasserase">4.7 Mclasserase</a>
-<li><a href="mcopy.html#mcopy">4.8 Mcopy</a>
-<ul>
-<li><a href="mcopy.html#mcopy">4.8.1 Bugs</a>
-</li></ul>
-<li><a href="mdel.html#mdel">4.9 Mdel</a>
-<li><a href="mdeltree.html#mdeltree">4.10 Mdeltree</a>
-<li><a href="mdir.html#mdir">4.11 Mdir</a>
-<li><a href="mdu.html#mdu">4.12 Mdu</a>
-<li><a href="mformat.html#mformat">4.13 Mformat</a>
-<li><a href="mkmanifest.html#mkmanifest">4.14 Mkmanifest</a>
-<ul>
-<li><a href="mkmanifest.html#mkmanifest">4.14.1 Example</a>
-<li><a href="mkmanifest.html#mkmanifest">4.14.2 Bugs</a>
-</li></ul>
-<li><a href="minfo.html#minfo">4.15 Minfo</a>
-<li><a href="mlabel.html#mlabel">4.16 Mlabel</a>
-<li><a href="mmd.html#mmd">4.17 Mmd</a>
-<li><a href="mmount.html#mmount">4.18 Mmount</a>
-<li><a href="mmove.html#mmove">4.19 Mmove</a>
-<li><a href="mpartition.html#mpartition">4.20 Mpartition</a>
-<li><a href="mrd.html#mrd">4.21 Mrd</a>
-<li><a href="mren.html#mren">4.22 Mren</a>
-<li><a href="mshortname.html#mshortname">4.23 Mshortname</a>
-<li><a href="mshowfat.html#mshowfat">4.24 Mshowfat</a>
-<li><a href="mtoolstest.html#mtoolstest">4.25 Mtoolstest</a>
-<li><a href="mtype.html#mtype">4.26 Mtype</a>
-<li><a href="mzip.html#mzip">4.27 Mzip</a>
-<ul>
-<li><a href="mzip.html#mzip">4.27.1 Bugs</a>
-</li></ul>
-</li></ul>
-<li><a name="toc_Compiling-mtools" href="Compiling-mtools.html#Compiling-mtools">5 Architecture specific compilation flags</a>
-<li><a name="toc_Porting-mtools" href="Porting-mtools.html#Porting-mtools">6 Porting mtools to architectures which are not supported yet</a>
-<li><a name="toc_Command-Index" href="Command-Index.html#Command-Index">Command Index</a>
-<li><a name="toc_Variable-Index" href="Variable-Index.html#Variable-Index">Variable index</a>
-<li><a name="toc_Concept-Index" href="Concept-Index.html#Concept-Index">Concept index</a>
-</li></ul>
+
+<ul class="no-bullet">
+  <li><a name="toc-Introduction" href="#Introduction">Introduction</a></li>
+  <li><a name="toc-Where-to-get-mtools" href="Location.html#Location">1 Where to get mtools</a></li>
+  <li><a name="toc-Common-features-of-all-mtools-commands" href="Common-features.html#Common-features">2 Common features of all mtools commands</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Options-and-filenames" href="arguments.html#arguments">2.1 Options and filenames</a></li>
+    <li><a name="toc-Drive-letters" href="drive-letters.html#drive-letters">2.2 Drive letters</a></li>
+    <li><a name="toc-Current-working-directory" href="directory.html#directory">2.3 Current working directory</a></li>
+    <li><a name="toc-VFAT_002dstyle-long-file-names" href="long-names.html#long-names">2.4 VFAT-style long file names</a></li>
+    <li><a name="toc-Name-clashes" href="name-clashes.html#name-clashes">2.5 Name clashes</a></li>
+    <li><a name="toc-Case-sensitivity-of-the-VFAT-file-system" href="case-sensitivity.html#case-sensitivity">2.6 Case sensitivity of the VFAT file system</a></li>
+    <li><a name="toc-high-capacity-formats-1" href="high-capacity-formats.html#high-capacity-formats">2.7 high capacity formats</a>
+    <ul class="no-bullet">
+      <li><a name="toc-More-sectors" href="more-sectors.html#more-sectors">2.7.1 More sectors</a></li>
+      <li><a name="toc-Bigger-sectors" href="bigger-sectors.html#bigger-sectors">2.7.2 Bigger sectors</a></li>
+      <li><a name="toc-2m-1" href="2m.html#g_t2m">2.7.3 2m</a></li>
+      <li><a name="toc-XDF-1" href="XDF.html#XDF">2.7.4 XDF</a></li>
+    </ul></li>
+    <li><a name="toc-Exit-codes" href="exit-codes.html#exit-codes">2.8 Exit codes</a></li>
+    <li><a name="toc-Bugs" href="bugs.html#bugs">2.9 Bugs</a></li>
+  </ul></li>
+  <li><a name="toc-How-to-configure-mtools-for-your-environment" href="Configuration.html#Configuration">3 How to configure mtools for your environment</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Description" href="Configuration.html#Description">3.1 Description</a></li>
+    <li><a name="toc-Location-of-the-configuration-files" href="configuration-file-location.html#configuration-file-location">3.2 Location of the configuration files</a>
+    <ul class="no-bullet">
+      <li><a name="toc-General-configuration-file-syntax" href="general-syntax.html#general-syntax">3.2.1 General configuration file syntax</a></li>
+    </ul></li>
+    <li><a name="toc-Default-values" href="default-values.html#default-values">3.3 Default values</a></li>
+    <li><a name="toc-Global-variables" href="global-variables.html#global-variables">3.4 Global variables</a></li>
+    <li><a name="toc-Per-drive-flags-and-variables" href="per-drive-variables.html#per-drive-variables">3.5 Per drive flags and variables</a>
+    <ul class="no-bullet">
+      <li><a name="toc-General-information" href="general-information.html#general-information">3.5.1 General information</a></li>
+      <li><a name="toc-Location-information" href="location-information.html#location-information">3.5.2 Location information</a></li>
+      <li><a name="toc-Disk-Geometry-Configuration" href="geometry-description.html#geometry-description">3.5.3 Disk Geometry Configuration</a></li>
+      <li><a name="toc-Open-Flags" href="open-flags.html#open-flags">3.5.4 Open Flags</a></li>
+      <li><a name="toc-General-Purpose-Drive-Variables" href="miscellaneous-variables.html#miscellaneous-variables">3.5.5 General Purpose Drive Variables</a></li>
+      <li><a name="toc-General-Purpose-Drive-Flags" href="miscellaneous-flags.html#miscellaneous-flags">3.5.6 General Purpose Drive Flags</a></li>
+      <li><a name="toc-Supplying-multiple-descriptions-for-a-drive" href="multiple-descriptions.html#multiple-descriptions">3.5.7 Supplying multiple descriptions for a drive</a></li>
+    </ul></li>
+    <li><a name="toc-Location-of-configuration-files-and-parsing-order" href="parsing-order.html#parsing-order">3.6 Location of configuration files and parsing order</a></li>
+    <li><a name="toc-Backwards-compatibility-with-old-configuration-file-syntax" href="old-style-configuration.html#old-style-configuration">3.7 Backwards compatibility with old configuration file syntax</a></li>
+  </ul></li>
+  <li><a name="toc-Command-list" href="Commands.html#Commands">4 Command list</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Floppyd" href="floppyd.html#floppyd">4.1 Floppyd</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Authentication" href="floppyd.html#Authentication">4.1.1 Authentication</a></li>
+      <li><a name="toc-Command-line-options" href="floppyd.html#Command-line-options">4.1.2 Command line options</a></li>
+      <li><a name="toc-Connecting-to-floppyd" href="floppyd.html#Connecting-to-floppyd">4.1.3 Connecting to floppyd</a></li>
+      <li><a name="toc-Examples_003a" href="floppyd.html#Examples_003a">4.1.4 Examples:</a></li>
+    </ul></li>
+    <li><a name="toc-Floppyd_005finstalltest" href="floppyd_005finstalltest.html#floppyd_005finstalltest">4.2 Floppyd_installtest</a></li>
+    <li><a name="toc-Mattrib" href="mattrib.html#mattrib">4.3 Mattrib</a></li>
+    <li><a name="toc-Mbadblocks" href="mbadblocks.html#mbadblocks">4.4 Mbadblocks</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Command-line-options-1" href="mbadblocks.html#Command-line-options-1">4.4.1 Command line options</a></li>
+      <li><a name="toc-Bugs-1" href="mbadblocks.html#Bugs-1">4.4.2 Bugs</a></li>
+    </ul></li>
+    <li><a name="toc-Mcat" href="mcat.html#mcat">4.5 Mcat</a></li>
+    <li><a name="toc-Mcd" href="mcd.html#mcd">4.6 Mcd</a></li>
+    <li><a name="toc-Mclasserase" href="mclasserase.html#mclasserase">4.7 Mclasserase</a></li>
+    <li><a name="toc-Mcopy" href="mcopy.html#mcopy">4.8 Mcopy</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Bugs-2" href="mcopy.html#Bugs-2">4.8.1 Bugs</a></li>
+    </ul></li>
+    <li><a name="toc-Mdel" href="mdel.html#mdel">4.9 Mdel</a></li>
+    <li><a name="toc-Mdeltree" href="mdeltree.html#mdeltree">4.10 Mdeltree</a></li>
+    <li><a name="toc-Mdir" href="mdir.html#mdir">4.11 Mdir</a></li>
+    <li><a name="toc-Mdu" href="mdu.html#mdu">4.12 Mdu</a></li>
+    <li><a name="toc-Mformat" href="mformat.html#mformat">4.13 Mformat</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Number-of-sectors-per-cluster" href="mformat.html#Number-of-sectors-per-cluster">4.13.1 Number of sectors per cluster</a></li>
+    </ul></li>
+    <li><a name="toc-Mkmanifest" href="mkmanifest.html#mkmanifest">4.14 Mkmanifest</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Example" href="mkmanifest.html#Example">4.14.1 Example</a></li>
+      <li><a name="toc-Bugs-3" href="mkmanifest.html#Bugs-3">4.14.2 Bugs</a></li>
+    </ul></li>
+    <li><a name="toc-Minfo" href="minfo.html#minfo">4.15 Minfo</a></li>
+    <li><a name="toc-Mlabel" href="mlabel.html#mlabel">4.16 Mlabel</a></li>
+    <li><a name="toc-Mmd" href="mmd.html#mmd">4.17 Mmd</a></li>
+    <li><a name="toc-Mmount" href="mmount.html#mmount">4.18 Mmount</a></li>
+    <li><a name="toc-Mmove" href="mmove.html#mmove">4.19 Mmove</a></li>
+    <li><a name="toc-Mpartition" href="mpartition.html#mpartition">4.20 Mpartition</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Choice-of-partition-type" href="mpartition.html#Choice-of-partition-type">4.20.1 Choice of partition type</a></li>
+    </ul></li>
+    <li><a name="toc-Mrd" href="mrd.html#mrd">4.21 Mrd</a></li>
+    <li><a name="toc-Mren" href="mren.html#mren">4.22 Mren</a></li>
+    <li><a name="toc-Mshortname" href="mshortname.html#mshortname">4.23 Mshortname</a></li>
+    <li><a name="toc-Mshowfat" href="mshowfat.html#mshowfat">4.24 Mshowfat</a></li>
+    <li><a name="toc-Mtoolstest" href="mtoolstest.html#mtoolstest">4.25 Mtoolstest</a></li>
+    <li><a name="toc-Mtype" href="mtype.html#mtype">4.26 Mtype</a></li>
+    <li><a name="toc-Mzip" href="mzip.html#mzip">4.27 Mzip</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Bugs-4" href="mzip.html#Bugs-4">4.27.1 Bugs</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Architecture-specific-compilation-flags" href="Compiling-mtools.html#Compiling-mtools">5 Architecture specific compilation flags</a></li>
+  <li><a name="toc-Porting-mtools-to-architectures-which-are-not-supported-yet" href="Porting-mtools.html#Porting-mtools">6 Porting mtools to architectures which are not supported yet</a></li>
+  <li><a name="toc-Command-Index-1" href="Command-Index.html#Command-Index">Command Index</a></li>
+  <li><a name="toc-Variable-index" href="Variable-Index.html#Variable-Index">Variable index</a></li>
+  <li><a name="toc-Concept-index" href="Concept-Index.html#Concept-Index">Concept index</a></li>
+</ul>
 </div>
 
-<div class="node">
+
 <a name="Top"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Location.html#Location">Location</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="../index.html#dir">(dir)</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
-<hr>
+Next: <a href="Location.html#Location" accesskey="n" rel="next">Location</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
+<hr>
+<a name="Mtools-doc"></a>
+<h1 class="top">Mtools doc</h1>
 
-<h2 class="unnumbered">Mtools doc</h2>
+<p>This is mtools&rsquo; documentation.
+</p>
 
-<p>This is mtools' documentation.
-
-<!-- MANstart 1 -->
+<a name="Introduction"></a>
 <h2 class="unnumbered">Introduction</h2>
-
 <p>Mtools is a collection of tools to allow Unix systems to manipulate
 MS-DOS files: read, write, and move around files on an MS-DOS
 file system (typically a floppy disk).  Where reasonable, each program
@@ -164,26 +206,45 @@ attempts to emulate the MS-DOS equivalent command. However,
 unnecessary restrictions and oddities of DOS are not emulated. For
 instance, it is possible to move subdirectories from one subdirectory
 to another.
-
-   <p>Mtools is sufficient to give access to MS-DOS file systems.  For
+</p>
+<p>Mtools is sufficient to give access to MS-DOS file systems.  For
 instance, commands such as <code>mdir a:</code> work on the <code>a:</code> floppy
 without any preliminary mounting or initialization (assuming the default
-<samp><span class="file">/etc/mtools.conf</span></samp> works on your machine).  With mtools, one can
+<samp>/etc/mtools.conf</samp> works on your machine).  With mtools, one can
 change floppies too without unmounting and mounting.
+</p>
 
-<ul class="menu">
-<li><a accesskey="1" href="Location.html#Location">Location</a>:           Where to find mtools and early bug fixes
-<li><a accesskey="2" href="Common-features.html#Common-features">Common features</a>:    Common features of all mtools commands
-<li><a accesskey="3" href="Configuration.html#Configuration">Configuration</a>:      How to configure mtools for your environment
-<li><a accesskey="4" href="Commands.html#Commands">Commands</a>:           The available mtools commands
-<li><a accesskey="5" href="Compiling-mtools.html#Compiling-mtools">Compiling mtools</a>:   Architecture specific compilation flags
-<li><a accesskey="6" href="Porting-mtools.html#Porting-mtools">Porting mtools</a>:     Porting mtools to architectures which are not
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Location.html#Location" accesskey="1">Location</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Where to find mtools and early bug fixes
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Common-features.html#Common-features" accesskey="2">Common features</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Common features of all mtools commands
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Configuration.html#Configuration" accesskey="3">Configuration</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to configure mtools for your environment
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Commands.html#Commands" accesskey="4">Commands</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The available mtools commands
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Compiling-mtools.html#Compiling-mtools" accesskey="5">Compiling mtools</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Architecture specific compilation flags
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Porting-mtools.html#Porting-mtools" accesskey="6">Porting mtools</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Porting mtools to architectures which are not
                       yet supported
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-<li><a accesskey="7" href="Command-Index.html#Command-Index">Command Index</a>:      Command Index
-<li><a accesskey="8" href="Variable-Index.html#Variable-Index">Variable Index</a>:     Variable Index
-<li><a accesskey="9" href="Concept-Index.html#Concept-Index">Concept Index</a>:      Concept Index
-</ul>
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Command-Index.html#Command-Index" accesskey="7">Command Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Command Index
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Variable-Index.html#Variable-Index" accesskey="8">Variable Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Variable Index
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Concept-Index.html#Concept-Index" accesskey="9">Concept Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Concept Index
+</td></tr>
+</table>
 
-   </body></html>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Location.html#Location" accesskey="n" rel="next">Location</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
+
+
+</body>
+</html>

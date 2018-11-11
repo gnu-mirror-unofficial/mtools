@@ -1,53 +1,86 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>per drive variables - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Configuration.html#Configuration" title="Configuration">
-<link rel="prev" href="global-variables.html#global-variables" title="global variables">
-<link rel="next" href="parsing-order.html#parsing-order" title="parsing order">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: per drive variables</title>
+
+<meta name="description" content="Mtools 4.0.20: per drive variables">
+<meta name="keywords" content="Mtools 4.0.20: per drive variables">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Configuration.html#Configuration" rel="up" title="Configuration">
+<link href="general-information.html#general-information" rel="next" title="general information">
+<link href="global-variables.html#global-variables" rel="prev" title="global variables">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="per-drive-variables"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="parsing-order.html#parsing-order">parsing order</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="global-variables.html#global-variables">global variables</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Configuration.html#Configuration">Configuration</a>
-<hr>
+Next: <a href="parsing-order.html#parsing-order" accesskey="n" rel="next">parsing order</a>, Previous: <a href="global-variables.html#global-variables" accesskey="p" rel="prev">global variables</a>, Up: <a href="Configuration.html#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Per-drive-flags-and-variables"></a>
 <h3 class="section">3.5 Per drive flags and variables</h3>
+<a name="index-Drive-description"></a>
+<a name="index-Drive-configuration"></a>
 
-<p><a name="index-Drive-description-56"></a><a name="index-Drive-configuration-57"></a>
-
-<ul class="menu">
-<li><a accesskey="1" href="general-information.html#general-information">general information</a>:    What a drive description looks like
-<li><a accesskey="2" href="location-information.html#location-information">location information</a>:   Where is the drive data physically stored
-<li><a accesskey="3" href="geometry-description.html#geometry-description">geometry description</a>:   Describes the physical characteristics of
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="general-information.html#general-information" accesskey="1">general information</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What a drive description looks like
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="location-information.html#location-information" accesskey="2">location information</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Where is the drive data physically stored
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="geometry-description.html#geometry-description" accesskey="3">geometry description</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Describes the physical characteristics of
                           the media
-<li><a accesskey="4" href="open-flags.html#open-flags">open flags</a>:             Flags passed to the open system call when the
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="open-flags.html#open-flags" accesskey="4">open flags</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Flags passed to the open system call when the
                           device is opened
-<li><a accesskey="5" href="miscellaneous-variables.html#miscellaneous-variables">miscellaneous variables</a>:         Variables which don't fit in either category
-<li><a accesskey="6" href="miscellaneous-flags.html#miscellaneous-flags">miscellaneous flags</a>: 		  Switch variables, which can be enabled or disabled
-<li><a accesskey="7" href="multiple-descriptions.html#multiple-descriptions">multiple descriptions</a>:  How to supply several descriptions for a
-                          drive, to be tried one after the other. 
-</ul>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="miscellaneous-variables.html#miscellaneous-variables" accesskey="5">miscellaneous variables</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Variables which don&rsquo;t fit in either category
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="miscellaneous-flags.html#miscellaneous-flags" accesskey="6">miscellaneous flags</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Switch variables, which can be enabled or disabled
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="multiple-descriptions.html#multiple-descriptions" accesskey="7">multiple descriptions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to supply several descriptions for a
+                          drive, to be tried one after the other.
+</td></tr>
+</table>
 
-   </body></html>
 
+
+
+</body>
+</html>

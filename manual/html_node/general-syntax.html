@@ -1,54 +1,82 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>general syntax - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Configuration.html#Configuration" title="Configuration">
-<link rel="prev" href="configuration-file-location.html#configuration-file-location" title="configuration file location">
-<link rel="next" href="default-values.html#default-values" title="default values">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: general syntax</title>
+
+<meta name="description" content="Mtools 4.0.20: general syntax">
+<meta name="keywords" content="Mtools 4.0.20: general syntax">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Configuration.html#Configuration" rel="up" title="Configuration">
+<link href="default-values.html#default-values" rel="next" title="default values">
+<link href="configuration-file-location.html#configuration-file-location" rel="prev" title="configuration file location">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="general-syntax"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="default-values.html#default-values">default values</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="configuration-file-location.html#configuration-file-location">configuration file location</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Configuration.html#Configuration">Configuration</a>
-<hr>
+Next: <a href="default-values.html#default-values" accesskey="n" rel="next">default values</a>, Previous: <a href="configuration-file-location.html#configuration-file-location" accesskey="p" rel="prev">configuration file location</a>, Up: <a href="Configuration.html#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="General-configuration-file-syntax"></a>
 <h4 class="subsection">3.2.1 General configuration file syntax</h4>
+<a name="index-Syntax-of-the-configuration-file"></a>
+<a name="index-Configuration-file-syntax"></a>
 
-<p><a name="index-Syntax-of-the-configuration-file-43"></a><a name="index-Configuration-file-syntax-44"></a>
-The configuration files is made up of sections. Each section starts
-with a keyword identifying the section followed by a colon. 
+<p>The configuration files is made up of sections. Each section starts
+with a keyword identifying the section followed by a colon.
 Then follow variable assignments and flags. Variable assignments take
 the following form:
-<pre class="display">     name=value
-</pre>
-   <p>Flags are lone keywords without an equal sign and value following
+</p><div class="display">
+<pre class="display">name=value
+</pre></div>
+<p>Flags are lone keywords without an equal sign and value following
 them.  A section either ends at the end of the file or where the next
 section begins.
-
-   <p>Lines starting with a hash (<code>#</code>) are comments. Newline characters
+</p>
+<p>Lines starting with a hash (<code>#</code>) are comments. Newline characters
 are equivalent to whitespace (except where ending a comment). The
 configuration file is case insensitive, except for item enclosed in
 quotes (such as filenames).
+</p>
 
-   </body></html>
 
+
+</body>
+</html>

@@ -1,178 +1,332 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>mformat - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Commands.html#Commands" title="Commands">
-<link rel="prev" href="mdu.html#mdu" title="mdu">
-<link rel="next" href="mkmanifest.html#mkmanifest" title="mkmanifest">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: mformat</title>
+
+<meta name="description" content="Mtools 4.0.20: mformat">
+<meta name="keywords" content="Mtools 4.0.20: mformat">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Commands.html#Commands" rel="up" title="Commands">
+<link href="mkmanifest.html#mkmanifest" rel="next" title="mkmanifest">
+<link href="mdu.html#mdu" rel="prev" title="mdu">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="mformat"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="mkmanifest.html#mkmanifest">mkmanifest</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="mdu.html#mdu">mdu</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
-<hr>
+Next: <a href="mkmanifest.html#mkmanifest" accesskey="n" rel="next">mkmanifest</a>, Previous: <a href="mdu.html#mdu" accesskey="p" rel="prev">mdu</a>, Up: <a href="Commands.html#Commands" accesskey="u" rel="up">Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Mformat"></a>
 <h3 class="section">4.13 Mformat</h3>
+<a name="index-mformat"></a>
+<a name="index-Initializing-disks"></a>
+<a name="index-Formatting-disks"></a>
+<a name="index-File-system-creation"></a>
 
-<p><a name="index-mformat-184"></a><a name="index-Initializing-disks-185"></a><a name="index-Formatting-disks-186"></a><a name="index-File-system-creation-187"></a>
-The <code>mformat</code> command is used to add an MS-DOS file system to a
+<p>The <code>mformat</code> command is used to add an MS-DOS file system to a
 low-level formatted diskette. Its syntax is:
+</p>
+<div class="display">
+<pre class="display"><code>mformat</code> [<code>-t</code> <var>cylinders</var>|<code>-T</code> <var>tot_sectors</var>] [<code>-h</code> <var>heads</var>] [<code>-s</code> <var>sectors</var>]
+  [<code>-f</code> <var>size</var>] [<code>-1</code>] [<code>-4</code>] [<code>-8</code>]
+  [<code>-v</code> <var>volume_label</var>]
+  [<code>-F</code>] [<code>-S</code> <var>sizecode</var>]
+  [<code>-M</code> <var>software_sector_size</var>]
+  [<code>-N</code> <var>serial_number</var>] [<code>-a</code>]
+  [<code>-C</code>] [<code>-H</code> <var>hidden_sectors</var>] [<code>-I</code> <var>fsVersion</var>]
+  [<code>-r</code> <var>root_sectors</var>] [<code>-L</code> <var>fat_len</var>] 
+  [<code>-B</code> <var>boot_sector</var>] [<code>-k</code>]
+  [<code>-m</code> <var>media_descriptor</var>]
+  [<code>-K</code> <var>backup_boot</var>]
+  [<code>-R</code> <var>nb_reserved_sectors</var>]
+  [<code>-c</code> <var>clusters_per_sector</var>]
+  [<code>-d</code> <var>fat_copies</var>]
+  [<code>-X</code>] [<code>-2</code> <var>sectors_on_track_0</var>] [<code>-3</code>]
+  [<code>-0</code> <var>rate_on_track_0</var>] [<code>-A</code> <var>rate_on_other_tracks</var>]
+  <var>drive:</var>
+</pre></div>
 
-<pre class="display">     <code>mformat</code> [<code>-t</code> <var>cylinders</var>|<code>-T</code> <var>tot_sectors</var>] [<code>-h</code> <var>heads</var>] [<code>-s</code> <var>sectors</var>]
-       [<code>-f</code> <var>size</var>] [<code>-1</code>] [<code>-4</code>] [<code>-8</code>]
-       [<code>-v</code> <var>volume_label</var>]
-       [<code>-F</code>] [<code>-S</code> <var>sizecode</var>]
-       [<code>-M</code> <var>software_sector_size</var>]
-       [<code>-N</code> <var>serial_number</var>] [<code>-a</code>]
-       [<code>-C</code>] [<code>-H</code> <var>hidden_sectors</var>] [<code>-I</code> <var>fsVersion</var>]
-       [<code>-r</code> <var>root_sectors</var>] [<code>-L</code> <var>fat_len</var>]
-       [<code>-B</code> <var>boot_sector</var>] [<code>-k</code>]
-       [<code>-m</code> <var>media_descriptor</var>]
-       [<code>-K</code> <var>backup_boot</var>]
-       [<code>-c</code> <var>clusters_per_sector</var>]
-       [<code>-d</code> <var>fat_copies</var>]
-       [<code>-X</code>] [<code>-2</code> <var>sectors_on_track_0</var>] [<code>-3</code>]
-       [<code>-0</code> <var>rate_on_track_0</var>] [<code>-A</code> <var>rate_on_other_tracks</var>]
-       <var>drive:</var>
-</pre>
-   <p><code>Mformat</code> adds a minimal MS-DOS file system (boot sector, FAT, and
+<p><code>Mformat</code> adds a minimal MS-DOS file system (boot sector, FAT, and
 root directory) to a diskette that has already been formatted by a Unix
 low-level format.
+</p>
 
-   <p>The following options are supported: (The S, 2, 1 and M options may not
+<p>The following options are supported: (The S, 2, 1 and M options may not
 exist if this copy of mtools has been compiled without the USE_2M
 option)
+</p>
+<p>The following options are the same as for MS-DOS&rsquo;s format command:
+</p>
 
-   <p>The following options are the same as for MS-DOS's format command:
-
-<!-- xMANoptions -->
-     <dl>
-<dt><code>v</code><dd>Specifies the volume label. A volume label identifies the disk and can
+<dl compact="compact">
+<dt><code>v</code></dt>
+<dd><p>Specifies the volume label. A volume label identifies the disk and can
 be a maximum of 11 characters. If you omit the -v switch, mformat will
-assign no label to the disk. 
-<br><dt><code>f</code><dd>Specifies the size of the DOS file system to format. Only a certain
+assign no label to the disk.
+</p></dd>
+<dt><code>f</code></dt>
+<dd><p>Specifies the size of the DOS file system to format. Only a certain
 number of predefined sizes are supported by this flag; for others use
 the -h/-t/-s flags. The following sizes are supported:
-          <dl>
-<dt>160<dd>160K, single-sided, 8 sectors per track, 40 cylinders (for 5 1/4 DD)
-<br><dt>180<dd>160K, single-sided, 9 sectors per track, 40 cylinders (for 5 1/4 DD)
-<br><dt>320<dd>320K, double-sided, 8 sectors per track, 40 cylinders (for 5 1/4 DD)
-<br><dt>360<dd>360K, double-sided, 9 sectors per track, 40 cylinders (for 5 1/4 DD)
-<br><dt>720<dd>720K, double-sided, 9 sectors per track, 80 cylinders (for 3 1/2 DD)
-<br><dt>1200<dd>1200K, double-sided, 15 sectors per track, 80 cylinders (for 5 1/4 HD)
-<br><dt>1440<dd>1440K, double-sided, 18 sectors per track, 80 cylinders (for 3 1/2 HD)
-<br><dt>2880<dd>2880K, double-sided, 36 sectors per track, 80 cylinders (for 3 1/2 ED)
+</p><dl compact="compact">
+<dt>160</dt>
+<dd><p>160K, single-sided, 8 sectors per track, 40 cylinders (for 5 1/4 DD)
+</p></dd>
+<dt>180</dt>
+<dd><p>160K, single-sided, 9 sectors per track, 40 cylinders (for 5 1/4 DD)
+</p></dd>
+<dt>320</dt>
+<dd><p>320K, double-sided, 8 sectors per track, 40 cylinders (for 5 1/4 DD)
+</p></dd>
+<dt>360</dt>
+<dd><p>360K, double-sided, 9 sectors per track, 40 cylinders (for 5 1/4 DD)
+</p></dd>
+<dt>720</dt>
+<dd><p>720K, double-sided, 9 sectors per track, 80 cylinders (for 3 1/2 DD)
+</p></dd>
+<dt>1200</dt>
+<dd><p>1200K, double-sided, 15 sectors per track, 80 cylinders (for 5 1/4 HD)
+</p></dd>
+<dt>1440</dt>
+<dd><p>1440K, double-sided, 18 sectors per track, 80 cylinders (for 3 1/2 HD)
+</p></dd>
+<dt>2880</dt>
+<dd><p>2880K, double-sided, 36 sectors per track, 80 cylinders (for 3 1/2 ED)
+</p></dd>
 </dl>
 
-     <br><dt><code>t</code><dd>Specifies the number of tracks on the disk. 
-<br><dt><code>T</code><dd>Specifies the number of total sectors on the disk. Only one of these 2
+</dd>
+<dt><code>t</code></dt>
+<dd><p>Specifies the number of tracks on the disk.
+</p></dd>
+<dt><code>T</code></dt>
+<dd><p>Specifies the number of total sectors on the disk. Only one of these 2
 options may be specified (tracks or total sectors)
-<br><dt><code>h</code><dd>The number of heads (sides). 
-<br><dt><code>s</code><dd>Specifies the number of sectors per track. If the 2m option is given,
+</p></dd>
+<dt><code>h</code></dt>
+<dd><p>The number of heads (sides).
+</p></dd>
+<dt><code>s</code></dt>
+<dd><p>Specifies the number of sectors per track. If the 2m option is given,
 number of 512-byte sector equivalents on generic tracks (i.e. not head 0
 track 0).  If the 2m option is not given, number of physical sectors per
 track (which may be bigger than 512 bytes).
-
-     <br><dt><code>1</code><dd>Formats a single side (equivalent to -h 1)
-
-     <br><dt><code>4</code><dd>Formats a 360K double-sided disk (equivalent to -f 360). When used
+</p>
+</dd>
+<dt><code>1</code></dt>
+<dd><p>Formats a single side (equivalent to -h 1)
+</p>
+</dd>
+<dt><code>4</code></dt>
+<dd><p>Formats a 360K double-sided disk (equivalent to -f 360). When used
 together with -the 1 switch, this switch formats a 180K disk
+</p>
+</dd>
+<dt><code>8</code></dt>
+<dd><p>Formats a disk with 8 sectors per track.
+</p>
+</dd>
+</dl>
 
-     <br><dt><code>8</code><dd>Formats a disk with 8 sectors per track.
-
-   </dl>
-
-   <p>MS-DOS format's <code>q</code>, <code>u</code> and <code>b</code> options are not
+<p>MS-DOS format&rsquo;s <code>q</code>, <code>u</code> and <code>b</code> options are not
 supported, and <code>s</code> has a different meaning.
-
-   <p>The following options are specific to mtools:
-
-     <dl>
-<dt><code>F</code><dd>Format the partition as FAT32.
-
-     <br><dt><code>S</code><dd>The size code. The size of the sector is 2 ^ (sizecode + 7). 
-<br><dt><code>X</code><dd>formats the disk as an XDF disk. See <a href="XDF.html#XDF">XDF</a>, for more details. The disk
+</p>
+<p>The following options are specific to mtools:
+</p>
+<dl compact="compact">
+<dt><code>F</code></dt>
+<dd><p>Format the partition as FAT32.
+</p>
+</dd>
+<dt><code>S</code></dt>
+<dd><p>The size code. The size of the sector is 2 ^ (sizecode + 7).
+</p></dd>
+<dt><code>X</code></dt>
+<dd><p>formats the disk as an XDF disk. See <a href="XDF.html#XDF">XDF</a>, for more details. The disk
 has first to be low-level formatted using the xdfcopy utility included
 in the fdutils package. XDF disks are used for instance for OS/2 install
-disks. 
-<br><dt><code>2</code><dd>2m format. The parameter to this option describes the number of
+disks.
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>2m format. The parameter to this option describes the number of
 sectors on track 0, head 0. This option is recommended for sectors
-bigger than normal. 
-<br><dt><code>3</code><dd>don't use a 2m format, even if the current geometry of the disk is a 2m
-geometry. 
-<br><dt><code>0</code><dd>Data transfer rate on track 0
-<br><dt><code>A</code><dd>Data transfer rate on tracks other than 0
-<br><dt><code>M</code><dd>software sector size. This parameter describes the sector size in bytes used
-by the MS-DOS file system. By default it is the physical sector size. 
-<br><dt><code>N</code><dd>Uses the requested serial number, instead of generating one
+bigger than normal.
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>don&rsquo;t use a 2m format, even if the current geometry of the disk is a 2m 
+geometry.
+</p></dd>
+<dt><code>0</code></dt>
+<dd><p>Data transfer rate on track 0
+</p></dd>
+<dt><code>A</code></dt>
+<dd><p>Data transfer rate on tracks other than 0
+</p></dd>
+<dt><code>M</code></dt>
+<dd><p>software sector size. This parameter describes the sector size in bytes used
+by the MS-DOS file system. By default it is the physical sector size.
+</p></dd>
+<dt><code>N</code></dt>
+<dd><p>Uses the requested serial number, instead of generating one
 automatically
-<br><dt><code>a</code><dd>If this option is given, an Atari style serial number is generated. 
-Ataris store their serial number in the OEM label. 
-<br><dt><code>C</code><dd>creates the disk image file to install the MS-DOS file system on
+</p></dd>
+<dt><code>a</code></dt>
+<dd><p>If this option is given, an Atari style serial number is generated.
+Ataris store their serial number in the OEM label.
+</p></dd>
+<dt><code>C</code></dt>
+<dd><p>creates the disk image file to install the MS-DOS file system on
 it. Obviously, this is useless on physical devices such as floppies
-and hard disk partitions, but is interesting for image files. 
-<br><dt><code>H</code><dd>number of hidden sectors. This parameter is useful for formatting hard
+and hard disk partitions, but is interesting for image files.
+</p></dd>
+<dt><code>H</code></dt>
+<dd><p>number of hidden sectors. This parameter is useful for formatting hard
 disk partition, which are not aligned on track boundaries (i.e. first
-head of first track doesn't belong to the partition, but contains a
+head of first track doesn&rsquo;t belong to the partition, but contains a
 partition table). In that case the number of hidden sectors is in
-general the number of sectors per cylinder. This is untested. 
-<br><dt><code>I</code><dd>Sets the fsVersion id when formatting a FAT32 drive.  In order to find
+general the number of sectors per cylinder. This is untested.
+</p></dd>
+<dt><code>I</code></dt>
+<dd><p>Sets the fsVersion id when formatting a FAT32 drive.  In order to find
 this out, run minfo on an existing FAT32 drive, and mail me about it, so
-I can include the correct value in future versions of mtools. 
-<br><dt><code>c</code><dd>Sets the size of a cluster (in sectors).  If this cluster size would
+I can include the correct value in future versions of mtools.
+</p></dd>
+<dt><code>c</code></dt>
+<dd><p>Sets the size of a cluster (in sectors).  If this cluster size would
 generate a FAT that too big for its number of bits, mtools automatically
-increases the cluster size, until the FAT is small enough. 
-<br><dt><code>d</code><dd>Sets the number of FAT copies. Default is 2. This setting can also be
-specified using the <code>MTOOLS_NFATS</code> environment variable. 
-<br><dt><code>r</code><dd>Sets the size of the root directory (in sectors).  Only applicable to 12
+increases the cluster size, until the FAT is small enough. If no
+cluster size is specified explicitly, mtools uses a default value as
+described in section &ldquo;Number of sectors per cluster&rdquo; below.
+</p></dd>
+<dt><code>d</code></dt>
+<dd><p>Sets the number of FAT copies. Default is 2. This setting can also be
+specified using the <code>MTOOLS_NFATS</code> environment variable.
+</p></dd>
+<dt><code>r</code></dt>
+<dd><p>Sets the size of the root directory (in sectors).  Only applicable to 12
 and 16 bit FATs. This setting can also be specified using the
-<code>MTOOLS_DIR_LEN</code> environment variable. 
-<br><dt><code>L</code><dd>Sets the length of the FAT. 
-<br><dt><code>B</code><dd>Use the boot sector stored in the given file or device, instead of using
+<code>MTOOLS_DIR_LEN</code> environment variable.
+</p></dd>
+<dt><code>L</code></dt>
+<dd><p>Sets the length of the FAT.
+</p></dd>
+<dt><code>B</code></dt>
+<dd><p>Use the boot sector stored in the given file or device, instead of using
 its own.  Only the geometry fields are updated to match the target disks
-parameters. 
-<br><dt><code>k</code><dd>Keep the existing boot sector as much as possible.  Only the geometry
+parameters.
+</p></dd>
+<dt><code>k</code></dt>
+<dd><p>Keep the existing boot sector as much as possible.  Only the geometry
 fields and other similar file system data are updated to match the target
-disks parameters. 
-<br><dt><code>K</code><dd>Sets the sector number where the backup of the boot sector should be
+disks parameters.
+</p></dd>
+<dt><code>K</code></dt>
+<dd><p>Sets the sector number where the backup of the boot sector should be
 stored (only relevant on FAT32).
-
-     <br><dt><code>m</code><dd>Use a non-standard media descriptor byte for this disk. The media
+</p></dd>
+<dt><code>R</code></dt>
+<dd><p>Sets the number of reserved sectors for this filesystem. This must be
+at least 1 for non-FAT32 disks, and at least 3 for FAT disks (in order
+to accomodate the boot sector, the info sector and the backup boot
+sector).
+</p>
+</dd>
+<dt><code>m</code></dt>
+<dd><p>Use a non-standard media descriptor byte for this disk. The media
 descriptor is stored at position 21 of the boot sector, and as first
 byte in each FAT copy. Using this option may confuse DOS or older mtools
 version, and may make the disk unreadable. Only use if you know what you
 are doing.
+</p>
+</dd>
+</dl>
 
-   </dl>
-
-   <p>To format a diskette at a density other than the default, you must supply
+<p>To format a diskette at a density other than the default, you must supply
 (at least) those command line parameters that are different from the
 default.
-
-   <p><code>Mformat</code> returns 0 on success or 1 on failure.
-
-   <p>It doesn't record bad block information to the Fat, use
+</p>
+<p><code>Mformat</code> returns 0 on success or 1 on failure.
+</p>
+<p>It doesn&rsquo;t record bad block information to the Fat, use
 <code>mbadblocks</code> for that.
+</p>
+<a name="Number-of-sectors-per-cluster"></a>
+<h4 class="subsection">4.13.1 Number of sectors per cluster</h4>
 
-   </body></html>
+<p>If the user indicates no cluster size, mformat figures out a default
+value for it.
+</p>
+<p>For FAT32 it uses the following table to determine the number of
+sectors per cluster, depending on the total number of sectors on the
+filesystem.
+</p>
+<p>more than 32*1024*1024*2: 64 sectors<br>
+between 16*1024*1024*2 and 32*1024*1024*2: 32 sectors<br>
+between 8*1024*1024*2 and 16*1024*1024*2: 16 sectors<br>
+between 260*1024*2 and 81024*1024*2: 1 sectors<br>
+</p>
+<p>This is derived from information on page 20 of Microsoft&rsquo;s
+<code>fatgen103</code> document, which currently can be found at the
+following address:
+</p>
+<p><code>https://staff.washington.edu/dittrich/misc/fatgen103.pdf</code>
+</p>
+<p>For FAT12 and FAT16, mformat uses an iterative approach, where it
+starts with a set value, which it doubles until it is able to fill up
+the disk using that cluster size and a number of cluster less than the
+maximum allowed.
+</p>
+<p>The starting value is 1 for disks with one head or less than 2000
+sectors, and 2 for disks with more than one head, and more than 2000
+sectors.
+</p>
+<p>The number of sectors per cluster cannot go beyond 128.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="mkmanifest.html#mkmanifest" accesskey="n" rel="next">mkmanifest</a>, Previous: <a href="mdu.html#mdu" accesskey="p" rel="prev">mdu</a>, Up: <a href="Commands.html#Commands" accesskey="u" rel="up">Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
+
+
+</body>
+</html>

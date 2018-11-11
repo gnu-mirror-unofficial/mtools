@@ -1,55 +1,97 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Compiling mtools - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="prev" href="Commands.html#Commands" title="Commands">
-<link rel="next" href="Porting-mtools.html#Porting-mtools" title="Porting mtools">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: Compiling mtools</title>
+
+<meta name="description" content="Mtools 4.0.20: Compiling mtools">
+<meta name="keywords" content="Mtools 4.0.20: Compiling mtools">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Porting-mtools.html#Porting-mtools" rel="next" title="Porting mtools">
+<link href="mzip.html#mzip" rel="prev" title="mzip">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="Compiling-mtools"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Porting-mtools.html#Porting-mtools">Porting mtools</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Commands.html#Commands">Commands</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr>
+Next: <a href="Porting-mtools.html#Porting-mtools" accesskey="n" rel="next">Porting mtools</a>, Previous: <a href="Commands.html#Commands" accesskey="p" rel="prev">Commands</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Architecture-specific-compilation-flags"></a>
 <h2 class="chapter">5 Architecture specific compilation flags</h2>
+<a name="index-XDF-disks-_0028compile-time-configuration_0029"></a>
+<a name="index-Solaris-_0028compile-time-configuration-of-vold_0029"></a>
+<a name="index-Vold-_0028compile-time-configuration_0029"></a>
+<a name="index-Compile-time-configuration"></a>
 
-<p><a name="index-XDF-disks-_0028compile-time-configuration_0029-238"></a><a name="index-Solaris-_0028compile-time-configuration-of-vold_0029-239"></a><a name="index-Vold-_0028compile-time-configuration_0029-240"></a><a name="index-Compile-time-configuration-241"></a>
-To compile mtools, first invoke <code>./configure</code> before
+<p>To compile mtools, first invoke <code>./configure</code> before
 <code>make</code>. In addition to the standard <code>autoconfigure</code> flags,
 there are two architecture specific flags available.
-
-     <dl>
-<dt><code>./configure --enable-xdf</code><dt><code>./configure --disable-xdf</code><dd>Enables support for XDF disks. This is on by default. See <a href="XDF.html#XDF">XDF</a>,
-for details. 
-<br><dt><code>./configure --enable-vold</code><dt><code>./configure --disable-vold</code><dd>Enables support for vold on Solaris. When used in conjunction with vold,
+</p>
+<dl compact="compact">
+<dt><code>./configure --enable-xdf</code></dt>
+<dt><code>./configure --disable-xdf</code></dt>
+<dd><p>Enables support for XDF disks. This is on by default. See <a href="XDF.html#XDF">XDF</a>,
+for details.
+</p></dd>
+<dt><code>./configure --enable-vold</code></dt>
+<dt><code>./configure --disable-vold</code></dt>
+<dd><p>Enables support for vold on Solaris. When used in conjunction with vold,
 mtools should use different device nodes than for direct access.
-
-     <br><dt><code>./configure --enable-new-vold</code><dt><code>./configure --disable-new-vold</code><dd>Enables new support for vold on Solaris. This is supposed to work more
+</p>
+</dd>
+<dt><code>./configure --enable-new-vold</code></dt>
+<dt><code>./configure --disable-new-vold</code></dt>
+<dd><p>Enables new support for vold on Solaris. This is supposed to work more
 smoothly than the old support.
-
-     <br><dt><code>./configure --enable-floppyd</code><dt><code>./configure --disable-floppyd</code><dd>Enables support for floppyd.  By default, floppyd support is enabled as
-long as the necessary X includes and libraries are available. 
+</p>
+</dd>
+<dt><code>./configure --enable-floppyd</code></dt>
+<dt><code>./configure --disable-floppyd</code></dt>
+<dd><p>Enables support for floppyd.  By default, floppyd support is enabled as
+long as the necessary X includes and libraries are available.
+</p></dd>
 </dl>
 
-   </body></html>
 
+
+
+</body>
+</html>

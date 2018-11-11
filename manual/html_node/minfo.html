@@ -1,51 +1,84 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>minfo - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Commands.html#Commands" title="Commands">
-<link rel="prev" href="mkmanifest.html#mkmanifest" title="mkmanifest">
-<link rel="next" href="mlabel.html#mlabel" title="mlabel">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: minfo</title>
+
+<meta name="description" content="Mtools 4.0.20: minfo">
+<meta name="keywords" content="Mtools 4.0.20: minfo">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Commands.html#Commands" rel="up" title="Commands">
+<link href="mlabel.html#mlabel" rel="next" title="mlabel">
+<link href="mkmanifest.html#mkmanifest" rel="prev" title="mkmanifest">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="minfo"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="mlabel.html#mlabel">mlabel</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="mkmanifest.html#mkmanifest">mkmanifest</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
-<hr>
+Next: <a href="mlabel.html#mlabel" accesskey="n" rel="next">mlabel</a>, Previous: <a href="mkmanifest.html#mkmanifest" accesskey="p" rel="prev">mkmanifest</a>, Up: <a href="Commands.html#Commands" accesskey="u" rel="up">Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Minfo"></a>
 <h3 class="section">4.15 Minfo</h3>
+<a name="index-minfo"></a>
+<a name="index-mformat-parameters"></a>
+<a name="index-getting-parameters-of-a-MS_002dDOS-file-system"></a>
 
-<p><a name="index-minfo-190"></a><a name="index-mformat-parameters-191"></a><a name="index-getting-parameters-of-a-MS_002dDOS-file-system-192"></a>
-The <code>minfo</code> command prints the parameters of a MS-DOS file system, such
+<p>The <code>minfo</code> command prints the parameters of a MS-DOS file system, such
 as number of sectors, heads and cylinders.  It also prints an mformat
 command line which can be used to create a similar MS-DOS file system on
-another media.  However, this doesn't work with 2m or XDF media, and
+another media.  However, this doesn&rsquo;t work with 2m or XDF media, and
 with MS-DOS 1.0 file systems
-<pre class="display">     <code>minfo</code> <var>drive</var>:
-</pre>
-   <p>Minfo supports the following option:
-     <dl>
-<dt><code>v</code><dd>Prints a hexdump of the boot sector, in addition to the other information
+</p><div class="display">
+<pre class="display"><code>minfo</code> <var>drive</var>:
+</pre></div>
+
+<p>Minfo supports the following option:
+</p><dl compact="compact">
+<dt><code>v</code></dt>
+<dd><p>Prints a hexdump of the boot sector, in addition to the other information
+</p></dd>
 </dl>
 
-   </body></html>
 
+
+
+
+</body>
+</html>

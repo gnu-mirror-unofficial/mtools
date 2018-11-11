@@ -1,56 +1,86 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>mcat - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Commands.html#Commands" title="Commands">
-<link rel="prev" href="mbadblocks.html#mbadblocks" title="mbadblocks">
-<link rel="next" href="mcd.html#mcd" title="mcd">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
-</head>
-<body>
-<div class="node">
-<a name="mcat"></a>
-<p>
-Next:&nbsp;<a rel="next" accesskey="n" href="mcd.html#mcd">mcd</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="mbadblocks.html#mbadblocks">mbadblocks</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Commands.html#Commands">Commands</a>
-<hr>
-</div>
+<title>Mtools 4.0.20: mcat</title>
 
+<meta name="description" content="Mtools 4.0.20: mcat">
+<meta name="keywords" content="Mtools 4.0.20: mcat">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Commands.html#Commands" rel="up" title="Commands">
+<link href="mcd.html#mcd" rel="next" title="mcd">
+<link href="mbadblocks.html#mbadblocks" rel="prev" title="mbadblocks">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a name="mcat"></a>
+<div class="header">
+<p>
+Next: <a href="mcd.html#mcd" accesskey="n" rel="next">mcd</a>, Previous: <a href="mbadblocks.html#mbadblocks" accesskey="p" rel="prev">mbadblocks</a>, Up: <a href="Commands.html#Commands" accesskey="u" rel="up">Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Mcat"></a>
 <h3 class="section">4.5 Mcat</h3>
 
 <p>The <code>mcat</code> command is used to copy an entire disk image from or
 to the floppy device. It uses the following syntax:
-
-   <p><code>mcat</code> [<code>-w</code>] <var>drive</var><code>:</code>
-<a name="index-mcat-146"></a><a name="index-Copying-an-entire-disk-image-147"></a><a name="index-Disk-image-148"></a><a name="index-Floppyd-cat-149"></a>
-<code>Mcat</code> performs the same task as the Unix <code>cat</code> command. It
+</p>
+<p><code>mcat</code> [<code>-w</code>] <var>drive</var><code>:</code>
+<a name="index-mcat"></a>
+<a name="index-Copying-an-entire-disk-image"></a>
+<a name="index-Disk-image"></a>
+<a name="index-Floppyd-cat"></a>
+</p>
+<p><code>Mcat</code> performs the same task as the Unix <code>cat</code> command. It
 is included into the mtools package, since <code>cat</code> cannot access
-remote floppy devices offered by the mtools floppy daemon. 
+remote floppy devices offered by the mtools floppy daemon.
 Now it is possible to create boot floppies remotely.
-
-   <p>The default operation is reading. The output is written to stdout.
-
-   <p>If the <code>-w</code> option is specified, mcat reads a disk-image from
+</p>
+<p>The default operation is reading. The output is written to stdout.
+</p>
+<p>If the <code>-w</code> option is specified, mcat reads a disk-image from 
 stdin and writes it to the given device. 
-<strong>Use this carefully!</strong> Because of the low-level nature of this
+<strong>Use this carefully!</strong> Because of the low-level nature of this 
 command, it will happily destroy any data written before on the
 disk without warning!
+</p>
 
-   </body></html>
 
+
+</body>
+</html>

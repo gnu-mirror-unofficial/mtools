@@ -1,73 +1,133 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Commands - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="prev" href="Configuration.html#Configuration" title="Configuration">
-<link rel="next" href="Compiling-mtools.html#Compiling-mtools" title="Compiling mtools">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: Commands</title>
+
+<meta name="description" content="Mtools 4.0.20: Commands">
+<meta name="keywords" content="Mtools 4.0.20: Commands">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="floppyd.html#floppyd" rel="next" title="floppyd">
+<link href="old-style-configuration.html#old-style-configuration" rel="prev" title="old style configuration">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="Commands"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Compiling-mtools.html#Compiling-mtools">Compiling mtools</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Configuration.html#Configuration">Configuration</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr>
+Next: <a href="Compiling-mtools.html#Compiling-mtools" accesskey="n" rel="next">Compiling mtools</a>, Previous: <a href="Configuration.html#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Command-list"></a>
 <h2 class="chapter">4 Command list</h2>
+<a name="index-Command-list"></a>
+<a name="index-List-of-available-commands"></a>
 
-<p><a name="index-Command-list-128"></a><a name="index-List-of-available-commands-129"></a>
- This section describes the available mtools commands, and the command
+<p>This section describes the available mtools commands, and the command
 line parameters that each of them accepts. Options which are common to
 all mtools commands are not described here, <a href="arguments.html#arguments">arguments</a> for a
 description of those.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="floppyd.html#floppyd" accesskey="1">floppyd</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">floppy daemon to run on your X server box
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="floppyd_005finstalltest.html#floppyd_005finstalltest" accesskey="2">floppyd_installtest</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">small utility to check for the presence of floppyd
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mattrib.html#mattrib" accesskey="3">mattrib</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">change MS-DOS file attribute flags
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mbadblocks.html#mbadblocks" accesskey="4">mbadblocks</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">tests a floppy disk, and marks the bad blocks in the FAT
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mcat.html#mcat" accesskey="5">mcat</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">same as cat. Only useful with floppyd.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mcd.html#mcd" accesskey="6">mcd</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">change MS-DOS directory
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mclasserase.html#mclasserase" accesskey="7">mclasserase</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">erase memory card
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mcopy.html#mcopy" accesskey="8">mcopy</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">copy MS-DOS files to/from Unix
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mdel.html#mdel" accesskey="9">mdel</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">delete an MS-DOS file
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mdeltree.html#mdeltree">mdeltree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">recursively delete an MS-DOS directory
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mdir.html#mdir">mdir</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">display an MS-DOS directory
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mdu.html#mdu">mdu</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">list space occupied by directory and its contents
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mformat.html#mformat">mformat</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">add an MS-DOS file system to a low-level formatted floppy disk
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="minfo.html#minfo">minfo</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">get information about an MS-DOS file system.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mlabel.html#mlabel">mlabel</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">make an MS-DOS volume label
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mkmanifest.html#mkmanifest">mkmanifest</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">makes a list of short name equivalents
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mmd.html#mmd">mmd</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">make an MS-DOS subdirectory
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mmount.html#mmount">mmount</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mount an MS-DOS disk
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mpartition.html#mpartition">mpartition</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">create an MS-DOS as a partition
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mrd.html#mrd">mrd</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">remove an MS-DOS subdirectory
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mmove.html#mmove">mmove</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">move or rename an MS-DOS file or subdirectory
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mren.html#mren">mren</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">rename an existing MS-DOS file
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mshortname.html#mshortname">mshortname</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">shows the short name of a file
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mshowfat.html#mshowfat">mshowfat</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">shows the FAT map of a file
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mtoolstest.html#mtoolstest">mtoolstest</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">tests and displays the configuration
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mtype.html#mtype">mtype</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">display contents of an MS-DOS file
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="mzip.html#mzip">mzip</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">zip disk specific commands
+</td></tr>
+</table>
 
-<ul class="menu">
-<li><a accesskey="1" href="floppyd.html#floppyd">floppyd</a>:            floppy daemon to run on your X server box
-<li><a accesskey="2" href="floppyd_005finstalltest.html#floppyd_005finstalltest">floppyd_installtest</a>:  small utility to check for the presence of floppyd
-<li><a accesskey="3" href="mattrib.html#mattrib">mattrib</a>:            change MS-DOS file attribute flags
-<li><a accesskey="4" href="mbadblocks.html#mbadblocks">mbadblocks</a>:         tests a floppy disk, and marks the bad blocks in the FAT
-<li><a accesskey="5" href="mcat.html#mcat">mcat</a>:               same as cat. Only useful with floppyd. 
-<li><a accesskey="6" href="mcd.html#mcd">mcd</a>:                change MS-DOS directory
-<li><a accesskey="7" href="mclasserase.html#mclasserase">mclasserase</a>:        erase memory card
-<li><a accesskey="8" href="mcopy.html#mcopy">mcopy</a>:              copy MS-DOS files to/from Unix
-<li><a accesskey="9" href="mdel.html#mdel">mdel</a>:               delete an MS-DOS file
-<li><a href="mdeltree.html#mdeltree">mdeltree</a>:           recursively delete an MS-DOS directory
-<li><a href="mdir.html#mdir">mdir</a>:               display an MS-DOS directory
-<li><a href="mdu.html#mdu">mdu</a>:                list space occupied by directory and its contents
-<li><a href="mformat.html#mformat">mformat</a>:            add an MS-DOS file system to a low-level formatted floppy disk
-<li><a href="minfo.html#minfo">minfo</a>:              get information about an MS-DOS file system. 
-<li><a href="mlabel.html#mlabel">mlabel</a>:             make an MS-DOS volume label
-<li><a href="mkmanifest.html#mkmanifest">mkmanifest</a>:         makes a list of short name equivalents
-<li><a href="mmd.html#mmd">mmd</a>:                make an MS-DOS subdirectory
-<li><a href="mmount.html#mmount">mmount</a>:             mount an MS-DOS disk
-<li><a href="mpartition.html#mpartition">mpartition</a>:         create an MS-DOS as a partition
-<li><a href="mrd.html#mrd">mrd</a>:                remove an MS-DOS subdirectory
-<li><a href="mmove.html#mmove">mmove</a>:              move or rename an MS-DOS file or subdirectory
-<li><a href="mren.html#mren">mren</a>:               rename an existing MS-DOS file
-<li><a href="mshortname.html#mshortname">mshortname</a>:         shows the short name of a file
-<li><a href="mshowfat.html#mshowfat">mshowfat</a>:           shows the FAT map of a file
-<li><a href="mtoolstest.html#mtoolstest">mtoolstest</a>:         tests and displays the configuration
-<li><a href="mtype.html#mtype">mtype</a>:              display contents of an MS-DOS file
-<li><a href="mzip.html#mzip">mzip</a>:               zip disk specific commands
-</ul>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Compiling-mtools.html#Compiling-mtools" accesskey="n" rel="next">Compiling mtools</a>, Previous: <a href="Configuration.html#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
-   </body></html>
 
+
+</body>
+</html>

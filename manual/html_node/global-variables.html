@@ -1,79 +1,145 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>global variables - Mtools 4.0.18</title>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="Mtools 4.0.18">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Configuration.html#Configuration" title="Configuration">
-<link rel="prev" href="default-values.html#default-values" title="default values">
-<link rel="next" href="per-drive-variables.html#per-drive-variables" title="per drive variables">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+<title>Mtools 4.0.20: global variables</title>
+
+<meta name="description" content="Mtools 4.0.20: global variables">
+<meta name="keywords" content="Mtools 4.0.20: global variables">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Command-Index.html#Command-Index" rel="index" title="Command Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Configuration.html#Configuration" rel="up" title="Configuration">
+<link href="per-drive-variables.html#per-drive-variables" rel="next" title="per drive variables">
+<link href="default-values.html#default-values" rel="prev" title="default values">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<div class="node">
+
+<body lang="en">
 <a name="global-variables"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="per-drive-variables.html#per-drive-variables">per drive variables</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="default-values.html#default-values">default values</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Configuration.html#Configuration">Configuration</a>
-<hr>
+Next: <a href="per-drive-variables.html#per-drive-variables" accesskey="n" rel="next">per drive variables</a>, Previous: <a href="default-values.html#default-values" accesskey="p" rel="prev">default values</a>, Up: <a href="Configuration.html#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Global-variables"></a>
 <h3 class="section">3.4 Global variables</h3>
+<a name="index-Global-configuration-variables"></a>
+<a name="index-Drive-independent-configuration-variables"></a>
+<a name="index-Environmental-variables"></a>
+<a name="index-MTOOLS_005fSKIP_005fCHECK"></a>
+<a name="index-MTOOLS_005fFAT_005fCOMPATIBILITY"></a>
+<a name="index-MTOOLS_005fLOWER_005fCASE"></a>
+<a name="index-MTOOLS_005fNO_005fVFAT"></a>
+<a name="index-MTOOLS_005fDOTTED_005fDIR"></a>
+<a name="index-MTOOLS_005fNAME_005fNUMERIC_005fTAIL"></a>
+<a name="index-MTOOLS_005fTWENTY_005fFOUR_005fHOUR_005fCLOCK"></a>
+<a name="index-MTOOLS_005fLOCK_005fTIMEOUT"></a>
+<a name="index-FreeDOS"></a>
 
-<p><a name="index-Global-configuration-variables-48"></a><a name="index-Drive-independent-configuration-variables-49"></a><a name="index-Environmental-variables-50"></a><a name="index-MTOOLS_005fSKIP_005fCHECK-51"></a><a name="index-MTOOLS_005fFAT_005fCOMPATIBILITY-52"></a><a name="index-MTOOLS_005fLOWER_005fCASE-53"></a><a name="index-MTOOLS_005fNO_005fVFAT-54"></a><a name="index-FreeDOS-55"></a>
-Global flags may be set to 1 or to 0.
-
-   <p>The following global flags are recognized:
-
-     <dl>
-<dt><code>MTOOLS_SKIP_CHECK</code><dd>If this is set to 1, mtools skips most of its sanity checks. This is
+<p>Global flags may be set to 1 or to 0.
+</p>
+<p>The following global flags are recognized:
+</p>
+<dl compact="compact">
+<dt><code>MTOOLS_SKIP_CHECK</code></dt>
+<dd><p>If this is set to 1, mtools skips most of its sanity checks. This is
 needed to read some Atari disks which have been made with the earlier
-ROMs, and which would not be recognized otherwise. 
-<br><dt><code>MTOOLS_FAT_COMPATIBILITY</code><dd>If this is set to 1, mtools skips the fat size checks. Some disks have
+ROMs, and which would not be recognized otherwise.
+</p></dd>
+<dt><code>MTOOLS_FAT_COMPATIBILITY</code></dt>
+<dd><p>If this is set to 1, mtools skips the fat size checks. Some disks have
 a bigger FAT than they really need to. These are rejected if this
-option is not set. 
-<br><dt><code>MTOOLS_LOWER_CASE</code><dd>If this is set to 1, mtools displays all-upper-case short filenames as
+option is not set.
+</p></dd>
+<dt><code>MTOOLS_LOWER_CASE</code></dt>
+<dd><p>If this is set to 1, mtools displays all-upper-case short filenames as
 lowercase. This has been done to allow a behavior which is consistent
-with older versions of mtools which didn't know about the case bits. 
-<br><dt><code>MTOOLS_NO_VFAT</code><dd>If this is set to 1, mtools won't generate VFAT entries for filenames
+with older versions of mtools which didn&rsquo;t know about the case bits.
+</p></dd>
+<dt><code>MTOOLS_NO_VFAT</code></dt>
+<dd><p>If this is set to 1, mtools won&rsquo;t generate VFAT entries for filenames
 which are mixed-case, but otherwise legal dos filenames.  This is useful
-when working with DOS versions which can't grok VFAT long names, such as
-FreeDOS. 
-<br><dt><code>MTOOLS_DOTTED_DIR</code><dd>In a wide directory, prints the short name with a dot instead of spaces
-separating the basename and the extension. 
-<br><dt><code>MTOOLS_NAME_NUMERIC_TAIL</code><dd>If this is set to one (default), generate numeric tails for all long
+when working with DOS versions which can&rsquo;t grok VFAT long names, such as
+FreeDOS.
+</p></dd>
+<dt><code>MTOOLS_DOTTED_DIR</code></dt>
+<dd><p>In a wide directory, prints the short name with a dot instead of spaces
+separating the basename and the extension.
+</p></dd>
+<dt><code>MTOOLS_NAME_NUMERIC_TAIL</code></dt>
+<dd><p>If this is set to one (default), generate numeric tails for all long
 names (~1).  If set to zero, only generate numeric tails if otherwise a
-clash would have happened. 
-<br><dt><code>MTOOLS_TWENTY_FOUR_HOUR_CLOCK</code><dd>If 1, uses the European notation for times (twenty four hour clock),
+clash would have happened.
+</p></dd>
+<dt><code>MTOOLS_TWENTY_FOUR_HOUR_CLOCK</code></dt>
+<dd><p>If 1, uses the European notation for times (twenty four hour clock),
 else uses the UK/US notation (am/pm)
+</p></dd>
+<dt><code>MTOOLS_LOCK_TIMEOUT</code></dt>
+<dd><p>How long, in seconds, to wait for a locked device to become free.
+Defaults to 30.
+</p></dd>
 </dl>
 
-   <p>Example:
+<p>Example:
 Inserting the following line into your configuration file instructs
 mtools to skip the sanity checks:
-<pre class="example">       MTOOLS_SKIP_CHECK=1
-</pre>
-   <p>Global variables may also be set via the environment:
-<pre class="example">       export MTOOLS_SKIP_CHECK=1
-</pre>
-   <p>Global string variables may be set to any value:
-     <dl>
-<dt><code>MTOOLS_DATE_STRING</code><dd>The format used for printing dates of files.  By default, is dd-mm-yyyy. 
+</p><div class="example">
+<pre class="example">  MTOOLS_SKIP_CHECK=1
+</pre></div>
+
+<p>Global variables may also be set via the environment:
+</p><div class="example">
+<pre class="example">  export MTOOLS_SKIP_CHECK=1
+</pre></div>
+
+<p>Global string variables may be set to any value:
+</p><dl compact="compact">
+<dt><code>MTOOLS_DATE_STRING</code></dt>
+<dd><p>The format used for printing dates of files.  By default, is dd-mm-yyyy.
+</p></dd>
 </dl>
 
-   </body></html>
+<hr>
+<div class="header">
+<p>
+Next: <a href="per-drive-variables.html#per-drive-variables" accesskey="n" rel="next">per drive variables</a>, Previous: <a href="default-values.html#default-values" accesskey="p" rel="prev">default values</a>, Up: <a href="Configuration.html#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-Index.html#Command-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
+
+
+</body>
+</html>
