@@ -60,15 +60,15 @@ file:</p>
 <dt id="newbie"> I'm new to Linux (Unix), how do I compile mtools?</dt>
 <dd><p>
 First, if you use a SuSE or Redhat distribution, there is no need to
-compile mtools, a premade <a href="mtools-4.0.23-1.i586.rpm">RPM
-file</a> is available.  Download it, and install it with <code><b>rpm&nbsp;-U&nbsp;mtools-4.0.23-1.i586.rpm</b></code>.</p>
+compile mtools, a premade <a href="mtools-4.0.24-1.i586.rpm">RPM
+file</a> is available.  Download it, and install it with <code><b>rpm&nbsp;-U&nbsp;mtools-4.0.24-1.i586.rpm</b></code>.</p>
 
 <p>If you use another distribution, or if you want to use a version of
 mtools that's more recent than the RPM, proceed as follows:</p>
 
 <p>Let's assume that you have downloaded the mtools tar file, and any
 patch to your homedirectory, before you start.  This example uses
-mtools version 4.0.23, substitute the appropriate version if you use
+mtools version 4.0.24, substitute the appropriate version if you use
 something else. In the examples below, what you should type is shown
 in <b>bold</b> face, whereas the computer's output and prompts are
 shown in a <em>italic</em> font. Long output is abridged in the
@@ -76,23 +76,23 @@ examples.</p>
 
 <ol>
 <li> Unpack mtools:
-<pre class="emph-box"><code><em>$</em> <b>gzip -dc $HOME/mtools-4.0.23.tar.gz | tar xfv -</b>
-<em>mtools-4.0.23/
-mtools-4.0.23/INSTALL
-mtools-4.0.23/buffer.c
-mtools-4.0.23/Release.notes
+<pre class="emph-box"><code><em>$</em> <b>gzip -dc $HOME/mtools-4.0.24.tar.gz | tar xfv -</b>
+<em>mtools-4.0.24/
+mtools-4.0.24/INSTALL
+mtools-4.0.24/buffer.c
+mtools-4.0.24/Release.notes
 ...
-mtools-4.0.23/llong.c
-mtools-4.0.23/llong.h
-mtools-4.0.23/floppyd.c</em>
+mtools-4.0.24/llong.c
+mtools-4.0.24/llong.h
+mtools-4.0.24/floppyd.c</em>
 </code></pre>
 </li>
 <li> Go into the mtools directory:
-<pre class="emph-box"><code><em>$</em> <b>cd mtools-4.0.23</b>
+<pre class="emph-box"><code><em>$</em> <b>cd mtools-4.0.24</b>
 </code></pre>
 </li>
 <li> Apply the patch, if you have any:
-<pre class="emph-box"><code><em>$</em> <b>gzip -dc $HOME/mtools-4.0.23-20071226.diff.gz | patch -p1 -s</b>
+<pre class="emph-box"><code><em>$</em> <b>gzip -dc $HOME/mtools-4.0.24-20071226.diff.gz | patch -p1 -s</b>
 </code></pre>
 </li>
 <li> Configure it:
@@ -164,14 +164,14 @@ fi</em>
 <ul>
 <li> Some web browsers automatically uncompress the files when downloading.
 In that case, you can skip the <b>gzip&nbsp;-dc</b> bit, and simply use
-<b>tar&nbsp;xfv&nbsp;$HOME/mtools-4.0.23.tar</b> to unpack mtools, and
-<b>patch&nbsp;-p1&nbsp;-s&nbsp;&lt;&nbsp;$HOME/mtools-4.0.23-20071226.diff</b>
+<b>tar&nbsp;xfv&nbsp;$HOME/mtools-4.0.24.tar</b> to unpack mtools, and
+<b>patch&nbsp;-p1&nbsp;-s&nbsp;&lt;&nbsp;$HOME/mtools-4.0.24-20071226.diff</b>
 to apply a patch.</li>
 
 <li>Other web browser strip the <b>.gz</b> suffix, but without
 actually uncompressing the files.  In that case, rename them back to
 their appropriate names before unpacking and compiling:
-<pre class="emph-box"><code><em>$</em> <b>mv mtools-4.0.23.tar mtools-4.0.23.tar.gz</b>
+<pre class="emph-box"><code><em>$</em> <b>mv mtools-4.0.24.tar mtools-4.0.24.tar.gz</b>
 </code></pre>
 </li></ul></dd>
 
@@ -215,7 +215,7 @@ Commons Attribution-NoDerivatives 4.0 International License</a>.</p>
 
 <p class="unprintable">Updated:
 <!-- timestamp start -->
-$Date: 2020/03/22 08:35:53 $
+$Date: 2020/03/22 09:01:47 $
 <!-- timestamp end -->
 
 <!-- <a class="picture" href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Transitional" height="31" width="88"/></a> -->
