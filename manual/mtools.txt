@@ -1,4 +1,4 @@
-This manual is for Mtools (version 4.0.23, December 2018), which is a
+This manual is for Mtools (version 4.0.24, March 2020), which is a
 collection of tools to allow Unix systems to manipulate MS-DOS files.
 
    Copyright (C) 2007, 2009 Free Software Foundation, Inc.  Copyright
@@ -114,10 +114,10 @@ floppies too without unmounting and mounting.
 *********************
 
 Mtools can be found at the following places (and their mirrors):
-     http://ftp.gnu.org/gnu/mtools/mtools-4.0.23.tar.gz
-     http://mtools.linux.lu/mtools-4.0.23.tar.gz
-     ftp://www.tux.org/pub/knaff/mtools/mtools-4.0.23.tar.gz
-     ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/mtools-4.0.23.tar.gz
+     http://ftp.gnu.org/gnu/mtools/mtools-4.0.24.tar.gz
+     http://mtools.linux.lu/mtools-4.0.24.tar.gz
+     ftp://www.tux.org/pub/knaff/mtools/mtools-4.0.24.tar.gz
+     ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/mtools-4.0.24.tar.gz
 
    Before reporting a bug, make sure that it has not yet been fixed in
 the Alpha patches which can be found at:
@@ -346,21 +346,21 @@ LongFileName, and not as Longfilename.  However, if you then try to add
 LongFilename to the same directory, it is refused, because case is
 ignored for clash checks.
 
-   The VFAT file system allows to store the case of a filename in the
-attribute byte, if all letters of the filename are the same case, and if
-all letters of the extension are the same case too.  Mtools uses this
-information when displaying the files, and also to generate the Unix
-filename when mcopying to a Unix directory.  This may have unexpected
-results when applied to files written using an pre-7.0 version of DOS:
-Indeed, the old style filenames map to all upper case.  This is
-different from the behavior of the old version of mtools which used to
-generate lower case Unix filenames.
+   The VFAT file system allows you to store the case of a filename in
+the attribute byte, if all letters of the filename are the same case,
+and if all letters of the extension are the same case too.  Mtools uses
+this information when displaying the files, and also to generate the
+Unix filename when mcopying to a Unix directory.  This may have
+unexpected results when applied to files written using an pre-7.0
+version of DOS: Indeed, the old style filenames map to all upper case.
+This is different from the behavior of the old version of mtools which
+used to generate lower case Unix filenames.
 
 2.7 high capacity formats
 =========================
 
-Mtools supports a number of formats which allow to store more data on
-disk as usual.  Due to different operating system abilities, these
+Mtools supports a number of formats which allow storage of more data on
+disk than usual.  Due to different operating system abilities, these
 formats are not supported on all operating systems.  Mtools recognizes
 these formats transparently where supported.
 
@@ -404,7 +404,7 @@ using _fewer_, but bigger sectors.  For example, 1 sector of 4K only
 takes up header space once, whereas 8 sectors of 512 bytes have also 8
 headers, for the same amount of useful data.
 
-   This method allows to store up to 1992K on a 3 1/2 HD disk.
+   This method permits storage of up to 1992K on a 3 1/2 HD disk.
 
    Mtools supports these formats only on Linux.
 
@@ -415,9 +415,9 @@ The 2m format was originally invented by Ciriaco Garcia de Celis.  It
 also uses bigger sectors than usual in order to fit more data on the
 disk.  However, it uses the standard format (18 sectors of 512 bytes
 each) on the first cylinder, in order to make these disks easier to
-handle by DOS. Indeed this method allows to have a standard sized boot
-sector, which contains a description of how the rest of the disk should
-be read.
+handle by DOS. Indeed this method allows you to have a standard sized
+boot sector, which contains a description of how the rest of the disk
+should be read.
 
    However, the drawback of this is that the first cylinder can hold
 less data than the others.  Unfortunately, DOS can only handle disks
@@ -1690,8 +1690,8 @@ occurs if the directory already exists.
 ===========
 
 The 'mmount' command is used to mount an MS-DOS disk.  It is only
-available on Linux, as it is only useful if the OS kernel allows to
-configure the disk geometry.  Its syntax is:
+available on Linux, as it is only useful if the OS kernel allows
+configuration of the disk geometry.  Its syntax is:
 
    'mmount' MSDOSDRIVE [MOUNTARGS]
 
@@ -2122,7 +2122,7 @@ that I can include them into the next release.  For purely local file, I
 recommend that you use the '/etc/mtools.conf' and '~/.mtoolsrc'
 configuration files.
 
-   However, the devices files also allows to supply geometry setting
+   However, the devices files also allows you to supply geometry setting
 routines.  These are necessary if you want to access high capacity
 disks.
 
