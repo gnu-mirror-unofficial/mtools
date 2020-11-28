@@ -3,10 +3,10 @@
 <!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Mtools 4.0.25</title>
+<title>Mtools 4.0.26</title>
 
-<meta name="description" content="Mtools 4.0.25">
-<meta name="keywords" content="Mtools 4.0.25">
+<meta name="description" content="Mtools 4.0.26">
+<meta name="keywords" content="Mtools 4.0.26">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -46,10 +46,10 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Mtools 4.0.25</h1>
+<h1 class="settitle" align="center">Mtools 4.0.26</h1>
 
 
-<p>This manual is for Mtools (version 4.0.25, October 2020),
+<p>This manual is for Mtools (version 4.0.26, November 2020),
 which is a collection of tools to allow Unix systems to manipulate
 MS-DOS files.
 </p>
@@ -273,18 +273,7 @@ Next: <a href="#Common-features" accesskey="n" rel="next">Common features</a>, P
 
 <p>Mtools can be found at the following places (and their mirrors):
 </p><div class="example">
-<pre class="example">http://ftp.gnu.org/gnu/mtools/mtools-4.0.25.tar.gz
-http://mtools.linux.lu/mtools-4.0.25.tar.gz
-ftp://www.tux.org/pub/knaff/mtools/mtools-4.0.25.tar.gz
-ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/mtools-4.0.25.tar.gz
-</pre></div>
-
-<p>Before reporting a bug, make sure that it has not yet been fixed in the
-Alpha patches which can be found at:
-</p><div class="example">
-<pre class="example">http://ftp.gnu.org/gnu/mtools/
-http://mtools.linux.lu/
-ftp://www.tux.org/pub/knaff/mtools
+<pre class="example">http://ftp.gnu.org/gnu/mtools/mtools-4.0.26.tar.gz
 </pre></div>
 
 <p>These patches are named
@@ -293,11 +282,10 @@ stands for the base version, <var>dd</var> for the day and <var>mm</var> for the
 month. Due to a lack of space, I usually leave only the most recent
 patch.
 </p>
-<p>There is an mtools mailing list at mtools @ tux.org .  Please
-send all bug reports to this list.  You may subscribe to the list by
-sending a message with &rsquo;subscribe mtools @ tux.org&rsquo; in its
-body to majordomo @ tux.org . (N.B. Please remove the spaces
-around the &quot;@&quot; both times. I left them there in order to fool
+<p>There is an mtools mailing list at info-mtools @ gnu.org .  Please
+send all bug reports to this list.  You may subscribe to the list at
+https://lists.gnu.org/mailman/listinfo/info-mtools. (N.B. Please
+remove the spaces around the &quot;@&quot;. I left them there in order to fool
 spambots.)  Announcements of new mtools versions will also be sent to
 the list, in addition to the Linux announce newsgroups.  The mailing
 list is archived at http://lists.gnu.org/pipermail/info-mtools/
@@ -664,8 +652,7 @@ these formats transparently where supported.
 specific tool. For Linux, suitable floppy tools can be found in the
 <code>fdutils</code> package at the following locations~:
 </p><div class="example">
-<pre class="example"><code>ftp://www.tux.org/pub/knaff/fdutils/</code>.
-<code>ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/fdutils-*</code>
+<pre class="example"><code>http://www.fdutils.linux.lu/</code>.
 </pre></div>
 
 <p>See the manual pages included in that package for further detail: Use
@@ -1900,13 +1887,13 @@ line, only the attribute is printed, and not the filename.  This option
 is convenient for scripts
 </p></dd>
 <dt><code>p</code></dt>
-<dd><p>Replay mode.  Outputs a series of mformat commands that will reproduce
-the current situation, starting from a situation as left by untarring
-the MS-DOS file system.  Commands are only output for attribute settings
-that differ from the default (archive bit set for files, unset for
-directories).  This option is intended to be used in addition to
-tar. The <code>readonly</code> attribute is not taken into account, as tar can
-set that one itself.
+<dd><p>Replay mode.  Outputs a series of <code>mformat</code> commands that will
+reproduce the current situation, starting from a situation as left by
+untarring the MS-DOS file system.  Commands are only output for
+attribute settings that differ from the default (archive bit set for
+files, unset for directories).  This option is intended to be used in
+addition to tar. The <code>readonly</code> attribute is not taken into
+account, as tar can set that one itself.
 </p></dd>
 </dl>
 
@@ -2146,11 +2133,12 @@ untranslatable characters are replaced by &rsquo;<code>#</code>&rsquo;; when wri
 untranslatable characters are replaced by &rsquo;<code>.</code>&rsquo;.
 </p></dd>
 <dt><code>n</code></dt>
-<dd><p>No confirmation when overwriting Unix files.  <code>ASCII</code> doesn&rsquo;t warn
-the user when overwriting an existing Unix file. If the target file already exists,
-and the <code>-n</code> option is not in effect, <code>mcopy</code> asks whether to
-overwrite the file or to rename the new file (<a href="#name-clashes">name clashes</a>) for
-details).  In order to switch off confirmation for DOS files, use <code>-o</code>.
+<dd><p>No confirmation when overwriting Unix files.  <code>ASCII</code> doesn&rsquo;t
+warn the user when overwriting an existing Unix file. If the target
+file already exists, and the <code>-n</code> option is not in effect,
+<code>mcopy</code> asks whether to overwrite the file or to rename the new
+file (see <a href="#name-clashes">name clashes</a>) for details).  In order to switch off
+confirmation for DOS files, use <code>-o</code>.
 </p></dd>
 <dt><code>m</code></dt>
 <dd><p>Preserve the file modification time.
@@ -2798,7 +2786,7 @@ Next: <a href="#mpartition" accesskey="n" rel="next">mpartition</a>, Previous: <
 <a name="index-Moving-files-_0028mmove_0029"></a>
 <a name="index-Renaming-files-_0028mmove_0029"></a>
 
-<p>The <code>mmove</code> command is used to moves or renames an existing MS-DOS
+<p>The <code>mmove</code> command is used to move or rename an existing MS-DOS
 file or subdirectory.
 </p><div class="display">
 <pre class="display"><code>mmove</code> [<code>-v</code>] [<code>-D</code> <var>clash_option</var>] <var>sourcefile</var> <var>targetfile</var>
@@ -2889,17 +2877,17 @@ entries, or guessed from the size.
 the whole drive.
 </p></dd>
 <dt><code>b <var>begin</var></code></dt>
-<dd><p>The starting offset of the partition, expressed in sectors. If begin is
-not given, mpartition lets the partition begin at the start of the disk
-(partition number 1), or immediately after the end of the previous
-partition.
+<dd><p>The starting offset of the partition, expressed in sectors. If begin
+is not given, <code>mpartition</code> lets the partition begin at the start
+of the disk (partition number 1), or immediately after the end of the
+previous partition.
 </p></dd>
 <dt><code>l <var>length</var></code></dt>
-<dd><p>The size (length) of the partition, expressed in sectors.  If end is not
-given, mpartition figures out the size from the number of sectors, heads
-and cylinders.  If these are not given either, it gives the partition
-the biggest possible size, considering disk size and start of the next
-partition.
+<dd><p>The size (length) of the partition, expressed in sectors.  If end is
+not given, <code>mpartition</code> figures out the size from the number of
+sectors, heads and cylinders.  If these are not given either, it gives
+the partition the biggest possible size, considering disk size and
+start of the next partition.
 </p></dd>
 </dl>
 
@@ -2910,7 +2898,7 @@ partition table:
 <dd><p>Usually, before writing back any changes to the partition, mpartition
 performs certain consistency checks, such as checking for overlaps and
 proper alignment of the partitions.  If any of these checks fails, the
-partition table is not changes.  The <code>-f</code> allows you to override
+partition table is not changed.  The <code>-f</code> allows you to override
 these safeguards.
 </p></dd>
 </dl>
@@ -2922,9 +2910,9 @@ these safeguards.
 change operation), or as it is after it is modified.
 </p></dd>
 <dt><code>vv</code></dt>
-<dd><p>If the verbosity flag is given twice, mpartition will print out a
-hexdump of the partition table when reading it from and writing it to
-the device.
+<dd><p>If the verbosity flag is given twice, <code>mpartition</code> will print out
+a hexdump of the partition table when reading it from and writing it
+to the device.
 </p></dd>
 </dl>
 
@@ -2943,7 +2931,9 @@ the device.
 <ul class="no-bullet">
 <li>- FAT32 partitions are assigned type 0x0C (&ldquo;<code>Win95 FAT32, LBA</code>&rdquo;)
 
-</li><li>- For all others, if the partition fits entirely within the 65536 sector of the disk, assign 0x01 (&ldquo;<code>DOS FAT12, CHS</code>&rdquo;) for FAT12 partition and 0x04 (&ldquo;<code>DOS FAT16, CHS</code>&rdquo;) for FAT16 partitions
+</li><li>- For all others, if the partition fits entirely within the first 65536
+sectors of the disk, assign 0x01 (&ldquo;<code>DOS FAT12, CHS</code>&rdquo;) for FAT12
+partition and 0x04 (&ldquo;<code>DOS FAT16, CHS</code>&rdquo;) for FAT16 partitions
 
 </li><li>- If not covered by the above, assign 0x06 (&ldquo;<code>DOS BIG FAT16 CHS</code>&rdquo;) if partition fits entirely within the first 1024 cylinders (CHS mode)
 

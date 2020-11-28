@@ -1,4 +1,4 @@
-This manual is for Mtools (version 4.0.25, October 2020), which is a
+This manual is for Mtools (version 4.0.26, November 2020), which is a
 collection of tools to allow Unix systems to manipulate MS-DOS files.
 
    Copyright (C) 2007, 2009 Free Software Foundation, Inc.  Copyright
@@ -114,29 +114,19 @@ floppies too without unmounting and mounting.
 *********************
 
 Mtools can be found at the following places (and their mirrors):
-     http://ftp.gnu.org/gnu/mtools/mtools-4.0.25.tar.gz
-     http://mtools.linux.lu/mtools-4.0.25.tar.gz
-     ftp://www.tux.org/pub/knaff/mtools/mtools-4.0.25.tar.gz
-     ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/mtools-4.0.25.tar.gz
-
-   Before reporting a bug, make sure that it has not yet been fixed in
-the Alpha patches which can be found at:
-     http://ftp.gnu.org/gnu/mtools/
-     http://mtools.linux.lu/
-     ftp://www.tux.org/pub/knaff/mtools
+     http://ftp.gnu.org/gnu/mtools/mtools-4.0.26.tar.gz
 
    These patches are named 'mtools-'VERSION'-'DDMM'.taz', where version
 stands for the base version, DD for the day and MM for the month.  Due
 to a lack of space, I usually leave only the most recent patch.
 
-   There is an mtools mailing list at mtools @ tux.org .  Please send
-all bug reports to this list.  You may subscribe to the list by sending
-a message with 'subscribe mtools @ tux.org' in its body to majordomo @
-tux.org .  (N.B. Please remove the spaces around the "@" both times.  I
-left them there in order to fool spambots.)  Announcements of new mtools
-versions will also be sent to the list, in addition to the Linux
-announce newsgroups.  The mailing list is archived at
-http://lists.gnu.org/pipermail/info-mtools/
+   There is an mtools mailing list at info-mtools @ gnu.org .  Please
+send all bug reports to this list.  You may subscribe to the list at
+https://lists.gnu.org/mailman/listinfo/info-mtools.  (N.B. Please remove
+the spaces around the "@".  I left them there in order to fool
+spambots.)  Announcements of new mtools versions will also be sent to
+the list, in addition to the Linux announce newsgroups.  The mailing
+list is archived at http://lists.gnu.org/pipermail/info-mtools/
 
 2 Common features of all mtools commands
 ****************************************
@@ -367,8 +357,7 @@ these formats transparently where supported.
    In order to format these disks, you need to use an operating system
 specific tool.  For Linux, suitable floppy tools can be found in the
 'fdutils' package at the following locations~:
-     ftp://www.tux.org/pub/knaff/fdutils/.
-     ftp://ibiblio.unc.edu/pub/Linux/utils/disk-management/fdutils-*
+     http://www.fdutils.linux.lu/.
 
    See the manual pages included in that package for further detail: Use
 'superformat' to format all formats except XDF, and use 'xdfcopy' to
@@ -1091,7 +1080,7 @@ operator) or remove attribute flags (with the ''-'' operator).
      command line, only the attribute is printed, and not the filename.
      This option is convenient for scripts
 'p'
-     Replay mode.  Outputs a series of mformat commands that will
+     Replay mode.  Outputs a series of 'mformat' commands that will
      reproduce the current situation, starting from a situation as left
      by untarring the MS-DOS file system.  Commands are only output for
      attribute settings that differ from the default (archive bit set
@@ -1255,9 +1244,9 @@ depending on its position on the command line.
      No confirmation when overwriting Unix files.  'ASCII' doesn't warn
      the user when overwriting an existing Unix file.  If the target
      file already exists, and the '-n' option is not in effect, 'mcopy'
-     asks whether to overwrite the file or to rename the new file (*note
-     name clashes::) for details).  In order to switch off confirmation
-     for DOS files, use '-o'.
+     asks whether to overwrite the file or to rename the new file (see
+     *note name clashes::) for details).  In order to switch off
+     confirmation for DOS files, use '-o'.
 'm'
      Preserve the file modification time.
 'v'
@@ -1703,8 +1692,8 @@ the disk is write protected, it is automatically mounted read only.
 4.19 Mmove
 ==========
 
-The 'mmove' command is used to moves or renames an existing MS-DOS file
-or subdirectory.
+The 'mmove' command is used to move or rename an existing MS-DOS file or
+subdirectory.
      'mmove' ['-v'] ['-D' CLASH_OPTION] SOURCEFILE TARGETFILE
      'mmove' ['-v']  ['-D' CLASH_OPTION] SOURCEFILE [ SOURCEFILES... ] TARGETDIRECTORY
    'Mmove' moves or renames an existing MS-DOS file or subdirectory.
@@ -1768,12 +1757,12 @@ This command only works on drives whose partition variable is set.
      cylinders of the whole drive.
 'b BEGIN'
      The starting offset of the partition, expressed in sectors.  If
-     begin is not given, mpartition lets the partition begin at the
+     begin is not given, 'mpartition' lets the partition begin at the
      start of the disk (partition number 1), or immediately after the
      end of the previous partition.
 'l LENGTH'
      The size (length) of the partition, expressed in sectors.  If end
-     is not given, mpartition figures out the size from the number of
+     is not given, 'mpartition' figures out the size from the number of
      sectors, heads and cylinders.  If these are not given either, it
      gives the partition the biggest possible size, considering disk
      size and start of the next partition.
@@ -1784,7 +1773,7 @@ partition table:
      Usually, before writing back any changes to the partition,
      mpartition performs certain consistency checks, such as checking
      for overlaps and proper alignment of the partitions.  If any of
-     these checks fails, the partition table is not changes.  The '-f'
+     these checks fails, the partition table is not changed.  The '-f'
      allows you to override these safeguards.
 
    The following options are available for all operations:
@@ -1792,7 +1781,7 @@ partition table:
      Together with '-p' prints the partition table as it is now (no
      change operation), or as it is after it is modified.
 'vv'
-     If the verbosity flag is given twice, mpartition will print out a
+     If the verbosity flag is given twice, 'mpartition' will print out a
      hexdump of the partition table when reading it from and writing it
      to the device.
 
@@ -1807,9 +1796,9 @@ Mpartition proceeds as follows to pick a type for the partition:
 
    - FAT32 partitions are assigned type 0x0C ("'Win95 FAT32, LBA'")
 
-   - For all others, if the partition fits entirely within the 65536
-     sector of the disk, assign 0x01 ("'DOS FAT12, CHS'") for FAT12
-     partition and 0x04 ("'DOS FAT16, CHS'") for FAT16 partitions
+   - For all others, if the partition fits entirely within the first
+     65536 sectors of the disk, assign 0x01 ("'DOS FAT12, CHS'") for
+     FAT12 partition and 0x04 ("'DOS FAT16, CHS'") for FAT16 partitions
 
    - If not covered by the above, assign 0x06 ("'DOS BIG FAT16 CHS'") if
      partition fits entirely within the first 1024 cylinders (CHS mode)
@@ -2177,329 +2166,329 @@ Variable index
 * Menu:
 
 * cylinders:                             geometry description.
-                                                              (line 684)
-* drive:                                 general information. (line 588)
-* exclusive:                             open flags.          (line 721)
+                                                              (line 673)
+* drive:                                 general information. (line 577)
+* exclusive:                             open flags.          (line 710)
 * fat_bits:                              miscellaneous variables.
-                                                              (line 741)
+                                                              (line 730)
 * file:                                  location information.
-                                                              (line 604)
-* filter:                                miscellaneous flags. (line 847)
+                                                              (line 593)
+* filter:                                miscellaneous flags. (line 836)
 * heads:                                 geometry description.
-                                                              (line 687)
-* mformat_only:                          miscellaneous flags. (line 843)
-* MTOOLSRC:                              Configuration.       (line 486)
-* MTOOLS_DOTTED_DIR:                     global variables.    (line 534)
-* MTOOLS_FAT_COMPATIBILITY:              global variables.    (line 534)
-* MTOOLS_LOCK_TIMEOUT:                   global variables.    (line 534)
-* MTOOLS_LOWER_CASE:                     global variables.    (line 534)
-* MTOOLS_NAME_NUMERIC_TAIL:              global variables.    (line 534)
-* MTOOLS_NO_VFAT:                        global variables.    (line 534)
-* MTOOLS_SKIP_CHECK:                     global variables.    (line 534)
-* MTOOLS_TWENTY_FOUR_HOUR_CLOCK:         global variables.    (line 534)
-* nodelay:                               open flags.          (line 721)
+                                                              (line 676)
+* mformat_only:                          miscellaneous flags. (line 832)
+* MTOOLSRC:                              Configuration.       (line 475)
+* MTOOLS_DOTTED_DIR:                     global variables.    (line 523)
+* MTOOLS_FAT_COMPATIBILITY:              global variables.    (line 523)
+* MTOOLS_LOCK_TIMEOUT:                   global variables.    (line 523)
+* MTOOLS_LOWER_CASE:                     global variables.    (line 523)
+* MTOOLS_NAME_NUMERIC_TAIL:              global variables.    (line 523)
+* MTOOLS_NO_VFAT:                        global variables.    (line 523)
+* MTOOLS_SKIP_CHECK:                     global variables.    (line 523)
+* MTOOLS_TWENTY_FOUR_HOUR_CLOCK:         global variables.    (line 523)
+* nodelay:                               open flags.          (line 710)
 * sectors:                               geometry description.
-                                                              (line 689)
-* sync:                                  open flags.          (line 721)
+                                                              (line 678)
+* sync:                                  open flags.          (line 710)
 * tracks:                                geometry description.
-                                                              (line 684)
-* use_xdf:                               miscellaneous flags. (line 839)
+                                                              (line 673)
+* use_xdf:                               miscellaneous flags. (line 828)
 
 Concept index
 *************
 
 * Menu:
 
-* 2m:                                    2m.                 (line  413)
+* 2m:                                    2m.                 (line  402)
 * ALPHA patches:                         Location.           (line  115)
-* APlaceForYourStuff:                    mzip.               (line 1937)
-* Archive bit:                           mattrib.            (line 1061)
+* APlaceForYourStuff:                    mzip.               (line 1926)
+* Archive bit:                           mattrib.            (line 1050)
 * Atari:                                 miscellaneous flags.
-                                                             (line  835)
+                                                             (line  824)
 * Atari Ram disk:                        location information.
-                                                             (line  622)
+                                                             (line  611)
 * Backwards compatibility:               old style configuration.
-                                                             (line  913)
-* Bad blocks:                            mbadblocks.         (line 1104)
-* bigger sectors:                        bigger sectors.     (line  398)
+                                                             (line  902)
+* Bad blocks:                            mbadblocks.         (line 1093)
+* bigger sectors:                        bigger sectors.     (line  387)
 * blocksize:                             miscellaneous variables.
-                                                             (line  762)
+                                                             (line  751)
 * bugs:                                  Location.           (line  115)
-* Case sensitivity:                      case sensitivity.   (line  340)
-* Changing file attributes:              mattrib.            (line 1061)
+* Case sensitivity:                      case sensitivity.   (line  330)
+* Changing file attributes:              mattrib.            (line 1050)
 * character devices:                     miscellaneous variables.
-                                                             (line  762)
-* Checking configuration file:           mtoolstest.         (line 1898)
-* Clusters of a file:                    mshowfat.           (line 1886)
-* Command list:                          Commands.           (line  924)
-* Compile time configuration:            Compiling mtools.   (line 2002)
-* Compiled-in defaults:                  Porting mtools.     (line 2030)
-* Concatenating MS-DOS files:            mcopy.              (line 1204)
-* Configuration file:                    default values.     (line  524)
+                                                             (line  751)
+* Checking configuration file:           mtoolstest.         (line 1887)
+* Clusters of a file:                    mshowfat.           (line 1875)
+* Command list:                          Commands.           (line  913)
+* Compile time configuration:            Compiling mtools.   (line 1991)
+* Compiled-in defaults:                  Porting mtools.     (line 2019)
+* Concatenating MS-DOS files:            mcopy.              (line 1193)
+* Configuration file:                    default values.     (line  513)
 * Configuration file name:               configuration file location.
-                                                             (line  498)
-* Configuration file name (parsing order): parsing order.    (line  894)
-* Configuration file parsing order:      parsing order.      (line  894)
-* Configuration file syntax:             general syntax.     (line  507)
+                                                             (line  487)
+* Configuration file name (parsing order): parsing order.    (line  883)
+* Configuration file parsing order:      parsing order.      (line  883)
+* Configuration file syntax:             general syntax.     (line  496)
 * Configuration file, old syntax:        old style configuration.
-                                                             (line  913)
-* Configuration files:                   Configuration.      (line  486)
+                                                             (line  902)
+* Configuration files:                   Configuration.      (line  475)
 * Configuration of disk geometry:        geometry description.
-                                                             (line  630)
-* Copying an entire disk image:          mcat.               (line 1144)
-* Copying MS-DOS files:                  mcopy.              (line 1204)
-* CR/LF conversions:                     mcopy.              (line 1204)
-* Creating a directory:                  mmd.                (line 1680)
-* Current working directory:             directory.          (line  209)
-* Current working directory (changing the): mcd.             (line 1161)
-* Default configuration:                 default values.     (line  524)
-* Default directory:                     directory.          (line  209)
-* Default directory (changing the):      mcd.                (line 1161)
-* Default values:                        default values.     (line  524)
-* Deleting a directory:                  mrd.                (line 1845)
-* deleting an MS-DOS directory recursively: mdeltree.        (line 1287)
-* deleting MS-DOS files:                 mdel.               (line 1276)
+                                                             (line  619)
+* Copying an entire disk image:          mcat.               (line 1133)
+* Copying MS-DOS files:                  mcopy.              (line 1193)
+* CR/LF conversions:                     mcopy.              (line 1193)
+* Creating a directory:                  mmd.                (line 1669)
+* Current working directory:             directory.          (line  199)
+* Current working directory (changing the): mcd.             (line 1150)
+* Default configuration:                 default values.     (line  513)
+* Default directory:                     directory.          (line  199)
+* Default directory (changing the):      mcd.                (line 1150)
+* Default values:                        default values.     (line  513)
+* Deleting a directory:                  mrd.                (line 1834)
+* deleting an MS-DOS directory recursively: mdeltree.        (line 1276)
+* deleting MS-DOS files:                 mdel.               (line 1265)
 * Description of disk geometry:          geometry description.
-                                                             (line  630)
+                                                             (line  619)
 * diffs:                                 Location.           (line  115)
-* Directory:                             directory.          (line  209)
-* Directory (changing):                  mcd.                (line 1161)
-* Directory creation:                    mmd.                (line 1680)
-* Directory listing:                     mdir.               (line 1298)
-* Directory removing:                    mrd.                (line 1845)
+* Directory:                             directory.          (line  199)
+* Directory (changing):                  mcd.                (line 1150)
+* Directory creation:                    mmd.                (line 1669)
+* Directory listing:                     mdir.               (line 1287)
+* Directory removing:                    mrd.                (line 1834)
 * disable locking:                       miscellaneous flags.
-                                                             (line  780)
+                                                             (line  769)
 * Disk Geometry:                         geometry description.
-                                                             (line  630)
-* Disk image:                            mcat.               (line 1144)
-* Disk label:                            mlabel.             (line 1650)
-* DMF disks:                             more sectors.       (line  379)
+                                                             (line  619)
+* Disk image:                            mcat.               (line 1133)
+* Disk label:                            mlabel.             (line 1639)
+* DMF disks:                             more sectors.       (line  368)
 * DOSEMU hard disk image:                location information.
-                                                             (line  608)
+                                                             (line  597)
 * Drive configuration:                   per drive variables.
-                                                             (line  585)
+                                                             (line  574)
 * Drive configuration, example:          general information.
-                                                             (line  588)
+                                                             (line  577)
 * Drive description:                     per drive variables.
-                                                             (line  585)
+                                                             (line  574)
 * Drive description, example:            general information.
-                                                             (line  588)
+                                                             (line  577)
 * Drive independent configuration variables: global variables.
-                                                             (line  534)
-* du:                                    mdu.                (line 1332)
-* Duplicate file names:                  name clashes.       (line  275)
-* Ejecting a Zip/Jaz disk:               mzip.               (line 1937)
-* Environmental variables:               global variables.   (line  534)
-* Erasing a directory:                   mrd.                (line 1845)
-* erasing an MS-DOS directory recursively: mdeltree.         (line 1287)
-* erasing MS-DOS files:                  mdel.               (line 1276)
-* exclusive access to a drive:           open flags.         (line  721)
+                                                             (line  523)
+* du:                                    mdu.                (line 1321)
+* Duplicate file names:                  name clashes.       (line  265)
+* Ejecting a Zip/Jaz disk:               mzip.               (line 1926)
+* Environmental variables:               global variables.   (line  523)
+* Erasing a directory:                   mrd.                (line 1834)
+* erasing an MS-DOS directory recursively: mdeltree.         (line 1276)
+* erasing MS-DOS files:                  mdel.               (line 1265)
+* exclusive access to a drive:           open flags.         (line  710)
 * Executing commands before opening the device: miscellaneous variables.
-                                                             (line  756)
-* Fat:                                   mshowfat.           (line 1886)
-* fdformat:                              more sectors.       (line  379)
+                                                             (line  745)
+* Fat:                                   mshowfat.           (line 1875)
+* fdformat:                              more sectors.       (line  368)
 * File name of device node:              location information.
-                                                             (line  604)
-* File system creation:                  mformat.            (line 1348)
-* Filenames:                             arguments.          (line  146)
-* floppyd:                               floppyd.            (line  932)
-* Floppyd cat:                           mcat.               (line 1144)
+                                                             (line  593)
+* File system creation:                  mformat.            (line 1337)
+* Filenames:                             arguments.          (line  136)
+* floppyd:                               floppyd.            (line  921)
+* Floppyd cat:                           mcat.               (line 1133)
 * floppyd_installtest:                   floppyd_installtest.
-                                                             (line 1046)
+                                                             (line 1035)
 * Format of disk:                        geometry description.
-                                                             (line  630)
+                                                             (line  619)
 * Formats, high capacity:                high capacity formats.
-                                                             (line  361)
-* Formatting disks:                      mformat.            (line 1348)
-* FreeDOS:                               global variables.   (line  534)
-* getting parameters of a MS-DOS file system: minfo.         (line 1635)
-* Global configuration variables:        global variables.   (line  534)
+                                                             (line  351)
+* Formatting disks:                      mformat.            (line 1337)
+* FreeDOS:                               global variables.   (line  523)
+* getting parameters of a MS-DOS file system: minfo.         (line 1624)
+* Global configuration variables:        global variables.   (line  523)
 * Hdimage:                               location information.
-                                                             (line  600)
-* Hidden files:                          mattrib.            (line 1061)
+                                                             (line  589)
+* Hidden files:                          mattrib.            (line 1050)
 * High capacity formats:                 high capacity formats.
-                                                             (line  361)
-* High capacity formats, mounting:       mmount.             (line 1691)
+                                                             (line  351)
+* High capacity formats, mounting:       mmount.             (line 1680)
 * High density disk:                     geometry description.
-                                                             (line  630)
+                                                             (line  619)
 * Image file:                            location information.
-                                                             (line  604)
-* Initializing disks:                    mformat.            (line 1348)
-* Jaz disk (utilities):                  mzip.               (line 1937)
-* Jaz disks (partitioning them):         mpartition.         (line 1720)
+                                                             (line  593)
+* Initializing disks:                    mformat.            (line 1337)
+* Jaz disk (utilities):                  mzip.               (line 1926)
+* Jaz disks (partitioning them):         mpartition.         (line 1709)
 * Jaz disks (partitions):                location information.
-                                                             (line  608)
+                                                             (line  597)
 * Jaz disks (raw SCSI access):           miscellaneous flags.
-                                                             (line  786)
-* Labeling a disk:                       mlabel.             (line 1650)
+                                                             (line  775)
+* Labeling a disk:                       mlabel.             (line 1639)
 * Linux enhancements (High Capacity Formats): high capacity formats.
-                                                             (line  361)
-* Linux enhancements (mmount):           mmount.             (line 1691)
-* List of available commands:            Commands.           (line  924)
-* Listing a directory:                   mdir.               (line 1298)
-* Listing space occupied by directories and files: mdu.      (line 1332)
+                                                             (line  351)
+* Linux enhancements (mmount):           mmount.             (line 1680)
+* List of available commands:            Commands.           (line  913)
+* Listing a directory:                   mdir.               (line 1287)
+* Listing space occupied by directories and files: mdu.      (line 1321)
 * Location of configuration files:       configuration file location.
-                                                             (line  498)
+                                                             (line  487)
 * Location of configuration files (parsing order): parsing order.
-                                                             (line  894)
+                                                             (line  883)
 * locking (disabling it):                miscellaneous flags.
-                                                             (line  780)
-* Long file name:                        long names.         (line  218)
+                                                             (line  769)
+* Long file name:                        long names.         (line  208)
 * Low density disk:                      geometry description.
-                                                             (line  630)
+                                                             (line  619)
 * Magneto-optical disks:                 location information.
-                                                             (line  608)
+                                                             (line  597)
 * mailing list:                          Location.           (line  115)
-* Making a directory:                    mmd.                (line 1680)
-* Marking blocks as bad:                 mbadblocks.         (line 1104)
-* mattrib:                               mattrib.            (line 1061)
-* mbadblocks:                            mbadblocks.         (line 1104)
-* mcat:                                  mcat.               (line 1144)
-* mcd:                                   mcd.                (line 1161)
-* mcd (introduction):                    directory.          (line  209)
-* mclasserase:                           mclasserase.        (line 1183)
-* mcopy:                                 mcopy.              (line 1204)
-* Mcwd file:                             mcd.                (line 1161)
-* mdel:                                  mdel.               (line 1276)
-* mdeltree:                              mdeltree.           (line 1287)
-* mdir:                                  mdir.               (line 1298)
-* mdu:                                   mdu.                (line 1332)
-* Memory Card:                           mclasserase.        (line 1183)
-* mformat:                               mformat.            (line 1348)
+* Making a directory:                    mmd.                (line 1669)
+* Marking blocks as bad:                 mbadblocks.         (line 1093)
+* mattrib:                               mattrib.            (line 1050)
+* mbadblocks:                            mbadblocks.         (line 1093)
+* mcat:                                  mcat.               (line 1133)
+* mcd:                                   mcd.                (line 1150)
+* mcd (introduction):                    directory.          (line  199)
+* mclasserase:                           mclasserase.        (line 1172)
+* mcopy:                                 mcopy.              (line 1193)
+* Mcwd file:                             mcd.                (line 1150)
+* mdel:                                  mdel.               (line 1265)
+* mdeltree:                              mdeltree.           (line 1276)
+* mdir:                                  mdir.               (line 1287)
+* mdu:                                   mdu.                (line 1321)
+* Memory Card:                           mclasserase.        (line 1172)
+* mformat:                               mformat.            (line 1337)
 * mformat (geometry used for):           geometry description.
-                                                             (line  630)
-* mformat parameters:                    minfo.              (line 1635)
-* minfo:                                 minfo.              (line 1635)
-* mkmanifest:                            mkmanifest.         (line 1572)
-* mlabel:                                mlabel.             (line 1650)
-* mmd:                                   mmd.                (line 1680)
-* mmount:                                mmount.             (line 1691)
-* mmove:                                 mmove.              (line 1705)
-* Mounting a disk:                       mmount.             (line 1691)
-* Moving files (mmove):                  mmove.              (line 1705)
-* Moving files (mren):                   mren.               (line 1856)
-* mpartition:                            mpartition.         (line 1720)
-* mrd:                                   mrd.                (line 1845)
-* mren:                                  mren.               (line 1856)
-* mshortname:                            mshortname.         (line 1875)
-* mshowfat:                              mshowfat.           (line 1886)
-* mtoolstest:                            mtoolstest.         (line 1898)
-* mzip:                                  mzip.               (line 1937)
-* Name clashes:                          name clashes.       (line  275)
+                                                             (line  619)
+* mformat parameters:                    minfo.              (line 1624)
+* minfo:                                 minfo.              (line 1624)
+* mkmanifest:                            mkmanifest.         (line 1561)
+* mlabel:                                mlabel.             (line 1639)
+* mmd:                                   mmd.                (line 1669)
+* mmount:                                mmount.             (line 1680)
+* mmove:                                 mmove.              (line 1694)
+* Mounting a disk:                       mmount.             (line 1680)
+* Moving files (mmove):                  mmove.              (line 1694)
+* Moving files (mren):                   mren.               (line 1845)
+* mpartition:                            mpartition.         (line 1709)
+* mrd:                                   mrd.                (line 1834)
+* mren:                                  mren.               (line 1845)
+* mshortname:                            mshortname.         (line 1864)
+* mshowfat:                              mshowfat.           (line 1875)
+* mtoolstest:                            mtoolstest.         (line 1887)
+* mzip:                                  mzip.               (line 1926)
+* Name clashes:                          name clashes.       (line  265)
 * Name of configuration files:           configuration file location.
-                                                             (line  498)
+                                                             (line  487)
 * Name of configuration files (parsing order): parsing order.
-                                                             (line  894)
+                                                             (line  883)
 * Name of device node:                   location information.
-                                                             (line  604)
-* Occupation of space by directories and files: mdu.         (line 1332)
+                                                             (line  593)
+* Occupation of space by directories and files: mdu.         (line 1321)
 * Odd formats:                           high capacity formats.
-                                                             (line  361)
+                                                             (line  351)
 * Old configuration file syntax:         old style configuration.
-                                                             (line  913)
-* open flags:                            open flags.         (line  721)
-* Options:                               arguments.          (line  146)
+                                                             (line  902)
+* open flags:                            open flags.         (line  710)
+* Options:                               arguments.          (line  136)
 * OS/2 (layout of removable media):      location information.
-                                                             (line  608)
-* OS/2 (XDF disks):                      XDF.                (line  436)
-* Overwriting files:                     name clashes.       (line  275)
-* packing list:                          mkmanifest.         (line 1572)
-* Parsing order:                         parsing order.      (line  894)
+                                                             (line  597)
+* OS/2 (XDF disks):                      XDF.                (line  425)
+* Overwriting files:                     name clashes.       (line  265)
+* packing list:                          mkmanifest.         (line 1561)
+* Parsing order:                         parsing order.      (line  883)
 * Partitioned image file:                location information.
-                                                             (line  608)
-* partitions (creating):                 mpartition.         (line 1720)
-* password protected Zip disks:          mzip.               (line 1937)
+                                                             (line  597)
+* partitions (creating):                 mpartition.         (line 1709)
+* password protected Zip disks:          mzip.               (line 1926)
 * patches:                               Location.           (line  115)
-* Physically erase:                      mclasserase.        (line 1183)
+* Physically erase:                      mclasserase.        (line 1172)
 * plain floppy: device xxx busy:         miscellaneous flags.
-                                                             (line  780)
-* Porting:                               Porting mtools.     (line 2030)
-* Primary file name (long names):        long names.         (line  218)
-* Primary file name (name clashes):      name clashes.       (line  275)
+                                                             (line  769)
+* Porting:                               Porting mtools.     (line 2019)
+* Primary file name (long names):        long names.         (line  208)
+* Primary file name (name clashes):      name clashes.       (line  265)
 * Ram disk:                              location information.
-                                                             (line  622)
+                                                             (line  611)
 * raw device:                            miscellaneous variables.
-                                                             (line  762)
-* Read errors:                           mbadblocks.         (line 1104)
-* Read-only files (changing the attribute): mattrib.         (line 1061)
-* Read-only files (listing them):        mdir.               (line 1298)
-* Reading MS-DOS files:                  mcopy.              (line 1204)
-* recursively removing an MS-DOS directory: mdeltree.        (line 1287)
-* remote floppy access:                  floppyd.            (line  932)
+                                                             (line  751)
+* Read errors:                           mbadblocks.         (line 1093)
+* Read-only files (changing the attribute): mattrib.         (line 1050)
+* Read-only files (listing them):        mdir.               (line 1287)
+* Reading MS-DOS files:                  mcopy.              (line 1193)
+* recursively removing an MS-DOS directory: mdeltree.        (line 1276)
+* remote floppy access:                  floppyd.            (line  921)
 * remote floppy access <1>:              floppyd_installtest.
-                                                             (line 1046)
+                                                             (line 1035)
 * Removable media:                       location information.
-                                                             (line  608)
-* Removing a directory:                  mrd.                (line 1845)
-* removing an MS-DOS directory recursively: mdeltree.        (line 1287)
-* removing MS-DOS files:                 mdel.               (line 1276)
-* Renaming files (mmove):                mmove.              (line 1705)
-* Renaming files (mren):                 mren.               (line 1856)
+                                                             (line  597)
+* Removing a directory:                  mrd.                (line 1834)
+* removing an MS-DOS directory recursively: mdeltree.        (line 1276)
+* removing MS-DOS files:                 mdel.               (line 1265)
+* Renaming files (mmove):                mmove.              (line 1694)
+* Renaming files (mren):                 mren.               (line 1845)
 * SCSI devices:                          miscellaneous flags.
-                                                             (line  786)
-* Secondary file name (long names):      long names.         (line  218)
-* Secondary file name (name clashes):    name clashes.       (line  275)
+                                                             (line  775)
+* Secondary file name (long names):      long names.         (line  208)
+* Secondary file name (name clashes):    name clashes.       (line  265)
 * setgid installation:                   miscellaneous flags.
-                                                             (line  809)
+                                                             (line  798)
 * setuid installation:                   miscellaneous flags.
-                                                             (line  809)
+                                                             (line  798)
 * setuid installation (needed for raw SCSI I/O): miscellaneous flags.
-                                                             (line  786)
+                                                             (line  775)
 * Solaris (compile time configuration of vold): Compiling mtools.
-                                                             (line 2002)
+                                                             (line 1991)
 * Solaris (Raw access to SCSI devices such as Zip & Jaz): miscellaneous flags.
-                                                             (line  786)
+                                                             (line  775)
 * Solaris (volcheck):                    miscellaneous variables.
-                                                             (line  756)
+                                                             (line  745)
 * Solaris (vold):                        miscellaneous flags.
-                                                             (line  826)
-* Space occupied by directories and files: mdu.              (line 1332)
+                                                             (line  815)
+* Space occupied by directories and files: mdu.              (line 1321)
 * Special formats:                       high capacity formats.
-                                                             (line  361)
-* Subdirectory creation:                 mmd.                (line 1680)
-* Subdirectory removing:                 mrd.                (line 1845)
+                                                             (line  351)
+* Subdirectory creation:                 mmd.                (line 1669)
+* Subdirectory removing:                 mrd.                (line 1834)
 * SunOS (Raw access to SCSI devices such as Zip & Jaz): miscellaneous flags.
-                                                             (line  786)
-* synchronous writing:                   open flags.         (line  721)
-* Syntax of the configuration file:      general syntax.     (line  507)
+                                                             (line  775)
+* synchronous writing:                   open flags.         (line  710)
+* Syntax of the configuration file:      general syntax.     (line  496)
 * Syquest disks:                         location information.
-                                                             (line  608)
+                                                             (line  597)
 * Syquest disks (raw SCSI access):       miscellaneous flags.
-                                                             (line  786)
-* System files:                          mattrib.            (line 1061)
-* Testing configuration file for correctness: mtoolstest.    (line 1898)
-* Text files:                            mcopy.              (line 1204)
-* Tools disk (Zip and Jaz drives):       mzip.               (line 1937)
-* Verifying configuration file:          mtoolstest.         (line 1898)
-* VFAT-style file names:                 long names.         (line  218)
-* vgacopy:                               more sectors.       (line  379)
-* Vold (compile time configuration):     Compiling mtools.   (line 2002)
+                                                             (line  775)
+* System files:                          mattrib.            (line 1050)
+* Testing configuration file for correctness: mtoolstest.    (line 1887)
+* Text files:                            mcopy.              (line 1193)
+* Tools disk (Zip and Jaz drives):       mzip.               (line 1926)
+* Verifying configuration file:          mtoolstest.         (line 1887)
+* VFAT-style file names:                 long names.         (line  208)
+* vgacopy:                               more sectors.       (line  368)
+* Vold (compile time configuration):     Compiling mtools.   (line 1991)
 * Vold (mediamgr):                       miscellaneous flags.
-                                                             (line  826)
+                                                             (line  815)
 * Weird formats:                         high capacity formats.
-                                                             (line  361)
-* Windows 95 (DMF disks):                more sectors.       (line  379)
-* Windows 95-style file names:           long names.         (line  218)
+                                                             (line  351)
+* Windows 95 (DMF disks):                more sectors.       (line  368)
+* Windows 95-style file names:           long names.         (line  208)
 * Windows NT (layout of removable media): location information.
-                                                             (line  608)
+                                                             (line  597)
 * Wordswapped:                           miscellaneous flags.
-                                                             (line  835)
-* Working directory:                     directory.          (line  209)
-* Working directory <1>:                 mcd.                (line 1161)
-* Write protecting a Zip/Jaz disk:       mzip.               (line 1937)
-* Writing MS-DOS files:                  mcopy.              (line 1204)
-* X terminal:                            floppyd.            (line  932)
+                                                             (line  824)
+* Working directory:                     directory.          (line  199)
+* Working directory <1>:                 mcd.                (line 1150)
+* Write protecting a Zip/Jaz disk:       mzip.               (line 1926)
+* Writing MS-DOS files:                  mcopy.              (line 1193)
+* X terminal:                            floppyd.            (line  921)
 * X terminal <1>:                        floppyd_installtest.
-                                                             (line 1046)
-* XDF disks:                             XDF.                (line  436)
-* XDF disks (compile time configuration): Compiling mtools.  (line 2002)
+                                                             (line 1035)
+* XDF disks:                             XDF.                (line  425)
+* XDF disks (compile time configuration): Compiling mtools.  (line 1991)
 * XDF disks (how to configure):          miscellaneous flags.
-                                                             (line  839)
-* Zip disk (utilities):                  mzip.               (line 1937)
-* Zip disks (partitioning them):         mpartition.         (line 1720)
+                                                             (line  828)
+* Zip disk (utilities):                  mzip.               (line 1926)
+* Zip disks (partitioning them):         mpartition.         (line 1709)
 * Zip disks (partitions):                location information.
-                                                             (line  608)
+                                                             (line  597)
 * Zip disks (raw SCSI access):           miscellaneous flags.
-                                                             (line  786)
-* ZipTools disk:                         mzip.               (line 1937)
+                                                             (line  775)
+* ZipTools disk:                         mzip.               (line 1926)
 
