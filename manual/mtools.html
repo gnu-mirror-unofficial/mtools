@@ -3,10 +3,10 @@
 <!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Mtools 4.0.27</title>
+<title>Mtools 4.0.28</title>
 
-<meta name="description" content="Mtools 4.0.27">
-<meta name="keywords" content="Mtools 4.0.27">
+<meta name="description" content="Mtools 4.0.28">
+<meta name="keywords" content="Mtools 4.0.28">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -46,10 +46,10 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Mtools 4.0.27</h1>
+<h1 class="settitle" align="center">Mtools 4.0.28</h1>
 
 
-<p>This manual is for Mtools (version 4.0.27, April 2021),
+<p>This manual is for Mtools (version 4.0.28, May 2021),
 which is a collection of tools to allow Unix systems to manipulate
 MS-DOS files.
 </p>
@@ -273,7 +273,7 @@ Next: <a href="#Common-features" accesskey="n" rel="next">Common features</a>, P
 
 <p>Mtools can be found at the following places (and their mirrors):
 </p><div class="example">
-<pre class="example">http://ftp.gnu.org/gnu/mtools/mtools-4.0.27.tar.gz
+<pre class="example">http://ftp.gnu.org/gnu/mtools/mtools-4.0.28.tar.gz
 </pre></div>
 
 <p>These patches are named
@@ -1334,7 +1334,37 @@ also available in ISO-Latin-1. You may also specify a global code page
 for all drives by using the global <code>default_codepage</code> parameter
 (outside of any drive description). This parameters exists starting at
 version 4.0.0
-</p></dd>
+</p>
+</dd>
+<dt><code>data_map</code></dt>
+<dd><p>Remaps data from image file. This is useful for image files which
+might need additional zero-filled sectors to be inserted. Such is the
+case for instance for IBM 3174 floppy images. These images represent
+floppy disks with fewer sectors on their first cylinder. These missing
+sectors are not stored in the image, but are still counted in the
+filesystem layout. The data_map allows to fake these missing sectors
+for the upper layers of mtools. A data_map is a comma-separated
+sequence of source type and size. Source type may be <code>zero</code> for
+zero-filled sectors created by map, <code>skip</code> for data in raw image
+to be ignored (skipped), and nothing for data to be used as is
+(copied) from the raw image. Datamap is automatically complemented by
+an implicit last element of data to be used as is from current offset
+to end of file. Each size is a number followed by a unit: <code>s</code> for
+a 512 byte sector, <code>K</code> for Kbytes, <code>M</code> for megabytes,
+<code>G</code> for gigabytes, and nothing for single bytes.
+</p>
+<p>Example:
+</p>
+<p><code>data_map=1s,zero31s,28s,skip1s</code> would be a map for use with IBM
+3174 floppy images. First sector (<code>1s</code>, boot sector) is used as
+is. Then follow 31 fake zero-filled sectors (<code>zero31s</code>), then the
+next 28 sectors from image (<code>28s</code>) are used as is (they contain
+FAT and root directory), then one sector from image is skipped
+(<code>skip1s</code>), and finally the rest of image is used as is
+(implicit)
+</p>
+
+</dd>
 <dt><code>precmd</code></dt>
 <dd><a name="index-Solaris-_0028volcheck_0029"></a>
 <a name="index-Executing-commands-before-opening-the-device"></a>
