@@ -1,4 +1,4 @@
-This manual is for Mtools (version 4.0.31, June 2021), which is a
+This manual is for Mtools (version 4.0.32, July 2021), which is a
 collection of tools to allow Unix systems to manipulate MS-DOS files.
 
    Copyright (C) 2007, 2009 Free Software Foundation, Inc.  Copyright
@@ -114,7 +114,7 @@ floppies too without unmounting and mounting.
 *********************
 
 Mtools can be found at the following places (and their mirrors):
-     http://ftp.gnu.org/gnu/mtools/mtools-4.0.31.tar.gz
+     http://ftp.gnu.org/gnu/mtools/mtools-4.0.32.tar.gz
 
    These patches are named 'mtools-'VERSION'-'DDMM'.taz', where version
 stands for the base version, DD for the day and MM for the month.  Due
